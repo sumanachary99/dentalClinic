@@ -104,7 +104,12 @@ export default function BookAppointmentPage() {
 
           <div
             className="booking-card"
-            style={{ padding: "var(--space-xl) var(--space-md)" }}
+            style={{
+              padding: "var(--space-2xl)",
+              background: "linear-gradient(to bottom right, #ffffff, #f8fafc)",
+              border: "1px solid rgba(14, 165, 233, 0.2)",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.05)",
+            }}
           >
             {/* Step 1: Select Service */}
             {step === 0 && (
@@ -138,11 +143,20 @@ export default function BookAppointmentPage() {
                         setFormData({ ...formData, serviceType: service.name })
                       }
                       style={{
-                        padding: "var(--space-md)",
+                        padding: "var(--space-lg)",
                         textAlign: "center",
                         cursor: "pointer",
-                        border: "1px solid var(--color-gray-200)",
-                        borderRadius: "var(--radius-lg)",
+                        border: "2px solid transparent",
+                        borderRadius: "var(--radius-xl)",
+                        background:
+                          formData.serviceType === service.name
+                            ? "var(--color-primary-50)"
+                            : "var(--color-bg)",
+                        boxShadow:
+                          formData.serviceType === service.name
+                            ? "0 0 0 2px var(--color-primary)"
+                            : "none",
+                        transition: "all 0.3s ease",
                       }}
                     >
                       <div
@@ -157,8 +171,9 @@ export default function BookAppointmentPage() {
                       <div
                         className="name"
                         style={{
-                          fontWeight: "600",
-                          fontSize: "var(--text-sm)",
+                          fontWeight: "700",
+                          fontSize: "var(--text-base)",
+                          color: "var(--color-dark)",
                         }}
                       >
                         {service.shortName}
@@ -167,8 +182,9 @@ export default function BookAppointmentPage() {
                         className="price"
                         style={{
                           color: "var(--color-primary)",
-                          fontSize: "var(--text-xs)",
+                          fontSize: "var(--text-sm)",
                           marginTop: "var(--space-xs)",
+                          fontWeight: "600",
                         }}
                       >
                         {service.price}
@@ -237,20 +253,42 @@ export default function BookAppointmentPage() {
                         setFormData({ ...formData, appointmentDate: d.dateStr })
                       }
                       style={{
-                        minWidth: "80px",
+                        minWidth: "90px",
                         flexShrink: 0,
-                        border: "1px solid var(--color-gray-200)",
-                        borderRadius: "var(--radius-lg)",
+                        border:
+                          formData.appointmentDate === d.dateStr
+                            ? "none"
+                            : "2px solid var(--color-gray-100)",
+                        background:
+                          formData.appointmentDate === d.dateStr
+                            ? "linear-gradient(135deg, var(--color-primary), var(--color-primary-light))"
+                            : "var(--color-white)",
+                        color:
+                          formData.appointmentDate === d.dateStr
+                            ? "white"
+                            : "inherit",
+                        borderRadius: "var(--radius-xl)",
                         textAlign: "center",
-                        padding: "var(--space-sm)",
+                        padding: "var(--space-md)",
                         cursor: "pointer",
+                        boxShadow:
+                          formData.appointmentDate === d.dateStr
+                            ? "0 10px 15px -3px rgba(14, 165, 233, 0.3)"
+                            : "none",
+                        transition: "all 0.2s ease",
                       }}
                     >
                       <div
                         className="day-name"
                         style={{
                           fontSize: "var(--text-xs)",
-                          color: "var(--color-gray)",
+                          color:
+                            formData.appointmentDate === d.dateStr
+                              ? "rgba(255,255,255,0.8)"
+                              : "var(--color-gray)",
+                          fontWeight: "600",
+                          textTransform: "uppercase",
+                          letterSpacing: "1px",
                         }}
                       >
                         {d.isToday ? "Today" : d.day}
@@ -258,9 +296,13 @@ export default function BookAppointmentPage() {
                       <div
                         className="day-num"
                         style={{
-                          fontSize: "var(--text-xl)",
-                          fontWeight: "700",
-                          margin: "4px 0",
+                          fontSize: "var(--text-2xl)",
+                          fontWeight: "800",
+                          margin: "8px 0",
+                          color:
+                            formData.appointmentDate === d.dateStr
+                              ? "white"
+                              : "var(--color-dark)",
                         }}
                       >
                         {d.date}
@@ -270,6 +312,11 @@ export default function BookAppointmentPage() {
                         style={{
                           fontSize: "var(--text-xs)",
                           textTransform: "uppercase",
+                          fontWeight: "600",
+                          color:
+                            formData.appointmentDate === d.dateStr
+                              ? "rgba(255,255,255,0.8)"
+                              : "var(--color-gray)",
                         }}
                       >
                         {d.month}
@@ -313,12 +360,29 @@ export default function BookAppointmentPage() {
                         setFormData({ ...formData, appointmentTime: time })
                       }
                       style={{
-                        border: "1px solid var(--color-gray-200)",
-                        borderRadius: "var(--radius-md)",
-                        padding: "var(--space-sm)",
+                        border:
+                          formData.appointmentTime === time
+                            ? "none"
+                            : "2px solid var(--color-gray-100)",
+                        background:
+                          formData.appointmentTime === time
+                            ? "linear-gradient(135deg, var(--color-primary), var(--color-primary-light))"
+                            : "var(--color-white)",
+                        color:
+                          formData.appointmentTime === time
+                            ? "white"
+                            : "var(--color-dark)",
+                        borderRadius: "var(--radius-lg)",
+                        padding: "var(--space-md) var(--space-sm)",
                         textAlign: "center",
                         cursor: "pointer",
                         fontSize: "var(--text-sm)",
+                        fontWeight: "600",
+                        boxShadow:
+                          formData.appointmentTime === time
+                            ? "0 8px 15px -3px rgba(14, 165, 233, 0.3)"
+                            : "none",
+                        transition: "all 0.2s ease",
                       }}
                     >
                       {time}
@@ -380,9 +444,11 @@ export default function BookAppointmentPage() {
                       }
                       style={{
                         width: "100%",
-                        padding: "12px",
-                        borderRadius: "var(--radius-md)",
-                        border: "1px solid var(--color-gray-300)",
+                        padding: "16px",
+                        borderRadius: "var(--radius-lg)",
+                        border: "2px solid var(--color-gray-200)",
+                        fontSize: "var(--text-base)",
+                        transition: "border-color 0.2s",
                       }}
                     />
                     {errors.patientName && (
@@ -439,7 +505,17 @@ export default function BookAppointmentPage() {
                     className="form-group"
                     style={{ marginBottom: "var(--space-xl)" }}
                   >
-                    <label className="form-label">Notes (optional)</label>
+                    <label
+                      className="form-label"
+                      style={{
+                        fontWeight: "600",
+                        color: "var(--color-dark)",
+                        marginBottom: "8px",
+                        display: "block",
+                      }}
+                    >
+                      Notes (optional)
+                    </label>
                     <textarea
                       className="form-textarea"
                       placeholder="Any specific concerns or requests?"
@@ -449,10 +525,12 @@ export default function BookAppointmentPage() {
                       }
                       style={{
                         width: "100%",
-                        padding: "12px",
-                        borderRadius: "var(--radius-md)",
-                        border: "1px solid var(--color-gray-300)",
-                        minHeight: "100px",
+                        padding: "16px",
+                        borderRadius: "var(--radius-lg)",
+                        border: "2px solid var(--color-gray-200)",
+                        fontSize: "var(--text-base)",
+                        minHeight: "120px",
+                        transition: "border-color 0.2s",
                       }}
                     />
                   </div>
@@ -471,8 +549,11 @@ export default function BookAppointmentPage() {
                       disabled={submitting}
                       style={{
                         width: "100%",
-                        fontSize: "1.1rem",
-                        padding: "14px",
+                        fontSize: "1.2rem",
+                        padding: "16px",
+                        borderRadius: "var(--radius-lg)",
+                        fontWeight: "700",
+                        boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.4)",
                       }}
                     >
                       {submitting
@@ -483,7 +564,12 @@ export default function BookAppointmentPage() {
                       type="button"
                       className="btn btn-outline"
                       onClick={handleBack}
-                      style={{ width: "100%" }}
+                      style={{
+                        width: "100%",
+                        padding: "14px",
+                        borderRadius: "var(--radius-lg)",
+                        fontWeight: "600",
+                      }}
                     >
                       ← Back
                     </button>
