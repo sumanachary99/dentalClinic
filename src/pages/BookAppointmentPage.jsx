@@ -239,10 +239,11 @@ export default function BookAppointmentPage() {
                   className="date-picker-scroll"
                   style={{
                     display: "flex",
-                    gap: "var(--space-sm)",
+                    gap: "var(--space-md)",
                     overflowX: "auto",
-                    paddingBottom: "var(--space-md)",
+                    paddingBottom: "var(--space-lg)",
                     scrollbarWidth: "none",
+                    WebkitOverflowScrolling: "touch",
                   }}
                 >
                   {dates.map((d) => (
