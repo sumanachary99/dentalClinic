@@ -1,10 +1,10 @@
 // App-wide constants
 export const CLINIC_INFO = {
-  name: 'SmileCare Dental',
+  name: 'Suman Dental Clinic',
   tagline: 'Your Smile, Our Priority',
   phone: '9110443004',
   whatsappNumber: '919110443004', // with country code
-  email: 'hello@smilecaredental.in',
+  email: 'hello@sumandental.in',
   address: 'Ground Floor, Opposite City Mall, MG Road, Bengaluru, Karnataka 560001',
   city: 'Bengaluru',
   timings: {
