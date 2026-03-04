@@ -1,18 +1,18 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import MobileNav from './components/layout/MobileNav';
-import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
-import BookAppointmentPage from './pages/BookAppointmentPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import DashboardPage from './pages/DashboardPage';
-import { getClinicWhatsAppLink } from './utils/whatsapp';
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import MobileNav from "./components/layout/MobileNav";
+import HomePage from "./pages/HomePage";
+import ServicesPage from "./pages/ServicesPage";
+import BookAppointmentPage from "./pages/BookAppointmentPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import DashboardPage from "./pages/DashboardPage";
+import { getClinicWhatsAppLink } from "./utils/whatsapp";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/dentalClinic">
+    <HashRouter basename="/">
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -35,6 +35,6 @@ export default function App() {
       >
         💬
       </a>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CLINIC_INFO, TESTIMONIALS } from '../config/constants';
-import { SERVICES } from '../config/services';
 import {
   BRAND_ASSETS,
-  CARE_PROTOCOLS,
   CLINIC_GALLERY,
   EXPERIENCE_POINTS,
   SPECIALTY_PILLARS,
@@ -61,49 +59,7 @@ function MetricCard({ item }) {
   );
 }
 
-function ProtocolCard({ protocol }) {
-  return (
-    <article className="nuface-protocol-card">
-      <div className="nuface-protocol-header">
-        <span className="nuface-protocol-dept">{protocol.department}</span>
-        <h3>{protocol.title}</h3>
-      </div>
-
-      <div className="nuface-protocol-columns">
-        <div>
-          <h4>Pre-Procedure</h4>
-          <ul>
-            {protocol.pre.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4>Post-Procedure</h4>
-          <ul>
-            {protocol.post.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <p className="nuface-protocol-caution">{protocol.caution}</p>
-      <div className="nuface-protocol-sources">
-        {protocol.sources.map((source) => (
-          <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">
-            {source.label}
-          </a>
-        ))}
-      </div>
-    </article>
-  );
-}
-
 export default function HomePage() {
-  const [activeCategory, setActiveCategory] = useState('dental');
-  const categoryServices = SERVICES.filter((service) => service.category === activeCategory);
-
   return (
     <main className="nuface-home">
       <section className="nuface-hero">
@@ -116,24 +72,30 @@ export default function HomePage() {
                 <span> One Clinic, Structured Care.</span>
               </h1>
               <p className="nuface-hero-description">
-                {CLINIC_INFO.shortName} brings dental precision, hair restoration planning, and laser skin protocols
-                into one coordinated experience with transparent pre and post procedural guidance.
+                {CLINIC_INFO.shortName} brings dental precision, hair
+                restoration planning, and laser skin protocols into one
+                coordinated experience with transparent pre and post procedural
+                guidance.
               </p>
 
               <div className="nuface-hero-actions">
-                <Link to="/book" className="btn btn-accent btn-lg">
+                <Link to="/services" className="btn btn-accent btn-lg">
                   Book Appointment
                 </Link>
-                <a href={getClinicWhatsAppLink()} className="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={getClinicWhatsAppLink()}
+                  className="btn btn-outline btn-lg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Chat on WhatsApp
-                </a>
-                <a href="#pre-post-guides" className="btn btn-primary btn-lg">
-                  View Pre/Post Guides
                 </a>
               </div>
 
               <p className="nuface-hero-contact">
-                Call us at <a href={`tel:${CLINIC_INFO.phone}`}>{CLINIC_INFO.phone}</a> | Open till 9:00 PM
+                Call us at{" "}
+                <a href={`tel:${CLINIC_INFO.phone}`}>{CLINIC_INFO.phone}</a> |
+                Open till 9:00 PM
               </p>
 
               <div className="nuface-metrics-grid">
@@ -159,8 +121,9 @@ export default function HomePage() {
               <article className="nuface-note-card">
                 <h3>Before You Book</h3>
                 <p>
-                  Every major treatment page includes what to do before and after your procedure so patients and
-                  families can prepare confidently.
+                  Every major treatment page includes what to do before and
+                  after your procedure so patients and families can prepare
+                  confidently.
                 </p>
               </article>
             </div>
@@ -171,16 +134,22 @@ export default function HomePage() {
       <section className="section nuface-specialties">
         <div className="container">
           <h2 className="section-title">
-            Multi-Specialty <span className="gradient-text">Clinical Tracks</span>
+            Multi-Specialty{" "}
+            <span className="gradient-text">Clinical Tracks</span>
           </h2>
           <p className="section-subtitle">
-            Select the care track that matches your concern. Our team aligns diagnosis, procedure planning, and
-            follow-up within one system.
+            Select the care track that matches your concern. Our team aligns
+            diagnosis, procedure planning, and follow-up within one system.
           </p>
           <div className="nuface-specialty-grid">
             {SPECIALTY_PILLARS.map((pillar) => (
-              <article className="nuface-specialty-card" key={pillar.id}>
-                <div className="nuface-specialty-icon">{pillar.icon}</div>
+              <article
+                className={`nuface-specialty-card ${pillar.colorClass}`}
+                key={pillar.id}
+              >
+                <div className="nuface-specialty-icon">
+                  <i className="nuface-icon nuface-icon-white">{pillar.icon}</i>
+                </div>
                 <h3>{pillar.title}</h3>
                 <p>{pillar.subtitle}</p>
                 <ul>
@@ -189,14 +158,16 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <div className="nuface-specialty-actions">
-                  <a
-                    href="#category-treatments"
+                  <Link
+                    to={`/services?category=${pillar.id}`}
                     className="btn btn-primary btn-sm"
-                    onClick={() => setActiveCategory(pillar.id)}
                   >
-                    View All {pillar.title}
-                  </a>
-                  <Link to={`/book?service=${pillar.bookingServiceId}`} className="btn btn-outline btn-sm">
+                    View {pillar.title} Services
+                  </Link>
+                  <Link
+                    to={`/book?service=${pillar.bookingServiceId}`}
+                    className="btn btn-outline btn-sm"
+                  >
                     Quick Book
                   </Link>
                 </div>
@@ -206,63 +177,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section nuface-services-preview" id="category-treatments">
+      <section className="section nuface-team" id="meet-the-team">
         <div className="container">
           <h2 className="section-title">
-            Category <span className="gradient-text">Treatment Explorer</span>
+            Meet The <span className="gradient-text">Doctors</span>
           </h2>
           <p className="section-subtitle">
-            Click a treatment category and see all services for that department instantly.
+            Our specialists bring together dental surgery, hair restoration, and
+            aesthetic skin care under one roof for coordinated, evidence-based
+            care.
           </p>
-          <div className="nuface-category-tabs">
-            {SPECIALTY_PILLARS.map((pillar) => (
-              <button
-                key={pillar.id}
-                className={`nuface-category-tab ${activeCategory === pillar.id ? 'active' : ''}`}
-                onClick={() => setActiveCategory(pillar.id)}
-                aria-pressed={activeCategory === pillar.id}
-              >
-                <span>{pillar.icon}</span>
-                {pillar.title}
-              </button>
-            ))}
-          </div>
-          <div className="nuface-featured-grid">
-            {categoryServices.map((service) => (
-              <article className="nuface-featured-card" key={service.id}>
-                <span className="nuface-featured-icon">{service.icon}</span>
-                <h3>{service.name}</h3>
-                <p>{service.description}</p>
-                <div className="nuface-featured-meta">
-                  <span>{service.price}</span>
-                  <span>{service.duration}</span>
+          <div className="nuface-team-grid">
+            {TEAM_MEMBERS.map((member) => (
+              <article className="nuface-team-card" key={member.id}>
+                <img src={member.image} alt={member.name} />
+                <div className="nuface-team-body">
+                  <h3>{member.name}</h3>
+                  <p className="nuface-team-role">{member.role}</p>
+                  <p className="nuface-team-creds">{member.credentials}</p>
+                  {member.description && (
+                    <p className="nuface-team-description">{member.description}</p>
+                  )}
+                  <ul>
+                    {member.expertise.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
-                <Link to={`/book?service=${service.id}`} className="btn btn-primary btn-sm">
-                  Book This Service
-                </Link>
               </article>
-            ))}
-          </div>
-          <div className="nuface-section-action">
-            <Link to="/services" className="btn btn-outline">
-              Explore Full Service List
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section nuface-protocols" id="pre-post-guides">
-        <div className="container">
-          <h2 className="section-title">
-            Pre-Procedure &amp; Post-Procedure <span className="gradient-text">Guidance</span>
-          </h2>
-          <p className="section-subtitle">
-            These are patient-friendly preparation and recovery notes. Final instructions always come from your treating doctor after
-            consultation and examination.
-          </p>
-          <div className="nuface-protocol-grid">
-            {CARE_PROTOCOLS.map((protocol) => (
-              <ProtocolCard key={protocol.id} protocol={protocol} />
             ))}
           </div>
         </div>
@@ -277,46 +219,27 @@ export default function HomePage() {
             <article>
               <span>01</span>
               <h3>Choose Service & Slot</h3>
-              <p>Patients select treatment type, date, and preferred time directly on the booking page.</p>
+              <p>
+                Patients select treatment type, date, and preferred time
+                directly on the booking page.
+              </p>
             </article>
             <article>
               <span>02</span>
               <h3>Submit Details</h3>
-              <p>Contact details and notes are captured for clinic team review and scheduling context.</p>
+              <p>
+                Contact details and notes are captured for clinic team review
+                and scheduling context.
+              </p>
             </article>
             <article>
               <span>03</span>
               <h3>Sync + WhatsApp</h3>
-              <p>Request is synced to the appointment log and WhatsApp opens for immediate confirmation with reception.</p>
+              <p>
+                Request is synced to the appointment log and WhatsApp opens for
+                immediate confirmation with reception.
+              </p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section nuface-team">
-        <div className="container">
-          <h2 className="section-title">
-            Meet The <span className="gradient-text">Doctors</span>
-          </h2>
-          <p className="section-subtitle">
-            Team cards are ready for your final doctor write-up and photos. Current images are placeholders so we can ship layout now.
-          </p>
-          <div className="nuface-team-grid">
-            {TEAM_MEMBERS.map((member) => (
-              <article className="nuface-team-card" key={member.id}>
-                <img src={member.image} alt={member.name} />
-                <div className="nuface-team-body">
-                  <h3>{member.name}</h3>
-                  <p className="nuface-team-role">{member.role}</p>
-                  <p className="nuface-team-creds">{member.credentials}</p>
-                  <ul>
-                    {member.expertise.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>
@@ -326,7 +249,10 @@ export default function HomePage() {
           <h2 className="section-title">
             Clinic <span className="gradient-text">Look & Feel</span>
           </h2>
-          <p className="section-subtitle">Replace these placeholders with your real clinic photos. Live location link opens on Google Maps.</p>
+          <p className="section-subtitle">
+            Replace these placeholders with your real clinic photos. Live
+            location link opens on Google Maps.
+          </p>
           <div className="nuface-gallery-grid">
             {CLINIC_GALLERY.map((item) => (
               <article className="nuface-gallery-card" key={item.id}>
@@ -339,7 +265,12 @@ export default function HomePage() {
             ))}
           </div>
           <div className="nuface-section-action">
-            <a href={BRAND_ASSETS.galleryLink} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            <a
+              href={BRAND_ASSETS.galleryLink}
+              className="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Open Google Maps Location
             </a>
           </div>
@@ -354,7 +285,11 @@ export default function HomePage() {
           <div className="nuface-testimonial-grid">
             {TESTIMONIALS.map((testimonial) => (
               <article className="nuface-testimonial-card" key={testimonial.id}>
-                <div className="nuface-stars">{Array.from({ length: testimonial.rating }).map((_, i) => <span key={i}>★</span>)}</div>
+                <div className="nuface-stars">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
+                </div>
                 <p>"{testimonial.text}"</p>
                 <h3>{testimonial.name}</h3>
                 <span>{testimonial.service}</span>
@@ -368,12 +303,18 @@ export default function HomePage() {
         <div className="container">
           <div className="nuface-cta">
             <h2>Ready To Plan Your Visit?</h2>
-            <p>Book a slot now and our reception team will confirm your treatment pathway and preparation checklist.</p>
+            <p>
+              Book a slot now and our reception team will confirm your treatment
+              pathway and preparation checklist.
+            </p>
             <div className="nuface-cta-actions">
-              <Link to="/book" className="btn btn-white btn-lg">
+              <Link to="/services" className="btn btn-white btn-lg">
                 Book Appointment
               </Link>
-              <a href={`tel:${CLINIC_INFO.phone}`} className="btn btn-outline btn-lg">
+              <a
+                href={`tel:${CLINIC_INFO.phone}`}
+                className="btn btn-outline btn-lg"
+              >
                 Call {CLINIC_INFO.phone}
               </a>
             </div>

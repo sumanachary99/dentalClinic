@@ -202,9 +202,9 @@ export const SERVICES = [
 
 export const SERVICE_CATEGORIES = [
   { id: 'all', name: 'All Services' },
-  { id: 'dental', name: 'Dental Treatment' },
-  { id: 'skin', name: 'Skincare, Acne & Laser' },
-  { id: 'hair', name: 'Hair Transplant & Restoration' },
+  { id: 'dental', name: 'Precision Dental' },
+  { id: 'hair', name: 'Hair Restoration' },
+  { id: 'skin', name: 'Aesthetic Skin' },
 ];
 
 export const TIME_SLOTS = [

@@ -1,114 +1,130 @@
 import { Link } from 'react-router-dom';
 import { CLINIC_INFO, STATS } from '../config/constants';
+import { TEAM_MEMBERS, CLINIC_GALLERY } from "../config/landingContent";
 
 export default function AboutPage() {
   return (
-    <main>
+    <main className="nuface-about">
       {/* Hero */}
-      <section className="about-hero">
+      <section className="nuface-about-hero">
         <div className="container">
-          <h1>About <span className="gradient-text">{CLINIC_INFO.name}</span></h1>
-          <p>
-            We're on a mission to make quality dental care accessible, comfortable, 
-            and affordable for every family in {CLINIC_INFO.city}.
+          <p className="nuface-badge">Est. 2008</p>
+          <h1>
+            About <span className="gradient-text">{CLINIC_INFO.name}</span>
+          </h1>
+          <p className="description">
+            Precision dentistry, expert hair restoration, and protocol-led
+            skincare delivered with a patient-first philosophy in{" "}
+            {CLINIC_INFO.city}.
           </p>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="section" style={{ background: 'var(--color-white)' }}>
+      {/* Meet the Experts */}
+      <section className="section nuface-about-team">
         <div className="container">
-          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 className="section-title">Our Story</h2>
-            <p style={{ color: 'var(--color-gray)', lineHeight: 1.8, fontSize: 'var(--text-lg)', marginBottom: 'var(--space-xl)' }}>
-              Founded with a vision to transform dental care in India, {CLINIC_INFO.name} brings together 
-              experienced dentists, modern technology, and a warm, welcoming environment. We believe that 
-              everyone deserves a healthy, beautiful smile — and we're committed to making that happen, 
-              one patient at a time.
-            </p>
-            <p style={{ color: 'var(--color-gray)', lineHeight: 1.8, fontSize: 'var(--text-lg)' }}>
-              Our team of specialists covers everything from routine check-ups to advanced treatments 
-              like dental implants, orthodontics, and cosmetic dentistry. We use the latest digital tools, 
-              painless techniques, and strict sterilization protocols to ensure every visit is safe, 
-              comfortable, and effective.
-            </p>
-          </div>
-        </div>
-      </section>
+          <h2 className="section-title">
+            The <span className="gradient-text">Medical Team</span>
+          </h2>
+          <p className="section-subtitle">
+            Led by Board-Certified specialists with over 15 years of clinical
+            excellence.
+          </p>
 
-      {/* Values */}
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title">What We <span className="gradient-text">Stand For</span></h2>
-          <p className="section-subtitle">Our core values guide every patient interaction</p>
-          <div className="about-features">
-            <div className="about-feature card">
-              <div className="icon">💝</div>
-              <h3>Patient First</h3>
-              <p>Every decision we make is centered around your comfort, safety, and well-being. Your health is our priority.</p>
-            </div>
-            <div className="about-feature card">
-              <div className="icon">🔬</div>
-              <h3>Clinical Excellence</h3>
-              <p>Our doctors stay updated with the latest advancements in dentistry and follow evidence-based treatment protocols.</p>
-            </div>
-            <div className="about-feature card">
-              <div className="icon">🤝</div>
-              <h3>Transparency</h3>
-              <p>No hidden costs, no unnecessary treatments. We explain everything clearly and let you make informed decisions.</p>
-            </div>
-            <div className="about-feature card">
-              <div className="icon">🏠</div>
-              <h3>Welcoming Environment</h3>
-              <p>Our clinic is designed to feel comfortable and stress-free — especially for children and anxious patients.</p>
-            </div>
-            <div className="about-feature card">
-              <div className="icon">🌱</div>
-              <h3>Continuous Improvement</h3>
-              <p>We constantly invest in better equipment, training, and processes to deliver the best care possible.</p>
-            </div>
-            <div className="about-feature card">
-              <div className="icon">🌍</div>
-              <h3>Community Care</h3>
-              <p>We actively participate in dental health awareness camps and provide affordable care to underserved communities.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="stats-grid">
-            {STATS.map((stat, i) => (
-              <div className="stat-item" key={i}>
-                <div className="stat-icon">{stat.icon}</div>
-                <div className="stat-value">{stat.value}{stat.suffix}</div>
-                <div className="stat-label">{stat.label}</div>
-              </div>
+          <div className="nuface-about-team-grid">
+            {TEAM_MEMBERS.map((member) => (
+              <article className="nuface-about-member-card" key={member.id}>
+                <div className="member-image">
+                  <img src={member.image} alt={member.name} />
+                </div>
+                <div className="member-info">
+                  <span className="member-creds">{member.credentials}</span>
+                  <h3>{member.name}</h3>
+                  <p className="member-role">{member.role}</p>
+                  <div className="member-expertise">
+                    <ul>
+                      {member.expertise.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Equipment */}
-      <section className="section" style={{ background: 'var(--color-white)' }}>
+      {/* Story & Philosophy */}
+      <section className="section nuface-about-story">
         <div className="container">
-          <h2 className="section-title">Our <span className="gradient-text">Technology</span></h2>
-          <p className="section-subtitle">Investing in the best equipment for precise and comfortable treatments</p>
-          <div className="services-grid">
-            {[
-              { icon: '📸', name: 'Digital X-Rays', desc: 'Low-radiation digital imaging for accurate diagnosis' },
-              { icon: '⚡', name: 'Laser Dentistry', desc: 'Minimally invasive laser treatments for faster healing' },
-              { icon: '🦷', name: 'CAD/CAM System', desc: 'Computer-designed crowns and bridges for perfect fit' },
-              { icon: '💺', name: 'Ergonomic Chairs', desc: 'Comfortable dental chairs with built-in entertainment' },
-              { icon: '🧪', name: 'Autoclave Sterilization', desc: 'Hospital-grade sterilization of all instruments' },
-              { icon: '🖥️', name: 'Intraoral Camera', desc: 'See exactly what your dentist sees in real-time' },
-            ].map((item, i) => (
-              <div className="service-card" key={i}>
-                <div className="service-card-icon">{item.icon}</div>
-                <h3>{item.name}</h3>
-                <p>{item.desc}</p>
+          <div className="nuface-story-grid">
+            <div className="story-image">
+              <img src={CLINIC_GALLERY[0].image} alt="Clinic Interior" />
+            </div>
+            <div className="story-content">
+              <h2 className="section-title">
+                Our <span className="gradient-text">Clinical Philosophy</span>
+              </h2>
+              <p>
+                Founded in 2008, {CLINIC_INFO.name} was built on the
+                intersection of medical precision and aesthetic balance. We
+                don't just "treat" — we plan pathways. Every root canal, hair
+                transplant, or laser protocol is backed by standardized clinical
+                guidelines.
+              </p>
+              <div className="story-values">
+                <div className="value-item">
+                  <h3>Clinical Excellence</h3>
+                  <p>
+                    Adherence to international sterilization and safety
+                    protocols.
+                  </p>
+                </div>
+                <div className="value-item">
+                  <h3>Transparent Guidance</h3>
+                  <p>
+                    Clear pre and post procedure roadmaps for every major
+                    treatment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="section nuface-about-gallery">
+        <div className="container">
+          <h2 className="section-title">
+            Facility <span className="gradient-text">Overview</span>
+          </h2>
+          <div className="nuface-about-gallery-grid">
+            {CLINIC_GALLERY.map((item) => (
+              <figure key={item.id} className="about-gallery-item">
+                <img src={item.image} alt={item.title} />
+                <figcaption>
+                  <h4>{item.title}</h4>
+                  <p>{item.caption}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="nuface-about-stats">
+        <div className="container">
+          <div className="about-stats-grid">
+            {STATS.map((stat, i) => (
+              <div className="stat-card" key={i}>
+                <span className="stat-value">
+                  {stat.value}
+                  {stat.suffix}
+                </span>
+                <span className="stat-label">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -118,10 +134,20 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="section">
         <div className="container">
-          <div className="cta-banner">
-            <h2>Experience the Difference</h2>
-            <p>Visit us and see why thousands of patients trust us with their smiles.</p>
-            <Link to="/book" className="btn btn-white btn-lg">📅 Book Your Visit</Link>
+          <div className="nuface-about-cta">
+            <h2>Experience Structured Care</h2>
+            <p>
+              Ready to discuss your treatment pathway? Explore our services and
+              book a consultation.
+            </p>
+            <div className="cta-actions">
+              <Link to="/services" className="btn btn-primary btn-lg">
+                Explore Services
+              </Link>
+              <Link to="/contact" className="btn btn-outline btn-lg">
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </section>

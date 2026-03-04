@@ -42,6 +42,12 @@
   --color-info: #3b82f6;
   --color-info-light: #dbeafe;
 
+  /* Specialty Colors */
+  --color-dental: #0891b2;
+  --color-hair: #7c3aed;
+  --color-skin: #d97706;
+  --color-gold: #fbbf24;
+
   /* Typography */
   --font-primary: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
@@ -192,6 +198,39 @@ ul, ol {
 
 .accent-text {
   color: var(--color-accent);
+}
+
+.text-dental { color: var(--color-dental); }
+.text-hair { color: var(--color-hair); }
+.text-skin { color: var(--color-skin); }
+
+.bg-dental { background-color: var(--color-dental); }
+.bg-hair { background-color: var(--color-hair); }
+.bg-skin { background-color: var(--color-skin); }
+
+/* ── Custom Icons ── */
+.nuface-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  background: var(--color-primary-100);
+  color: var(--color-primary);
+  font-style: normal;
+}
+
+.nuface-icon-lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  border-radius: 12px;
+}
+
+.nuface-icon-white {
+  background: rgba(255,255,255,0.2);
+  color: white;
 }
 
 /* ── Buttons ── */

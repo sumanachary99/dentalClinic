@@ -1,9 +1,17 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { SERVICES, SERVICE_CATEGORIES } from '../config/services';
 
 export default function ServicesPage() {
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get('category');
   const [activeCategory, setActiveCategory] = useState('all');
+
+  useEffect(() => {
+    if (categoryFromUrl && ['dental', 'hair', 'skin'].includes(categoryFromUrl)) {
+      setActiveCategory(categoryFromUrl);
+    }
+  }, [categoryFromUrl]);
 
   const filteredServices = activeCategory === 'all'
     ? SERVICES
@@ -16,8 +24,8 @@ export default function ServicesPage() {
         <div className="container">
           <h1>Our <span className="gradient-text">Services</span></h1>
           <p>
-            Comprehensive dental care solutions for every need — from routine check-ups 
-            to advanced cosmetic and restorative treatments.
+            Dental, hair restoration, and skin care — from routine check-ups
+            to advanced treatments. Choose a category to see sub-types and book.
           </p>
         </div>
       </section>
