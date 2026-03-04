@@ -1,0 +1,9 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Clinic lounge placeholder">
+  <rect width="1200" height="800" rx="40" fill="#DCEFF0"/>
+  <rect x="70" y="90" width="1060" height="620" rx="28" fill="#F9FCFC"/>
+  <rect x="130" y="210" width="240" height="360" rx="24" fill="#E7EDEE"/>
+  <rect x="430" y="168" width="640" height="200" rx="24" fill="#E8F6F6"/>
+  <rect x="430" y="398" width="640" height="172" rx="24" fill="#EFE8E5"/>
+  <rect x="130" y="596" width="940" height="64" rx="20" fill="#2B8183"/>
+  <text x="600" y="645" fill="#F8FFFF" font-family="Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">Clinic Waiting Lounge Placeholder</text>
+</svg>

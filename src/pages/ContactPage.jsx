@@ -167,7 +167,7 @@ export default function ContactPage() {
             <span style={{ fontSize: '3rem' }}>🗺️</span>
             <p>Google Maps embed can be added here</p>
             <a
-              href={`https://maps.google.com/?q=${encodeURIComponent(CLINIC_INFO.address)}`}
+              href={CLINIC_INFO.mapLink || `https://maps.google.com/?q=${encodeURIComponent(CLINIC_INFO.address)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline btn-sm"

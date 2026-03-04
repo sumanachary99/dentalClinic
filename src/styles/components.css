@@ -40,8 +40,11 @@
 }
 
 .header-logo-icon {
-  font-size: 2rem;
-  line-height: 1;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .header-logo-text h1 {
@@ -50,6 +53,10 @@
   font-weight: 700;
   color: var(--color-primary-dark);
   line-height: 1.2;
+  max-width: 330px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-logo-text span {
@@ -57,6 +64,11 @@
   color: var(--color-gray);
   letter-spacing: 1px;
   text-transform: uppercase;
+  display: block;
+  max-width: 330px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-nav {
@@ -189,6 +201,27 @@
 }
 
 @media (max-width: 768px) {
+  .header-inner {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  .header-logo-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .header-logo-text h1 {
+    font-size: 1rem;
+    max-width: 205px;
+  }
+
+  .header-logo-text span {
+    max-width: 205px;
+    font-size: 0.62rem;
+    letter-spacing: 0.5px;
+  }
+
   .header-nav {
     display: none;
   }
@@ -1780,5 +1813,788 @@
   .whatsapp-fab {
     bottom: 30px;
     right: 30px;
+  }
+}
+
+/* ── NUFACE Landing Redesign ── */
+.nuface-home {
+  background:
+    radial-gradient(circle at 12% 12%, rgba(43, 129, 131, 0.12) 0%, transparent 32%),
+    radial-gradient(circle at 86% 8%, rgba(90, 55, 50, 0.12) 0%, transparent 38%),
+    linear-gradient(180deg, #f4fbfb 0%, #f8f4f1 46%, #f6fbfc 100%);
+  overflow: hidden;
+}
+
+.nuface-hero {
+  padding: 132px 0 84px;
+  position: relative;
+}
+
+.nuface-hero::before,
+.nuface-hero::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  filter: blur(48px);
+}
+
+.nuface-hero::before {
+  width: 320px;
+  height: 320px;
+  background: rgba(43, 129, 131, 0.24);
+  border-radius: 50%;
+  left: -140px;
+  top: -70px;
+}
+
+.nuface-hero::after {
+  width: 260px;
+  height: 260px;
+  background: rgba(90, 55, 50, 0.18);
+  border-radius: 40%;
+  right: -100px;
+  top: 60px;
+}
+
+.nuface-hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.nuface-hero-copy {
+  animation: fadeInUp 0.7s ease both;
+}
+
+.nuface-hero-badge {
+  display: inline-flex;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(43, 129, 131, 0.32);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #23595d;
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--space-lg);
+}
+
+.nuface-hero-copy h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5.2vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #112527;
+}
+
+.nuface-hero-copy h1 span {
+  display: block;
+  color: #2b8183;
+  margin-top: 0.25rem;
+}
+
+.nuface-hero-description {
+  margin-top: var(--space-lg);
+  max-width: 680px;
+  color: #355155;
+  font-size: var(--text-lg);
+  line-height: 1.72;
+}
+
+.nuface-hero-actions {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nuface-hero-contact {
+  margin-top: var(--space-lg);
+  color: #3a4c4f;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.nuface-hero-contact a {
+  color: #5a3732;
+  font-weight: 700;
+}
+
+.nuface-metrics-grid {
+  margin-top: var(--space-xl);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.nuface-metric-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(43, 129, 131, 0.18);
+  border-radius: var(--radius-xl);
+  padding: 0.95rem;
+}
+
+.nuface-metric-value {
+  font-size: clamp(1.2rem, 2.6vw, 1.9rem);
+  font-weight: 800;
+  color: #0e5154;
+  line-height: 1;
+}
+
+.nuface-metric-label {
+  margin-top: 0.45rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: #15292c;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nuface-metric-note {
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  color: #476366;
+}
+
+.nuface-hero-visual {
+  display: grid;
+  gap: var(--space-lg);
+  animation: fadeInUp 0.85s ease both;
+}
+
+.nuface-brand-panel {
+  background: linear-gradient(160deg, #ffffff 0%, #eaf5f5 50%, #f2ebe8 100%);
+  border: 1px solid rgba(43, 129, 131, 0.24);
+  border-radius: 28px;
+  padding: var(--space-xl);
+  box-shadow: 0 22px 48px rgba(20, 55, 60, 0.12);
+}
+
+.nuface-brand-panel img {
+  width: clamp(148px, 26vw, 220px);
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  margin-bottom: var(--space-md);
+}
+
+.nuface-brand-panel h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.95rem);
+  color: #10282a;
+  margin-bottom: 0.2rem;
+}
+
+.nuface-brand-panel p {
+  color: #355154;
+  margin-bottom: var(--space-md);
+}
+
+.nuface-brand-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.nuface-brand-tags span {
+  padding: 0.4rem 0.72rem;
+  border-radius: var(--radius-full);
+  background: rgba(43, 129, 131, 0.12);
+  color: #17474a;
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.nuface-note-card {
+  background: linear-gradient(145deg, #2b8183 0%, #205f63 60%, #5a3732 100%);
+  border-radius: 22px;
+  color: #f8fefe;
+  padding: var(--space-xl);
+  box-shadow: 0 18px 34px rgba(32, 64, 70, 0.26);
+}
+
+.nuface-note-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  margin-bottom: 0.5rem;
+}
+
+.nuface-note-card p {
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+.nuface-specialties {
+  background: #f7fcfc;
+}
+
+.nuface-specialty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.nuface-specialty-card {
+  background: #ffffff;
+  border-radius: 22px;
+  border: 1px solid rgba(43, 129, 131, 0.2);
+  padding: 1.45rem;
+  box-shadow: 0 10px 24px rgba(24, 55, 58, 0.08);
+  animation: fadeInUp 0.65s ease both;
+}
+
+.nuface-specialty-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.nuface-specialty-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.nuface-specialty-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: linear-gradient(145deg, rgba(43, 129, 131, 0.18), rgba(90, 55, 50, 0.16));
+  margin-bottom: 0.85rem;
+}
+
+.nuface-specialty-card h3 {
+  font-size: var(--text-xl);
+  color: #172c2f;
+  margin-bottom: 0.25rem;
+}
+
+.nuface-specialty-card p {
+  color: #445f63;
+  font-size: var(--text-sm);
+}
+
+.nuface-specialty-card ul {
+  margin: 0.95rem 0 1.2rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.nuface-specialty-card li {
+  position: relative;
+  padding-left: 1.05rem;
+  color: #2d4347;
+  font-size: var(--text-sm);
+}
+
+.nuface-specialty-card li::before {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #2b8183;
+  position: absolute;
+  left: 0;
+  top: 0.48rem;
+}
+
+.nuface-specialty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nuface-services-preview {
+  background: linear-gradient(180deg, #fbfdfd 0%, #f6f2ef 100%);
+}
+
+#category-treatments,
+#pre-post-guides {
+  scroll-margin-top: 96px;
+}
+
+.nuface-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: var(--space-xl);
+}
+
+.nuface-category-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.66rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(43, 129, 131, 0.26);
+  background: #ffffff;
+  color: #21484c;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.nuface-category-tab:hover {
+  border-color: #2b8183;
+  transform: translateY(-1px);
+}
+
+.nuface-category-tab.active {
+  background: linear-gradient(135deg, #2b8183, #5a3732);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.nuface-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+}
+
+.nuface-featured-card {
+  background: #ffffff;
+  border: 1px solid rgba(43, 129, 131, 0.18);
+  border-radius: 20px;
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 10px 20px rgba(21, 43, 47, 0.07);
+}
+
+.nuface-featured-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.nuface-featured-card h3 {
+  color: #173235;
+  font-size: var(--text-lg);
+  line-height: 1.35;
+}
+
+.nuface-featured-card p {
+  color: #456267;
+  font-size: var(--text-sm);
+  line-height: 1.65;
+}
+
+.nuface-featured-meta {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px dashed rgba(43, 129, 131, 0.25);
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: #2b8183;
+}
+
+.nuface-section-action {
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
+.nuface-protocols {
+  background: #f5faf9;
+}
+
+.nuface-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+
+.nuface-protocol-card {
+  background: #ffffff;
+  border: 1px solid rgba(90, 55, 50, 0.2);
+  border-radius: 24px;
+  padding: 1.35rem;
+  box-shadow: 0 14px 24px rgba(38, 47, 48, 0.09);
+}
+
+.nuface-protocol-header {
+  margin-bottom: 0.85rem;
+}
+
+.nuface-protocol-dept {
+  display: inline-block;
+  padding: 0.24rem 0.58rem;
+  border-radius: var(--radius-full);
+  background: rgba(43, 129, 131, 0.14);
+  color: #235e63;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.nuface-protocol-header h3 {
+  margin-top: 0.45rem;
+  font-size: var(--text-xl);
+  color: #1b3438;
+}
+
+.nuface-protocol-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.nuface-protocol-columns h4 {
+  font-size: var(--text-sm);
+  color: #5a3732;
+  margin-bottom: 0.4rem;
+}
+
+.nuface-protocol-columns ul {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.nuface-protocol-columns li {
+  font-size: var(--text-sm);
+  line-height: 1.56;
+  color: #30484c;
+  padding-left: 0.9rem;
+  position: relative;
+}
+
+.nuface-protocol-columns li::before {
+  content: '';
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0.48rem;
+  background: #2b8183;
+}
+
+.nuface-protocol-caution {
+  margin-top: 0.9rem;
+  padding: 0.68rem 0.74rem;
+  border-radius: var(--radius-md);
+  background: #fff5ef;
+  color: #5a4039;
+  font-size: 0.77rem;
+  line-height: 1.5;
+}
+
+.nuface-protocol-sources {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nuface-protocol-sources a {
+  font-size: 0.72rem;
+  color: #206469;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.nuface-booking-flow {
+  background: #ffffff;
+}
+
+.nuface-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.nuface-flow-grid article {
+  background: linear-gradient(155deg, #f8fcfc, #f4efec);
+  border: 1px solid rgba(43, 129, 131, 0.22);
+  border-radius: 20px;
+  padding: 1.2rem;
+}
+
+.nuface-flow-grid span {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #2b8183;
+  line-height: 1;
+}
+
+.nuface-flow-grid h3 {
+  margin-top: 0.55rem;
+  margin-bottom: 0.3rem;
+  color: #142e32;
+}
+
+.nuface-flow-grid p {
+  font-size: var(--text-sm);
+  color: #3f5960;
+}
+
+.nuface-team {
+  background: linear-gradient(180deg, #fbfefe, #f6f1ed);
+}
+
+.nuface-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.nuface-team-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(43, 129, 131, 0.2);
+  overflow: hidden;
+  box-shadow: 0 16px 28px rgba(26, 52, 56, 0.08);
+}
+
+.nuface-team-card img {
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  object-fit: cover;
+}
+
+.nuface-team-body {
+  padding: 1.1rem;
+}
+
+.nuface-team-body h3 {
+  font-size: var(--text-lg);
+  color: #183235;
+}
+
+.nuface-team-role {
+  margin-top: 0.25rem;
+  color: #2b8183;
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+
+.nuface-team-creds {
+  color: #516a6f;
+  font-size: var(--text-xs);
+  margin-top: 0.2rem;
+}
+
+.nuface-team-body ul {
+  margin-top: 0.7rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.nuface-team-body li {
+  color: #355056;
+  font-size: var(--text-xs);
+  position: relative;
+  padding-left: 0.86rem;
+}
+
+.nuface-team-body li::before {
+  content: '';
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: #5a3732;
+  position: absolute;
+  left: 0;
+  top: 0.39rem;
+}
+
+.nuface-gallery {
+  background: #f7fbfb;
+}
+
+.nuface-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.nuface-gallery-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 260px;
+  border: 1px solid rgba(43, 129, 131, 0.2);
+  box-shadow: 0 16px 28px rgba(23, 51, 54, 0.12);
+}
+
+.nuface-gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nuface-gallery-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 28, 31, 0.78) 100%);
+  color: #ffffff;
+}
+
+.nuface-gallery-overlay h3 {
+  font-size: var(--text-base);
+}
+
+.nuface-gallery-overlay p {
+  font-size: var(--text-xs);
+  opacity: 0.92;
+}
+
+.nuface-testimonials {
+  background: #fff;
+}
+
+.nuface-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+}
+
+.nuface-testimonial-card {
+  background: linear-gradient(160deg, #f7fbfb, #f8f1ee);
+  border-radius: 20px;
+  border: 1px solid rgba(90, 55, 50, 0.22);
+  padding: 1.1rem;
+}
+
+.nuface-stars {
+  color: #b67932;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.55rem;
+}
+
+.nuface-testimonial-card p {
+  font-size: var(--text-sm);
+  color: #2f474a;
+  line-height: 1.65;
+}
+
+.nuface-testimonial-card h3 {
+  margin-top: 0.72rem;
+  font-size: var(--text-base);
+  color: #143236;
+}
+
+.nuface-testimonial-card span {
+  font-size: var(--text-xs);
+  color: #516a70;
+}
+
+.nuface-cta {
+  background: linear-gradient(135deg, #2b8183 0%, #1f6267 46%, #5a3732 100%);
+  border-radius: 28px;
+  padding: var(--space-3xl) var(--space-2xl);
+  text-align: center;
+  color: #f8ffff;
+}
+
+.nuface-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  margin-bottom: 0.45rem;
+}
+
+.nuface-cta p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: var(--text-base);
+  opacity: 0.95;
+}
+
+.nuface-cta-actions {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.nuface-cta .btn-outline {
+  border-color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
+}
+
+.nuface-cta .btn-outline:hover {
+  background: #ffffff;
+  color: #1d5c60;
+}
+
+@media (max-width: 1100px) {
+  .nuface-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nuface-hero-visual {
+    max-width: 620px;
+  }
+
+  .nuface-specialty-grid,
+  .nuface-team-grid,
+  .nuface-gallery-grid,
+  .nuface-flow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .nuface-hero {
+    padding: 116px 0 64px;
+  }
+
+  .nuface-metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nuface-specialty-grid,
+  .nuface-team-grid,
+  .nuface-gallery-grid,
+  .nuface-flow-grid,
+  .nuface-protocol-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .nuface-flow-grid span {
+    font-size: 1.4rem;
+  }
+
+  .nuface-hero-actions .btn {
+    width: 100%;
+  }
+
+  .nuface-specialty-actions .btn,
+  .nuface-featured-card .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nuface-hero-copy h1 {
+    letter-spacing: -0.01em;
+  }
+
+  .nuface-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nuface-category-tabs {
+    justify-content: stretch;
+  }
+
+  .nuface-category-tab {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nuface-cta {
+    padding: var(--space-2xl) var(--space-lg);
   }
 }

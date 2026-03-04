@@ -1,0 +1,12 @@
+<svg width="720" height="900" viewBox="0 0 720 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Doctor portrait placeholder">
+  <rect width="720" height="900" rx="56" fill="#5B3733"/>
+  <path d="M0 708C86 630 184 584 306 584H720V900H0V708Z" fill="#7B4E45"/>
+  <circle cx="360" cy="296" r="142" fill="#E5C8AF"/>
+  <path d="M216 303C216 223 281 158 361 158H389C469 158 534 223 534 303V364C534 442 470 506 392 506H358C280 506 216 442 216 364V303Z" fill="#EFD5BE"/>
+  <path d="M210 294C210 200 286 124 380 124C474 124 550 200 550 294V340H210V294Z" fill="#2D2321"/>
+  <path d="M287 547H456V645C456 691 419 728 373 728C326 728 287 689 287 642V547Z" fill="#EFD5BE"/>
+  <path d="M124 848C124 725 223 626 346 626H396C519 626 618 725 618 848V900H124V848Z" fill="#F3F1F2"/>
+  <path d="M283 631H460L422 900H318L283 631Z" fill="#DDD8DC"/>
+  <rect x="140" y="118" width="440" height="72" rx="36" fill="#FFF8F2" fill-opacity="0.17"/>
+  <text x="360" y="165" fill="#FFF8F2" font-family="Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle">Doctor Image Slot</text>
+</svg>

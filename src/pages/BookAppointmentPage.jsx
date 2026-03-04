@@ -4,6 +4,7 @@ import { SERVICES, TIME_SLOTS } from "../config/services";
 import { getNextDays, formatDate } from '../utils/dateUtils';
 import { validateBookingForm } from "../utils/validators";
 import { sendBookingConfirmation } from '../utils/whatsapp';
+import { addAppointment } from '../utils/googleSheets';
 
 const STEPS = ["Service", "Date & Time", "Details"];
 
@@ -12,6 +13,7 @@ export default function BookAppointmentPage() {
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const [formData, setFormData] = useState({
     serviceType: '',
@@ -55,16 +57,19 @@ export default function BookAppointmentPage() {
 
   const handleBack = () => {
     setErrors({});
+    setSubmitStatus({ type: '', message: '' });
     setStep(Math.max(0, step - 1));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const result = validateBookingForm(formData);
     if (!result.valid) return setErrors(result.errors);
 
     setSubmitting(true);
-    // Directly go to WhatsApp
+    setSubmitStatus({ type: '', message: '' });
+
+    // Keep WhatsApp confirmation immediate.
     sendBookingConfirmation({
       patientName: formData.patientName,
       phoneNumber: formData.phoneNumber,
@@ -72,7 +77,36 @@ export default function BookAppointmentPage() {
       appointmentTime: formData.appointmentTime,
       serviceType: formData.serviceType,
     });
-    setSubmitting(false);
+
+    try {
+      const syncResult = await addAppointment({
+        patientName: formData.patientName,
+        phoneNumber: formData.phoneNumber,
+        appointmentDate: formData.appointmentDate,
+        appointmentTime: formData.appointmentTime,
+        serviceType: formData.serviceType,
+        notes: formData.notes,
+      });
+
+      if (syncResult?.success === false) {
+        setSubmitStatus({
+          type: 'error',
+          message: 'WhatsApp opened, but dashboard sync failed. Please call the clinic to confirm.',
+        });
+      } else {
+        setSubmitStatus({
+          type: 'success',
+          message: 'WhatsApp opened and your request was logged for reception follow-up.',
+        });
+      }
+    } catch {
+      setSubmitStatus({
+        type: 'error',
+        message: 'WhatsApp opened, but we could not sync your request. Please call the clinic to confirm.',
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -425,6 +459,27 @@ export default function BookAppointmentPage() {
                 <p className="subtitle">
                   Please fill in your information to connect via WhatsApp.
                 </p>
+                {submitStatus.message && (
+                  <p
+                    style={{
+                      marginBottom: "var(--space-lg)",
+                      padding: "10px 12px",
+                      borderRadius: "var(--radius-md)",
+                      fontSize: "var(--text-sm)",
+                      fontWeight: "600",
+                      background:
+                        submitStatus.type === "success"
+                          ? "var(--color-success-light)"
+                          : "var(--color-danger-light)",
+                      color:
+                        submitStatus.type === "success"
+                          ? "#065f46"
+                          : "#991b1b",
+                    }}
+                  >
+                    {submitStatus.message}
+                  </p>
+                )}
 
                 <form onSubmit={handleSubmit}>
                   <div

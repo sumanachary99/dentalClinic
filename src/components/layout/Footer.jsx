@@ -7,10 +7,10 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <h3>🦷 {CLINIC_INFO.name}</h3>
+            <h3>🦷 {CLINIC_INFO.shortName || CLINIC_INFO.name}</h3>
             <p>
-              Your trusted dental care partner. We provide world-class dental treatments 
-              with a gentle touch, modern technology, and a commitment to your beautiful smile.
+              Integrated care across dental treatment, skincare and laser procedures, hair restoration,
+              and cosmetic planning with clear patient guidance.
             </p>
             <div className="footer-social">
               <a href={CLINIC_INFO.socialLinks.instagram} aria-label="Instagram">📸</a>
@@ -34,12 +34,12 @@ export default function Footer() {
           <div className="footer-column">
             <h4>Services</h4>
             <ul>
-              <li><Link to="/services">Dental Consultation</Link></li>
-              <li><Link to="/services">Teeth Cleaning</Link></li>
-              <li><Link to="/services">Root Canal (RCT)</Link></li>
-              <li><Link to="/services">Dental Implants</Link></li>
-              <li><Link to="/services">Braces & Aligners</Link></li>
-              <li><Link to="/services">Teeth Whitening</Link></li>
+              <li><Link to="/services">Dental Treatment</Link></li>
+              <li><Link to="/services">Skincare & Laser</Link></li>
+              <li><Link to="/services">Acne & Pigmentation Care</Link></li>
+              <li><Link to="/services">Hair Transplant</Link></li>
+              <li><Link to="/services">PRP Hair Therapy</Link></li>
+              <li><Link to="/services">Cosmetic Consultation</Link></li>
             </ul>
           </div>
 
@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} {CLINIC_INFO.name}. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} {CLINIC_INFO.shortName || CLINIC_INFO.name}. All rights reserved.</span>
           <span>Made with ❤️ for healthier smiles</span>
         </div>
       </div>

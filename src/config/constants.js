@@ -1,12 +1,15 @@
 // App-wide constants
 export const CLINIC_INFO = {
-  name: 'Suman Dental Clinic',
-  tagline: 'Your Smile, Our Priority',
+  name: 'Nuface Sumukha Clinic - Dental / Face / Hair / Cosmetic',
+  shortName: 'Nuface Sumukha Clinic',
+  tagline: 'Dental | Face | Hair | Cosmetic',
+  slogan: 'Your Smile, Our Happiness',
   phone: '9110443004',
   whatsappNumber: '919110443004', // with country code
-  email: 'hello@sumandental.in',
-  address: 'Ground Floor, Opposite City Mall, MG Road, Bengaluru, Karnataka 560001',
-  city: 'Bengaluru',
+  email: 'hello@nufaceclinic.in',
+  address: 'Sampige Road, 9th Cross Rd, Hassan, Karnataka 573201',
+  mapLink: 'https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201',
+  city: 'Hassan',
   timings: {
     weekdays: '9:00 AM – 9:00 PM',
     saturday: '9:00 AM – 9:00 PM',
@@ -16,72 +19,72 @@ export const CLINIC_INFO = {
     instagram: '#',
     facebook: '#',
     youtube: '#',
-    google: '#',
+    google: 'https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201',
   },
 };
 
 export const STATS = [
-  { value: 5000, suffix: '+', label: 'Happy Patients', icon: '😊' },
-  { value: 8, suffix: '+', label: 'Years Experience', icon: '🏆' },
-  { value: 15, suffix: '+', label: 'Expert Doctors', icon: '👨‍⚕️' },
+  { value: 5000, suffix: '+', label: 'Happy Clients', icon: '😊' },
+  { value: 9, suffix: '+', label: 'Years Experience', icon: '🏆' },
+  { value: 12000, suffix: '+', label: 'Procedures Delivered', icon: '✅' },
   { value: 4.8, suffix: '/5', label: 'Google Rating', icon: '⭐' },
 ];
 
 export const TESTIMONIALS = [
   {
     id: 1,
-    name: 'Priya Sharma',
-    text: 'Excellent experience! The doctors were very professional and gentle. My root canal was completely painless. Highly recommend SmileCare Dental!',
+    name: 'Priya S.',
+    text: 'I visited for a painful molar and the root canal process was smooth. The team explained each step and the pain settled quickly after treatment.',
     rating: 5,
     service: 'Root Canal Treatment',
   },
   {
     id: 2,
-    name: 'Rajesh Kumar',
-    text: 'Best dental clinic in the area. The staff is very friendly and the clinic is super clean. Got my teeth cleaned and it looks amazing!',
+    name: 'Arjun K.',
+    text: 'The clinic feels modern and organized. I booked through WhatsApp and the reception followed up exactly on time.',
     rating: 5,
-    service: 'Teeth Cleaning',
+    service: 'Dental Consultation',
   },
   {
     id: 3,
-    name: 'Ananya Reddy',
-    text: 'My kids love coming here! The pediatric dentist is so patient and kind. The whole experience was stress-free for both me and my children.',
+    name: 'Sahana R.',
+    text: 'I started laser skin sessions here and appreciated how clearly they explained sun-care and recovery. Very professional setup.',
     rating: 5,
-    service: 'Kids Dentistry',
+    service: 'Laser Skin Care',
   },
   {
     id: 4,
-    name: 'Mohammed Faisal',
-    text: 'Got my dental implant done here. The quality of work is outstanding. Dr. was very thorough in explaining the entire procedure.',
+    name: 'Rahul M.',
+    text: 'The hair transplant planning felt realistic and transparent. The post-procedure timeline and follow-up support were clearly documented.',
     rating: 5,
-    service: 'Dental Implant',
+    service: 'Hair Restoration',
   },
 ];
 
 export const FAQ_DATA = [
   {
     q: 'What are the clinic timings?',
-    a: 'We are open Monday to Saturday from 9 AM to 9 PM, and Sunday from 10 AM to 7 PM. Prior appointments are recommended for early morning and evening slots.',
+    a: 'We are open Monday to Saturday from 9 AM to 9 PM, and Sunday from 10 AM to 7 PM. Prior appointments are recommended for peak evening slots.',
   },
   {
-    q: 'Do I need to book an appointment in advance?',
-    a: 'While walk-ins are welcome, we recommend booking an appointment to ensure you get your preferred time slot and minimal waiting time.',
+    q: 'Do you handle only dental treatments?',
+    a: 'No. We provide dental and implant care, hair restoration services, and selected laser skin treatments at the same center.',
   },
   {
-    q: 'What payment methods do you accept?',
-    a: 'We accept Cash, UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, and Net Banking. EMI options are available for major treatments.',
+    q: 'Can I see pre and post procedural instructions before booking?',
+    a: 'Yes. We provide a pre/post care section on the website for key procedures. Final instructions are always personalized by the treating doctor.',
   },
   {
-    q: 'Is the treatment painful?',
-    a: 'We use modern anesthesia techniques and advanced equipment to ensure all procedures are as painless as possible. Our doctors prioritize patient comfort.',
+    q: 'Will my appointment be visible to reception after form submission?',
+    a: 'Yes. Appointment submissions are synced to our Google Sheets workflow when configured, with local fallback storage as backup.',
   },
   {
-    q: 'Do you provide emergency dental services?',
-    a: 'Yes! We handle dental emergencies including severe toothaches, broken teeth, and infections. Call us immediately and we will prioritize your appointment.',
+    q: 'How do I book quickly?',
+    a: 'Select a service, date and time, then submit your details. You will be redirected to WhatsApp for quick confirmation and conversation with our team.',
   },
   {
     q: 'What safety measures do you follow?',
-    a: 'We follow strict sterilization protocols, use disposable instruments where possible, and maintain the highest hygiene standards as per dental council guidelines.',
+    a: 'We follow strict sterilization, treatment-specific consent protocols, and documented post-procedure care plans for safer recovery.',
   },
 ];
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { APPOINTMENT_STATUS, CLINIC_INFO } from '../config/constants';
 import { getAppointments, updateAppointmentStatus } from '../utils/googleSheets';
 import { sendFollowUpMessage } from '../utils/whatsapp';
@@ -19,15 +19,12 @@ export default function DashboardPage() {
     setAppointments(Array.isArray(data) ? data : []);
   }, [dateFilter]);
 
-  useEffect(() => {
-    if (authenticated) loadAppointments();
-  }, [authenticated, loadAppointments]);
-
-  const handlePin = (e) => {
+  const handlePin = async (e) => {
     e.preventDefault();
     if (pin === DEFAULT_PIN) {
       setAuthenticated(true);
       setPinError('');
+      await loadAppointments();
     } else {
       setPinError('Incorrect PIN. Default: 1234');
     }

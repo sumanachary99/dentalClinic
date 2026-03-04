@@ -1,263 +1,380 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CLINIC_INFO, STATS, TESTIMONIALS, FAQ_DATA } from '../config/constants';
+import { CLINIC_INFO, TESTIMONIALS } from '../config/constants';
 import { SERVICES } from '../config/services';
+import {
+  BRAND_ASSETS,
+  CARE_PROTOCOLS,
+  CLINIC_GALLERY,
+  EXPERIENCE_POINTS,
+  SPECIALTY_PILLARS,
+  TEAM_MEMBERS,
+} from '../config/landingContent';
 import { getClinicWhatsAppLink } from '../utils/whatsapp';
 
-function useCountUp(target, duration = 2000) {
+function useCountUp(target, duration = 1500) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
-      { threshold: 0.3 }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setStarted(true);
+    }, { threshold: 0.35 });
+
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!started) return;
-    let start = 0;
-    const increment = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start * 10) / 10);
-      }
-    }, 16);
-    return () => clearInterval(timer);
-  }, [started, target, duration]);
+    if (!started) return undefined;
+
+    const startTime = performance.now();
+    const animate = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(target * eased);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+
+    const frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [duration, started, target]);
 
   return { count, ref };
 }
 
-function FAQItem({ faq }) {
-  const [open, setOpen] = useState(false);
+function MetricCard({ item }) {
+  const numericValue = Number.parseFloat(item.value.replace(/[^0-9.]/g, ''));
+  const { count, ref } = useCountUp(Number.isNaN(numericValue) ? 0 : numericValue);
+  const formatted = item.value.includes('/') ? count.toFixed(1) : Math.round(count).toString();
+
   return (
-    <div className={`faq-item ${open ? 'open' : ''}`}>
-      <button className="faq-question" onClick={() => setOpen(!open)}>
-        <span>{faq.q}</span>
-        <span className="faq-icon">+</span>
-      </button>
-      <div className="faq-answer">
-        <div className="faq-answer-inner">{faq.a}</div>
+    <article className="nuface-metric-card" ref={ref}>
+      <div className="nuface-metric-value">
+        {formatted}
+        {item.value.includes('+') ? '+' : item.value.includes('/5') ? '/5' : ''}
       </div>
-    </div>
+      <p className="nuface-metric-label">{item.label}</p>
+      <p className="nuface-metric-note">{item.note}</p>
+    </article>
   );
 }
 
-function StatItem({ stat }) {
-  const { count, ref } = useCountUp(stat.value);
+function ProtocolCard({ protocol }) {
   return (
-    <div className="stat-item" ref={ref}>
-      <div className="stat-icon">{stat.icon}</div>
-      <div className="stat-value">
-        {Number.isInteger(stat.value) ? Math.floor(count) : count.toFixed(1)}{stat.suffix}
+    <article className="nuface-protocol-card">
+      <div className="nuface-protocol-header">
+        <span className="nuface-protocol-dept">{protocol.department}</span>
+        <h3>{protocol.title}</h3>
       </div>
-      <div className="stat-label">{stat.label}</div>
-    </div>
+
+      <div className="nuface-protocol-columns">
+        <div>
+          <h4>Pre-Procedure</h4>
+          <ul>
+            {protocol.pre.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4>Post-Procedure</h4>
+          <ul>
+            {protocol.post.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p className="nuface-protocol-caution">{protocol.caution}</p>
+      <div className="nuface-protocol-sources">
+        {protocol.sources.map((source) => (
+          <a key={source.url} href={source.url} target="_blank" rel="noopener noreferrer">
+            {source.label}
+          </a>
+        ))}
+      </div>
+    </article>
   );
 }
 
 export default function HomePage() {
-  const popularServices = SERVICES.filter(s => s.popular).slice(0, 6);
+  const [activeCategory, setActiveCategory] = useState('dental');
+  const categoryServices = SERVICES.filter((service) => service.category === activeCategory);
 
   return (
-    <main>
-      {/* Hero */}
-      <section className="hero">
+    <main className="nuface-home">
+      <section className="nuface-hero">
         <div className="container">
-          <div className="hero-content">
-            <div className="hero-text">
-              <div className="hero-badge">✨ Trusted by 5000+ patients</div>
-              <h1 className="hero-title">
-                Your Perfect Smile <br />
-                <span className="highlight">Starts Here</span>
+          <div className="nuface-hero-grid">
+            <div className="nuface-hero-copy">
+              <p className="nuface-hero-badge">{CLINIC_INFO.shortName}</p>
+              <h1>
+                Face. Hair. Smile.
+                <span> One Clinic, Structured Care.</span>
               </h1>
-              <p className="hero-description">
-                Experience world-class dental care with gentle hands and modern technology. 
-                From routine check-ups to advanced treatments — we make every visit comfortable.
+              <p className="nuface-hero-description">
+                {CLINIC_INFO.shortName} brings dental precision, hair restoration planning, and laser skin protocols
+                into one coordinated experience with transparent pre and post procedural guidance.
               </p>
-              <div className="hero-buttons">
+
+              <div className="nuface-hero-actions">
                 <Link to="/book" className="btn btn-accent btn-lg">
-                  📅 Book Appointment
+                  Book Appointment
                 </Link>
                 <a href={getClinicWhatsAppLink()} className="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
-                  💬 WhatsApp Us
+                  Chat on WhatsApp
+                </a>
+                <a href="#pre-post-guides" className="btn btn-primary btn-lg">
+                  View Pre/Post Guides
                 </a>
               </div>
-              <div className="hero-stats">
-                {STATS.slice(0, 3).map((stat, i) => (
-                  <div className="hero-stat" key={i}>
-                    <div className="hero-stat-value">{stat.value}{stat.suffix}</div>
-                    <div className="hero-stat-label">{stat.label}</div>
-                  </div>
+
+              <p className="nuface-hero-contact">
+                Call us at <a href={`tel:${CLINIC_INFO.phone}`}>{CLINIC_INFO.phone}</a> | Open till 9:00 PM
+              </p>
+
+              <div className="nuface-metrics-grid">
+                {EXPERIENCE_POINTS.map((item) => (
+                  <MetricCard key={item.label} item={item} />
                 ))}
               </div>
             </div>
 
-            <div className="hero-visual">
-              <div className="hero-image-card">
-                <div style={{
-                  width: '100%',
-                  height: '400px',
-                  borderRadius: 'var(--radius-xl)',
-                  background: 'linear-gradient(135deg, #ecfeff 0%, #cffafe 50%, #a5f3fc 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '8rem',
-                }}>
-                  😁
-                </div>
-                <div className="hero-float-card top-right">
-                  <div className="icon">⭐</div>
-                  <div className="text">
-                    <strong>4.8/5 Rating</strong>
-                    <span>Google Reviews</span>
-                  </div>
-                </div>
-                <div className="hero-float-card bottom-left">
-                  <div className="icon">🏥</div>
-                  <div className="text">
-                    <strong>Modern Clinic</strong>
-                    <span>Latest Equipment</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Preview */}
-      <section className="section" style={{ background: 'var(--color-white)' }}>
-        <div className="container">
-          <h2 className="section-title">Our <span className="gradient-text">Services</span></h2>
-          <p className="section-subtitle">
-            Comprehensive dental care under one roof — from preventive to advanced treatments.
-          </p>
-          <div className="services-grid">
-            {popularServices.map((service) => (
-              <div className="service-card" key={service.id}>
-                {service.popular && <span className="popular-badge">Popular</span>}
-                <div className="service-card-icon">{service.icon}</div>
-                <h3>{service.name}</h3>
-                <p>{service.description}</p>
-                <div className="service-card-meta">
-                  <span className="service-card-price">{service.price}</span>
-                  <span className="service-card-duration">🕐 {service.duration}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: 'var(--space-2xl)' }}>
-            <Link to="/services" className="btn btn-outline">View All Services →</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="stats-grid">
-            {STATS.map((stat, i) => (
-              <StatItem key={i} stat={stat} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title">Why Choose <span className="gradient-text">{CLINIC_INFO.name}</span></h2>
-          <p className="section-subtitle">
-            We combine expertise, technology, and compassion for the best dental experience.
-          </p>
-          <div className="about-features">
-            <div className="about-feature card">
-              <div className="icon">🛡️</div>
-              <h3>Strict Sterilization</h3>
-              <p>Multi-step sterilization process following international standards for your complete safety.</p>
-            </div>
-            <div className="about-feature card">
-              <div className="icon">💡</div>
-              <h3>Latest Technology</h3>
-              <p>Digital X-rays, laser dentistry, and advanced equipment for precise, painless treatments.</p>
-            </div>
-            <div className="about-feature card">
-              <div className="icon">👨‍⚕️</div>
-              <h3>Expert Doctors</h3>
-              <p>Highly qualified dentists with years of experience in specialized dental procedures.</p>
-            </div>
-            <div className="about-feature card">
-              <div className="icon">💰</div>
-              <h3>Affordable Pricing</h3>
-              <p>Quality dental care at transparent prices. EMI options available for major treatments.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section" style={{ background: 'var(--color-white)' }}>
-        <div className="container">
-          <h2 className="section-title">Patient <span className="gradient-text">Testimonials</span></h2>
-          <p className="section-subtitle">
-            Don't just take our word for it — hear from our happy patients.
-          </p>
-          <div className="testimonials-grid">
-            {TESTIMONIALS.map((t) => (
-              <div className="testimonial-card" key={t.id}>
-                <div className="testimonial-stars">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <span key={i}>⭐</span>
+            <div className="nuface-hero-visual">
+              <article className="nuface-brand-panel">
+                <img src={BRAND_ASSETS.logo} alt="NUFACE clinic mark" />
+                <h2>{CLINIC_INFO.shortName}</h2>
+                <p>{CLINIC_INFO.slogan || CLINIC_INFO.tagline}</p>
+                <div className="nuface-brand-tags">
+                  {SPECIALTY_PILLARS.map((pillar) => (
+                    <span key={pillar.id}>
+                      {pillar.icon} {pillar.title}
+                    </span>
                   ))}
                 </div>
-                <p className="testimonial-text">"{t.text}"</p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">{t.name[0]}</div>
-                  <div className="testimonial-author-info">
-                    <h4>{t.name}</h4>
-                    <span>{t.service}</span>
-                  </div>
+              </article>
+              <article className="nuface-note-card">
+                <h3>Before You Book</h3>
+                <p>
+                  Every major treatment page includes what to do before and after your procedure so patients and
+                  families can prepare confidently.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section nuface-specialties">
+        <div className="container">
+          <h2 className="section-title">
+            Multi-Specialty <span className="gradient-text">Clinical Tracks</span>
+          </h2>
+          <p className="section-subtitle">
+            Select the care track that matches your concern. Our team aligns diagnosis, procedure planning, and
+            follow-up within one system.
+          </p>
+          <div className="nuface-specialty-grid">
+            {SPECIALTY_PILLARS.map((pillar) => (
+              <article className="nuface-specialty-card" key={pillar.id}>
+                <div className="nuface-specialty-icon">{pillar.icon}</div>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.subtitle}</p>
+                <ul>
+                  {pillar.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <div className="nuface-specialty-actions">
+                  <a
+                    href="#category-treatments"
+                    className="btn btn-primary btn-sm"
+                    onClick={() => setActiveCategory(pillar.id)}
+                  >
+                    View All {pillar.title}
+                  </a>
+                  <Link to={`/book?service=${pillar.bookingServiceId}`} className="btn btn-outline btn-sm">
+                    Quick Book
+                  </Link>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="section">
+      <section className="section nuface-services-preview" id="category-treatments">
         <div className="container">
-          <h2 className="section-title">Frequently Asked <span className="gradient-text">Questions</span></h2>
-          <p className="section-subtitle">Got questions? We've got answers.</p>
-          <div className="faq-list">
-            {FAQ_DATA.map((faq, i) => (
-              <FAQItem key={i} faq={faq} />
+          <h2 className="section-title">
+            Category <span className="gradient-text">Treatment Explorer</span>
+          </h2>
+          <p className="section-subtitle">
+            Click a treatment category and see all services for that department instantly.
+          </p>
+          <div className="nuface-category-tabs">
+            {SPECIALTY_PILLARS.map((pillar) => (
+              <button
+                key={pillar.id}
+                className={`nuface-category-tab ${activeCategory === pillar.id ? 'active' : ''}`}
+                onClick={() => setActiveCategory(pillar.id)}
+                aria-pressed={activeCategory === pillar.id}
+              >
+                <span>{pillar.icon}</span>
+                {pillar.title}
+              </button>
+            ))}
+          </div>
+          <div className="nuface-featured-grid">
+            {categoryServices.map((service) => (
+              <article className="nuface-featured-card" key={service.id}>
+                <span className="nuface-featured-icon">{service.icon}</span>
+                <h3>{service.name}</h3>
+                <p>{service.description}</p>
+                <div className="nuface-featured-meta">
+                  <span>{service.price}</span>
+                  <span>{service.duration}</span>
+                </div>
+                <Link to={`/book?service=${service.id}`} className="btn btn-primary btn-sm">
+                  Book This Service
+                </Link>
+              </article>
+            ))}
+          </div>
+          <div className="nuface-section-action">
+            <Link to="/services" className="btn btn-outline">
+              Explore Full Service List
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section nuface-protocols" id="pre-post-guides">
+        <div className="container">
+          <h2 className="section-title">
+            Pre-Procedure &amp; Post-Procedure <span className="gradient-text">Guidance</span>
+          </h2>
+          <p className="section-subtitle">
+            These are patient-friendly preparation and recovery notes. Final instructions always come from your treating doctor after
+            consultation and examination.
+          </p>
+          <div className="nuface-protocol-grid">
+            {CARE_PROTOCOLS.map((protocol) => (
+              <ProtocolCard key={protocol.id} protocol={protocol} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      <section className="section nuface-booking-flow">
+        <div className="container">
+          <h2 className="section-title">
+            Smart Appointment <span className="gradient-text">Flow</span>
+          </h2>
+          <div className="nuface-flow-grid">
+            <article>
+              <span>01</span>
+              <h3>Choose Service & Slot</h3>
+              <p>Patients select treatment type, date, and preferred time directly on the booking page.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Submit Details</h3>
+              <p>Contact details and notes are captured for clinic team review and scheduling context.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Sync + WhatsApp</h3>
+              <p>Request is synced to the appointment log and WhatsApp opens for immediate confirmation with reception.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section nuface-team">
+        <div className="container">
+          <h2 className="section-title">
+            Meet The <span className="gradient-text">Doctors</span>
+          </h2>
+          <p className="section-subtitle">
+            Team cards are ready for your final doctor write-up and photos. Current images are placeholders so we can ship layout now.
+          </p>
+          <div className="nuface-team-grid">
+            {TEAM_MEMBERS.map((member) => (
+              <article className="nuface-team-card" key={member.id}>
+                <img src={member.image} alt={member.name} />
+                <div className="nuface-team-body">
+                  <h3>{member.name}</h3>
+                  <p className="nuface-team-role">{member.role}</p>
+                  <p className="nuface-team-creds">{member.credentials}</p>
+                  <ul>
+                    {member.expertise.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section nuface-gallery">
+        <div className="container">
+          <h2 className="section-title">
+            Clinic <span className="gradient-text">Look & Feel</span>
+          </h2>
+          <p className="section-subtitle">Replace these placeholders with your real clinic photos. Live location link opens on Google Maps.</p>
+          <div className="nuface-gallery-grid">
+            {CLINIC_GALLERY.map((item) => (
+              <article className="nuface-gallery-card" key={item.id}>
+                <img src={item.image} alt={item.title} />
+                <div className="nuface-gallery-overlay">
+                  <h3>{item.title}</h3>
+                  <p>{item.caption}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="nuface-section-action">
+            <a href={BRAND_ASSETS.galleryLink} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Open Google Maps Location
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section nuface-testimonials">
+        <div className="container">
+          <h2 className="section-title">
+            Patient <span className="gradient-text">Stories</span>
+          </h2>
+          <div className="nuface-testimonial-grid">
+            {TESTIMONIALS.map((testimonial) => (
+              <article className="nuface-testimonial-card" key={testimonial.id}>
+                <div className="nuface-stars">{Array.from({ length: testimonial.rating }).map((_, i) => <span key={i}>★</span>)}</div>
+                <p>"{testimonial.text}"</p>
+                <h3>{testimonial.name}</h3>
+                <span>{testimonial.service}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
-          <div className="cta-banner">
-            <h2>Ready for Your Perfect Smile?</h2>
-            <p>Book your appointment today and take the first step towards better dental health.</p>
-            <div style={{ display: 'flex', gap: 'var(--space-md)', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link to="/book" className="btn btn-white btn-lg">📅 Book Appointment</Link>
-              <a href={`tel:${CLINIC_INFO.phone}`} className="btn btn-outline btn-lg" style={{ borderColor: 'white', color: 'white' }}>
-                📞 Call {CLINIC_INFO.phone}
+          <div className="nuface-cta">
+            <h2>Ready To Plan Your Visit?</h2>
+            <p>Book a slot now and our reception team will confirm your treatment pathway and preparation checklist.</p>
+            <div className="nuface-cta-actions">
+              <Link to="/book" className="btn btn-white btn-lg">
+                Book Appointment
+              </Link>
+              <a href={`tel:${CLINIC_INFO.phone}`} className="btn btn-outline btn-lg">
+                Call {CLINIC_INFO.phone}
               </a>
             </div>
           </div>
