@@ -176,30 +176,34 @@ export const CARE_PROTOCOLS = [
 export const TEAM_MEMBERS = [
   {
     id: 'doctor-1',
-    name: 'Dr. Manoj Kumar',
+    name: 'Dr Manoj Kumar Jain',
     role: 'Maxillofacial Surgeon & Implantologist',
-    credentials: 'BDS, MDS',
+    credentials: 'MDS(PGI), FIBOMS, FAM (Germany), FCCS (California)',
     description:
-      'Passionate Indian board Certified Maxillofacial Surgeon, Implantologist, Aesthetic Physician & Trichologist … AIPG 15th Rank …. Serving since 2008.',
+      'With nearly 18 years of experience DR M K Jain is well established brand and his clinic Sumukha Nuface is most preferred reference centre for complicated dental treatments, medically compromised patients, oral & maxillofacial surgeries. He has operated more than 1000 major surgeries... including maxillofacial trauma, pathologies like infection, cyst & tumors. Rehabilitation with treatment like dental implants, lasers, Scar Revisions etc.',
     expertise: [
       'Maxillofacial Surgery',
       'Dental Implantology',
-      'Full Mouth Rehabilitation',
-      'Advanced Bone Grafting',
+      'Aesthetic Medicine & Surgery',
+      'Trichologist',
+      'Orofacial Cosmetology (PRP, Lasers, Botox)',
     ],
     image: doctorManoj,
   },
   {
     id: 'doctor-2',
-    name: 'Dr. Sheetal',
-    role: 'Aesthetic Physician & Cosmetologist',
-    credentials: 'MBBS, PGD (Medical Cosmetology)',
+    name: 'Dr Sheetal Jain',
+    role: 'Periodontist & Implantologist',
+    credentials: 'BDS, MDS(2008)',
     image: doctorSheetal,
+    description:
+      'With nearly 18 years of experience DR Sheetal Jain is well established brand... expert in full mouth rehabilitation, gum surgeries & dental implants. She has performed enormous single sitting Root canal treatments, periodontal surgeries, and more than 500 implant placements.',
     expertise: [
-      'Laser Skin Treatments',
-      'Hair Restoration Protocols',
-      'Medical Peel Systems',
-      'Anti-Aging & Injectables',
+      'Periodontology & Implants',
+      'Full Mouth Rehabilitation',
+      'Root Canal Specialist',
+      'Gum Surgeries',
+      'Certified Aligner Provider',
     ],
   },
 ];

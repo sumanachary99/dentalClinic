@@ -25,7 +25,7 @@ export const CLINIC_INFO = {
 
 export const STATS = [
   { value: 5000, suffix: '+', label: 'Happy Clients', icon: '😊' },
-  { value: 9, suffix: '+', label: 'Years Experience', icon: '🏆' },
+  { value: 17, suffix: '+', label: 'Years Experience', icon: '🏆' },
   { value: 12000, suffix: '+', label: 'Procedures Delivered', icon: '✅' },
   { value: 4.8, suffix: '/5', label: 'Google Rating', icon: '⭐' },
 ];
