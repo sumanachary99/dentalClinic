@@ -177,6 +177,153 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Procedure Spotlight */}
+      <section className="section nuface-procedure-spotlight">
+        <div className="container">
+          <h2 className="section-title">
+            Dental Procedures,{' '}
+            <span className="gradient-text">Explained Simply</span>
+          </h2>
+          <p className="section-subtitle">
+            Understanding your treatment helps you walk in confident. Here's a
+            quick look at three of our most common dental procedures.
+          </p>
+
+          <div className="procedure-cards-grid">
+
+            {/* Root Canal */}
+            <article className="procedure-card procedure-card--blue">
+              <div className="procedure-card-header">
+                <span className="procedure-icon">🦷</span>
+                <span className="procedure-badge">Tooth Saving</span>
+              </div>
+              <h3>Root Canal Treatment</h3>
+              <p className="procedure-tagline">
+                When decay reaches the nerve, a root canal is the hero that
+                saves your natural tooth! Root canals <strong>relieve pain</strong>, they don't cause it.
+              </p>
+              <ol className="procedure-steps">
+                <li>
+                  <span className="step-num">1</span>
+                  <div>
+                    <strong>Remove Decay</strong>
+                    <p>Infected tissue and decay are carefully cleared from the tooth.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">2</span>
+                  <div>
+                    <strong>Seal the Canals</strong>
+                    <p>Canals are sealed with a special material to block bacteria. 🛡️</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">3</span>
+                  <div>
+                    <strong>Full Restoration</strong>
+                    <p>A crown is placed to fully restore the tooth's strength. ✨</p>
+                  </div>
+                </li>
+              </ol>
+            </article>
+
+            {/* Dental Implants */}
+            <article className="procedure-card procedure-card--teal">
+              <div className="procedure-card-header">
+                <span className="procedure-icon">🔩</span>
+                <span className="procedure-badge">Permanent Fix</span>
+              </div>
+              <h3>Dental Implant Process</h3>
+              <p className="procedure-tagline">
+                Missing a tooth? A titanium implant acts as a permanent
+                artificial root — restoring function and your natural smile.
+              </p>
+              <ol className="procedure-steps">
+                <li>
+                  <span className="step-num">1</span>
+                  <div>
+                    <strong>Tooth Extraction</strong>
+                    <p>The damaged or severely fractured tooth is carefully removed.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">2</span>
+                  <div>
+                    <strong>Bone Preparation</strong>
+                    <p>A precise space is created in the jawbone for the implant.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">3</span>
+                  <div>
+                    <strong>Implant Placement</strong>
+                    <p>A titanium implant is screwed into the prepared bone.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">4</span>
+                  <div>
+                    <strong>Securing the Implant</strong>
+                    <p>A torque wrench securely tightens the implant and abutment.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">5</span>
+                  <div>
+                    <strong>Crown Placement</strong>
+                    <p>A custom crown is attached — restoring full appearance and function.</p>
+                  </div>
+                </li>
+              </ol>
+            </article>
+
+            {/* Extractions & Cavity Treatment */}
+            <article className="procedure-card procedure-card--orange">
+              <div className="procedure-card-header">
+                <span className="procedure-icon">🪥</span>
+                <span className="procedure-badge">Don't Wait!</span>
+              </div>
+              <h3>Extractions & Cavity Treatments</h3>
+              <p className="procedure-tagline">
+                We know you might be avoiding the dentist — but your teeth
+                can't hide! Early treatment prevents pain and saves your smile.
+              </p>
+              <ol className="procedure-steps">
+                <li>
+                  <span className="step-num">1</span>
+                  <div>
+                    <strong>Diagnosis</strong>
+                    <p>X-rays and examination identify decay and damage severity.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">2</span>
+                  <div>
+                    <strong>Cavity Filling</strong>
+                    <p>Decay is removed and the tooth is filled to restore shape and function.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">3</span>
+                  <div>
+                    <strong>Extraction (if needed)</strong>
+                    <p>Severely damaged teeth are gently extracted with minimal discomfort.</p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-num">4</span>
+                  <div>
+                    <strong>Wound Care</strong>
+                    <p>Suturing and aftercare ensure clean, fast healing after extraction.</p>
+                  </div>
+                </li>
+              </ol>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
       <section className="section nuface-team" id="meet-the-team">
         <div className="container">
           <h2 className="section-title">
