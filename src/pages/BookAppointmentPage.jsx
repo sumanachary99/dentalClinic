@@ -5,7 +5,6 @@ import { getNextDays, formatDate } from '../utils/dateUtils';
 import { validateBookingForm } from '../utils/validators';
 import { sendBookingConfirmation } from '../utils/whatsapp';
 import { addAppointment } from '../utils/googleSheets';
-import { renderIcon } from '../utils/iconMapper';
 
 const STEPS = ['Service', 'Date & Time', 'Details'];
 
@@ -175,7 +174,7 @@ export default function BookAppointmentPage() {
                         setFormData({ ...formData, serviceType: service.name })
                       }
                     >
-                      <span className="icon">{renderIcon(service.icon, 24)}</span>
+                      <span className="icon">{service.icon}</span>
                       <span className="name">{service.shortName}</span>
                       <span className="duration">📅 {service.duration}</span>
                     </button>

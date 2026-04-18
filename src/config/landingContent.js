@@ -26,7 +26,7 @@ export const SPECIALTY_PILLARS = [
     id: 'dental',
     title: 'Precision Dental',
     subtitle: 'General, RCT & rehabilitation',
-    icon: 'Tooth',
+    icon: '🦷',
     colorClass: 'track-dental',
     points: [
       'Rotary Single-Sitting RCT',
@@ -40,7 +40,7 @@ export const SPECIALTY_PILLARS = [
     id: 'maxillofacial',
     title: 'Oral & Maxillofacial Surgery',
     subtitle: 'Advanced surgical care',
-    icon: 'Scalpel',
+    icon: '🔪',
     colorClass: 'track-maxillofacial',
     points: [
       'Wisdom Tooth Surgery',
@@ -54,7 +54,7 @@ export const SPECIALTY_PILLARS = [
     id: 'implants',
     title: 'Dental Implants',
     subtitle: 'Single to full-mouth rehab',
-    icon: 'Wrench',
+    icon: '🔧',
     colorClass: 'track-implants',
     points: [
       'Single Tooth Implants',
@@ -68,7 +68,7 @@ export const SPECIALTY_PILLARS = [
     id: 'cosmetic',
     title: 'Cosmetic Dentistry',
     subtitle: 'Smile design & aesthetics',
-    icon: 'Sparkles',
+    icon: '✨',
     colorClass: 'track-cosmetic',
     points: [
       'Teeth Whitening',
@@ -82,7 +82,7 @@ export const SPECIALTY_PILLARS = [
     id: 'hair',
     title: 'Hair / Trichology',
     subtitle: 'Restoration & regrowth',
-    icon: 'Scissors',
+    icon: '✂️',
     colorClass: 'track-hair',
     points: [
       'Hair Transplant (FUE)',
@@ -96,7 +96,7 @@ export const SPECIALTY_PILLARS = [
     id: 'skin',
     title: 'Cosmetology / Skin',
     subtitle: 'Aesthetic laser & injectables',
-    icon: 'Droplet',
+    icon: '💧',
     colorClass: 'track-skin',
     points: [
       'Botox & Dermal Fillers',

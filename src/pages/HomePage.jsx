@@ -9,7 +9,6 @@ import {
   TEAM_MEMBERS,
 } from '../config/landingContent';
 import { getClinicWhatsAppLink } from '../utils/whatsapp';
-import { renderIcon } from '../utils/iconMapper';
 
 function useCountUp(target, duration = 1500) {
   const [count, setCount] = useState(0);
@@ -152,7 +151,7 @@ export default function HomePage() {
               >
                 <div className="nuface-specialty-head">
                   <span className="nuface-specialty-icon" aria-hidden="true">
-                    {renderIcon(pillar.icon, 28)}
+                    {pillar.icon}
                   </span>
                   <div>
                     <h3>{pillar.title}</h3>

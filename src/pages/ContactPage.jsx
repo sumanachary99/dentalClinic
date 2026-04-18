@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { CLINIC_INFO } from '../config/constants';
 import { getClinicWhatsAppLink } from '../utils/whatsapp';
-import { renderIcon } from '../utils/iconMapper';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
@@ -32,7 +31,7 @@ export default function ContactPage() {
             {/* Info Cards */}
             <div className="contact-info-cards">
               <div className="contact-info-card">
-                <div className="icon">{renderIcon('MapPin', 24)}</div>
+                <div className="icon">📍</div>
                 <div>
                   <h4>Visit Us</h4>
                   <p>{CLINIC_INFO.address}</p>
@@ -40,7 +39,7 @@ export default function ContactPage() {
               </div>
 
               <div className="contact-info-card">
-                <div className="icon">{renderIcon('Phone', 24)}</div>
+                <div className="icon">📞</div>
                 <div>
                   <h4>Call Us</h4>
                   <p>
@@ -52,7 +51,7 @@ export default function ContactPage() {
               </div>
 
               <div className="contact-info-card">
-                <div className="icon">{renderIcon('MessageSquare', 24)}</div>
+                <div className="icon">💬</div>
                 <div>
                   <h4>WhatsApp</h4>
                   <p>
@@ -64,7 +63,7 @@ export default function ContactPage() {
               </div>
 
               <div className="contact-info-card">
-                <div className="icon">{renderIcon('Mail', 24)}</div>
+                <div className="icon">✉️</div>
                 <div>
                   <h4>Email</h4>
                   <p>
@@ -76,7 +75,7 @@ export default function ContactPage() {
               </div>
 
               <div className="contact-info-card">
-                <div className="icon">{renderIcon('Clock', 24)}</div>
+                <div className="icon">🕐</div>
                 <div>
                   <h4>Clinic Hours</h4>
                   <p>
@@ -87,7 +86,7 @@ export default function ContactPage() {
               </div>
 
               <div className="contact-info-card">
-                <div className="icon">{renderIcon('Hospital', 24)}</div>
+                <div className="icon">🏥</div>
                 <div>
                   <h4>On-Site Facilities</h4>
                   <p>{CLINIC_INFO.facilities}</p>
