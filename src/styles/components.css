@@ -1488,10 +1488,23 @@
 
   .booking-actions {
     flex-direction: column;
+    position: fixed;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-top: 1px solid var(--color-gray-200);
+    z-index: 100;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .booking-actions .btn {
     width: 100%;
+  }
+
+  .booking-card {
+    padding-bottom: calc(var(--space-3xl) + 160px);
   }
 }
 
