@@ -34,12 +34,12 @@ export default function Footer() {
           <div className="footer-column">
             <h4>Services</h4>
             <ul>
-              <li><Link to="/services">Dental Treatment</Link></li>
-              <li><Link to="/services">Skincare & Laser</Link></li>
-              <li><Link to="/services">Acne & Pigmentation Care</Link></li>
-              <li><Link to="/services">Hair Transplant</Link></li>
-              <li><Link to="/services">PRP Hair Therapy</Link></li>
-              <li><Link to="/services">Cosmetic Consultation</Link></li>
+              <li><Link to="/services?category=dental">Dental</Link></li>
+              <li><Link to="/services?category=maxillofacial">Oral & Maxillofacial Surgery</Link></li>
+              <li><Link to="/services?category=implants">Dental Implants</Link></li>
+              <li><Link to="/services?category=cosmetic">Cosmetic Dentistry</Link></li>
+              <li><Link to="/services?category=hair">Hair / Trichology</Link></li>
+              <li><Link to="/services?category=skin">Cosmetology / Skin</Link></li>
             </ul>
           </div>
 
@@ -51,7 +51,15 @@ export default function Footer() {
             </div>
             <div className="footer-contact-item">
               <span>📞</span>
-              <span><a href={`tel:${CLINIC_INFO.phone}`} style={{color: 'var(--color-gray-light)'}}>{CLINIC_INFO.phone}</a></span>
+              <span>
+                <a href={`tel:${CLINIC_INFO.phone}`} style={{color: 'var(--color-gray-light)'}}>{CLINIC_INFO.phone}</a>
+                {CLINIC_INFO.phoneAlt && (
+                  <>
+                    {' · '}
+                    <a href={`tel:${CLINIC_INFO.phoneAlt}`} style={{color: 'var(--color-gray-light)'}}>{CLINIC_INFO.phoneAlt}</a>
+                  </>
+                )}
+              </span>
             </div>
             <div className="footer-contact-item">
               <span>✉️</span>
@@ -59,7 +67,11 @@ export default function Footer() {
             </div>
             <div className="footer-contact-item">
               <span>🕐</span>
-              <span>Mon-Sat: {CLINIC_INFO.timings.weekdays}<br/>Sun: {CLINIC_INFO.timings.sunday}</span>
+              <span>Mon–Sat: {CLINIC_INFO.timings.weekdays}<br/>Sundays Closed</span>
+            </div>
+            <div className="footer-contact-item">
+              <span>🏥</span>
+              <span>{CLINIC_INFO.facilities}</span>
             </div>
           </div>
         </div>

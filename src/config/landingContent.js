@@ -1,6 +1,9 @@
 import nufaceLogo from '../assets/logo.jpg';
 import doctorManoj from '../assets/ManojKumarDoctor.jpeg';
 import doctorSheetal from '../assets/sheetalDoctor.jpeg';
+import doctorPraveen from '../assets/doctor-praveen.jpeg';
+import doctorNirmala from '../assets/doctor-nirmala.jpeg';
+import doctorArya from '../assets/doctor-arya.jpeg';
 import clinicLounge from '../assets/clinic-reception-lounge.png';
 import clinicTreatment from '../assets/clinic-treatment-room.png';
 import heroBanner from '../assets/hero-banner.png';
@@ -10,57 +13,100 @@ export const BRAND_ASSETS = {
   logo: nufaceLogo,
   heroImage: heroBanner,
   galleryLink: CLINIC_INFO.mapLink,
+  brochure: CLINIC_INFO.brochureUrl,
 };
 
 export const SPECIALTY_PILLARS = [
   {
     id: 'dental',
     title: 'Precision Dental',
-    subtitle: 'Advanced oral surgery & rehabilitation',
+    subtitle: 'General, RCT & rehabilitation',
     icon: '🦷',
     colorClass: 'track-dental',
     points: [
-      'Digital Smile Designing',
-      'Painless Root Canal (RCT)',
-      'Immediate Dental Implants',
-      'Orthodontic Alignment',
+      'Rotary Single-Sitting RCT',
+      'Painless Tooth Extractions',
+      'Kids Dentistry (Pedodontics)',
+      'Gum & Bone Treatment',
     ],
-    bookingServiceId: 'dental-consultation',
+    bookingServiceId: 'consultation',
+  },
+  {
+    id: 'maxillofacial',
+    title: 'Oral & Maxillofacial Surgery',
+    subtitle: 'Advanced surgical care',
+    icon: '🧑‍⚕️',
+    colorClass: 'track-maxillofacial',
+    points: [
+      'Wisdom Tooth Surgery',
+      'Cyst & Tumor Removal',
+      'Facial Injuries & Trauma',
+      'Orofacial Cleft Surgery',
+    ],
+    bookingServiceId: 'wisdom-tooth',
+  },
+  {
+    id: 'implants',
+    title: 'Dental Implants',
+    subtitle: 'Single to full-mouth rehab',
+    icon: '🏗️',
+    colorClass: 'track-implants',
+    points: [
+      'Single Tooth Implants',
+      'Multiple Tooth Implants',
+      'Full Mouth Rehabilitation',
+      'Advanced Implantology',
+    ],
+    bookingServiceId: 'single-implant',
+  },
+  {
+    id: 'cosmetic',
+    title: 'Cosmetic Dentistry',
+    subtitle: 'Smile design & aesthetics',
+    icon: '💎',
+    colorClass: 'track-cosmetic',
+    points: [
+      'Teeth Whitening',
+      'Laminates & Veneers',
+      'Gummy Smile Correction',
+      'Digital Smile Design',
+    ],
+    bookingServiceId: 'smile-design',
   },
   {
     id: 'hair',
-    title: 'Hair Restoration',
-    subtitle: 'Follicular precision & regrowth',
+    title: 'Hair / Trichology',
+    subtitle: 'Restoration & regrowth',
     icon: '💇',
     colorClass: 'track-hair',
     points: [
-      'FUE Hair Transplantation',
-      'PRP & GFC Therapy',
-      'Beard & Eyebrow Restores',
-      'Scalp Micropigmentation',
+      'Hair Transplant (FUE)',
+      'PRP / GFC Therapy',
+      'Alopecia Treatment',
+      'Laser Hair Reduction',
     ],
     bookingServiceId: 'hair-consultation',
   },
   {
     id: 'skin',
-    title: 'Aesthetic Skin',
-    subtitle: 'Scientific laser protocols',
+    title: 'Cosmetology / Skin',
+    subtitle: 'Aesthetic laser & injectables',
     icon: '✨',
     colorClass: 'track-skin',
     points: [
-      'Laser Acne/Scar Removal',
-      'Hydra & Carbon Peels',
-      'Skin Brightening (GFC)',
-      'Anti-Aging Injectables',
+      'Botox & Dermal Fillers',
+      'Hydrafacial & Peels',
+      'Laser Rejuvenation',
+      'Thread Lift & PRP',
     ],
     bookingServiceId: 'skin-consultation',
   },
 ];
 
 export const EXPERIENCE_POINTS = [
-  { label: 'Specialty Verticals', value: '3', note: 'Dental | Hair | Skin' },
-  { label: 'Clinical Protocols', value: '15+', note: 'Standardized pathways' },
-  { label: 'Patient Satisfaction', value: '4.8/5', note: 'Across reviews' },
+  { label: 'Specialty Verticals', value: '6', note: 'Dental · Surgery · Implants · Cosmetic · Hair · Skin' },
+  { label: 'Years of Excellence', value: '17+', note: 'Since 2008, Hassan' },
+  { label: 'Patient Satisfaction', value: '4.8/5', note: 'Across Google reviews' },
 ];
 
 export const CARE_PROTOCOLS = [
@@ -173,38 +219,132 @@ export const CARE_PROTOCOLS = [
   },
 ];
 
+// ───────────────────────────────────────────────────────────────
+// Primary doctors — owners / main face of Sumukha Nuface
+// ───────────────────────────────────────────────────────────────
 export const TEAM_MEMBERS = [
   {
-    id: 'doctor-1',
-    name: 'Dr Manoj Kumar Jain',
-    role: 'Maxillofacial Surgeon & Implantologist',
-    credentials: 'MDS(PGI), FIBOMS, FAM (Germany), FCCS (California)',
+    id: 'doctor-manoj',
+    name: 'Dr. Manoj Kumar Jain',
+    role: 'Senior Oral & Maxillofacial Surgeon · Co-Founder',
+    credentials: 'MDS (PGI), FAMS (Germany), Fellowship in Aesthetic Medicine & Implantology',
+    registration: 'KSDC Reg. No. 16162-A',
     description:
-      'With nearly 18 years of experience DR M K Jain is well established brand and his clinic Sumukha Nuface is most preferred reference centre for complicated dental treatments, medically compromised patients, oral & maxillofacial surgeries. He has operated more than 1000 major surgeries... including maxillofacial trauma, pathologies like infection, cyst & tumors. Rehabilitation with treatment like dental implants, lasers, Scar Revisions etc.',
+      'With nearly 18 years of clinical practice, Dr Manoj Kumar Jain leads Sumukha Nuface as one of the most referred centres for complicated dental work, medically compromised cases, and oral & maxillofacial surgeries. He has performed 1000+ major surgeries including maxillofacial trauma, cysts, tumours, and full-mouth rehabilitation with implants, lasers and scar revisions.',
     expertise: [
-      'Maxillofacial Surgery',
+      'Maxillofacial Surgery & Trauma',
       'Dental Implantology',
       'Aesthetic Medicine & Surgery',
-      'Trichologist',
+      'Trichology & Hair Transplant',
       'Orofacial Cosmetology (PRP, Lasers, Botox)',
     ],
     image: doctorManoj,
   },
   {
-    id: 'doctor-2',
-    name: 'Dr Sheetal Jain',
-    role: 'Periodontist & Implantologist',
-    credentials: 'BDS, MDS(2008)',
+    id: 'doctor-sheetal',
+    name: 'Dr. Sheetal Jain',
+    role: 'Senior Periodontist & Implantologist · Co-Founder',
+    credentials: 'BDS, MDS (2008) — Periodontics & Implantology',
+    registration: 'KSDC Reg. No. 15883-A',
     image: doctorSheetal,
     description:
-      'With nearly 18 years of experience DR Sheetal Jain is well established brand... expert in full mouth rehabilitation, gum surgeries & dental implants. She has performed enormous single sitting Root canal treatments, periodontal surgeries, and more than 500 implant placements.',
+      'With 18 years of experience, Dr Sheetal Jain is an established expert in full mouth rehabilitation, gum surgeries and dental implants. She has completed thousands of single-sitting root canal treatments, periodontal surgeries, and over 500 implant placements — and is a certified aligner provider.',
     expertise: [
       'Periodontology & Implants',
       'Full Mouth Rehabilitation',
-      'Root Canal Specialist',
-      'Gum Surgeries',
+      'Single-Sitting Root Canal',
+      'Gum Surgeries & Laser Perio',
       'Certified Aligner Provider',
     ],
+  },
+];
+
+// ───────────────────────────────────────────────────────────────
+// Consultants — visiting specialists who extend the clinic's scope
+// ───────────────────────────────────────────────────────────────
+export const CONSULTANTS = [
+  {
+    id: 'dr-praveen',
+    name: 'Dr. Praveen Ch Gowda',
+    credentials: 'MDS',
+    role: 'Orthodontist · Clip Specialist',
+    subRole: 'Certified Invisalign Provider',
+    availability: 'On Call',
+    image: doctorPraveen,
+  },
+  {
+    id: 'dr-nirmala',
+    name: 'Dr. Nirmala K.B.',
+    credentials: 'MDS',
+    role: 'Endodontist',
+    subRole: 'Root Canal Specialist',
+    availability: 'Visiting',
+    image: doctorNirmala,
+  },
+  {
+    id: 'dr-arya',
+    name: 'Dr. Prapanna Arya',
+    credentials: 'UK Certified',
+    role: 'Aesthetic & Hair Transplant Surgeon',
+    subRole: 'Cosmetology & Trichology',
+    availability: 'Visiting',
+    image: doctorArya,
+  },
+  {
+    id: 'dr-satish',
+    name: 'Dr. Satish H.V.',
+    credentials: 'MS, MCh, DNB',
+    role: 'Senior Plastic & Cosmetic Surgeon',
+    subRole: 'Reconstructive Surgery',
+    availability: 'Every Month · 2nd Friday',
+  },
+  {
+    id: 'dr-kiran',
+    name: 'Dr. Kiran Kumar H.S.',
+    credentials: 'MDS (FIO, Japan)',
+    role: 'Senior Prosthodontist & Implantologist',
+    subRole: 'Full Mouth Rehabilitation',
+    availability: 'On Call',
+  },
+  {
+    id: 'dr-bhoomika',
+    name: 'Dr. Bhoomika',
+    credentials: 'MDS',
+    role: 'Pedodontist',
+    subRole: 'Kids Dental Specialist',
+    availability: 'Visiting',
+  },
+  {
+    id: 'dr-shyam',
+    name: 'Dr. Shyam Sheth',
+    credentials: 'MDS, ICLPF (Switzerland)',
+    role: 'Senior Hair Transplant Surgeon',
+    subRole: 'Hair Transplant USA Fellowship',
+    availability: 'On Call',
+  },
+  {
+    id: 'dr-rithesh',
+    name: 'Dr. Rithesh Bangera',
+    credentials: 'MDS',
+    role: 'Orthodontist · Clip Specialist',
+    subRole: 'Certified Invisalign Provider',
+    availability: 'Every Month · 2nd Sunday',
+  },
+  {
+    id: 'dr-dipit',
+    name: 'Dr. Dipith Shah',
+    credentials: 'MDS, FHNO',
+    role: 'Head & Neck Oncologist',
+    subRole: 'Oral Cancer Specialist',
+    availability: 'On Call',
+  },
+  {
+    id: 'dr-suhas',
+    name: 'Dr. Suhas Setty',
+    credentials: 'MDS',
+    role: 'Oral & Maxillofacial Pathologist',
+    subRole: 'Biopsy & Diagnostics',
+    availability: 'On Call',
   },
 ];
 

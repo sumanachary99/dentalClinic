@@ -80,8 +80,16 @@ export default function ContactPage() {
                   <h4>Clinic Hours</h4>
                   <p>
                     Mon–Sat: {CLINIC_INFO.timings.weekdays}<br />
-                    Sunday: {CLINIC_INFO.timings.sunday}
+                    Sundays Closed
                   </p>
+                </div>
+              </div>
+
+              <div className="contact-info-card">
+                <div className="icon">🏥</div>
+                <div>
+                  <h4>On-Site Facilities</h4>
+                  <p>{CLINIC_INFO.facilities}</p>
                 </div>
               </div>
             </div>

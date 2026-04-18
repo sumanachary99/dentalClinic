@@ -94,8 +94,8 @@ export default function HomePage() {
 
               <p className="nuface-hero-contact">
                 Call us at{" "}
-                <a href={`tel:${CLINIC_INFO.phone}`}>{CLINIC_INFO.phone}</a> |
-                Open till 9:00 PM
+                <a href={`tel:${CLINIC_INFO.phone}`}>{CLINIC_INFO.phone}</a> ·{' '}
+                Mon–Sat {CLINIC_INFO.timings.weekdays} · Sundays Closed
               </p>
 
               <div className="nuface-metrics-grid">

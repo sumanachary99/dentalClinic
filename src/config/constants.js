@@ -1,19 +1,25 @@
 // App-wide constants
 export const CLINIC_INFO = {
-  name: 'Nuface Sumukha Clinic - Dental / Face / Hair / Cosmetic',
-  shortName: 'Nuface Sumukha Clinic',
+  name: 'Sumukha Nuface - Dental, Face, Hair & Cosmetic Clinic',
+  shortName: 'Sumukha Nuface',
   tagline: 'Dental | Face | Hair | Cosmetic',
   slogan: 'Your Smile, Our Happiness',
-  phone: '9110443004',
+  brochureUrl: '/sumukha-nuface-brochure.pdf',
+  phone: '07411711098',
+  phoneAlt: '9110443004',
   whatsappNumber: '919110443004', // with country code
-  email: 'hello@nufaceclinic.in',
-  address: 'Sampige Road, 9th Cross Rd, Hassan, Karnataka 573201',
+  email: 'hello@sumukhanuface.in',
+  address: 'Sampige Road, 9th Cross, K R Puram, Hassan - 573201',
+  addressShort: 'Sampige Road, 9th Cross, K R Puram, Hassan',
+  facilities: 'Pharmacy, X-Ray & Lab Facilities Available',
   mapLink: 'https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201',
   city: 'Hassan',
   timings: {
-    weekdays: '9:00 AM – 9:00 PM',
-    saturday: '9:00 AM – 9:00 PM',
-    sunday: '10:00 AM – 7:00 PM',
+    weekdays: '10:00 AM – 7:30 PM',
+    saturday: '10:00 AM – 7:30 PM',
+    sunday: 'Closed',
+    display: 'Mon–Sat: 10:00 AM – 7:30 PM',
+    note: 'Sundays Closed',
   },
   socialLinks: {
     instagram: '#',
@@ -64,7 +70,7 @@ export const TESTIMONIALS = [
 export const FAQ_DATA = [
   {
     q: 'What are the clinic timings?',
-    a: 'We are open Monday to Saturday from 9 AM to 9 PM, and Sunday from 10 AM to 7 PM. Prior appointments are recommended for peak evening slots.',
+    a: 'We are open Monday to Saturday from 10:00 AM to 7:30 PM. Sundays closed. Prior appointments are recommended for peak evening slots.',
   },
   {
     q: 'Do you handle only dental treatments?',

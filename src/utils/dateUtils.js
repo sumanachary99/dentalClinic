@@ -21,20 +21,23 @@ export function getTodayString() {
 }
 
 /**
- * Generate next N days as date objects
+ * Generate next N bookable days (Sundays excluded — clinic closed)
  */
-export function getNextDays(count = 14) {
+export function getNextDays(count = 14, { skipSundays = true } = {}) {
   const days = [];
   const today = new Date();
-  for (let i = 0; i < count; i++) {
+  let offset = 0;
+  while (days.length < count) {
     const date = new Date(today);
-    date.setDate(today.getDate() + i);
+    date.setDate(today.getDate() + offset);
+    offset += 1;
+    if (skipSundays && date.getDay() === 0) continue;
     days.push({
       dateStr: date.toISOString().split('T')[0],
       day: date.toLocaleDateString('en-IN', { weekday: 'short' }),
       date: date.getDate(),
       month: date.toLocaleDateString('en-IN', { month: 'short' }),
-      isToday: i === 0,
+      isToday: offset === 1,
     });
   }
   return days;

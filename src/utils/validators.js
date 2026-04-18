@@ -18,7 +18,7 @@ export function validateName(name) {
 }
 
 /**
- * Validate appointment date (not in the past)
+ * Validate appointment date (not in the past, not Sunday)
  */
 export function validateDate(dateStr) {
   if (!dateStr) return { valid: false, error: 'Please select a date' };
@@ -26,6 +26,7 @@ export function validateDate(dateStr) {
   today.setHours(0, 0, 0, 0);
   const selected = new Date(dateStr);
   if (selected < today) return { valid: false, error: 'Cannot book in the past' };
+  if (selected.getDay() === 0) return { valid: false, error: 'Clinic is closed on Sundays' };
   return { valid: true };
 }
 

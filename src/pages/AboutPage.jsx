@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { CLINIC_INFO, STATS } from '../config/constants';
-import { TEAM_MEMBERS, CLINIC_GALLERY } from "../config/landingContent";
+import {
+  BRAND_ASSETS,
+  CONSULTANTS,
+  TEAM_MEMBERS,
+  CLINIC_GALLERY,
+} from '../config/landingContent';
 
 export default function AboutPage() {
   return (
@@ -8,27 +13,40 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="nuface-about-hero">
         <div className="container">
-          <p className="nuface-badge">Est. 2008</p>
+          <p className="nuface-badge">Est. 2008 · Hassan</p>
           <h1>
-            About <span className="gradient-text">{CLINIC_INFO.name}</span>
+            About <span className="gradient-text">{CLINIC_INFO.shortName}</span>
           </h1>
           <p className="description">
-            Precision dentistry, expert hair restoration, and protocol-led
-            skincare delivered with a patient-first philosophy in{" "}
-            {CLINIC_INFO.city}.
+            Precision dentistry, oral & maxillofacial surgery, implantology,
+            cosmetic dentistry, hair restoration, and aesthetic skin care —
+            delivered with a patient-first philosophy in {CLINIC_INFO.city}.
           </p>
+          <div className="about-hero-actions">
+            <a
+              href={BRAND_ASSETS.brochure}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              📄 Download Clinic Brochure
+            </a>
+            <Link to="/contact" className="btn btn-outline">
+              Visit / Contact Us
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Meet the Experts */}
+      {/* Primary doctors / Owners */}
       <section className="section nuface-about-team">
         <div className="container">
           <h2 className="section-title">
-            The <span className="gradient-text">Medical Team</span>
+            Meet The <span className="gradient-text">Lead Doctors</span>
           </h2>
           <p className="section-subtitle">
-            Led by Board-Certified specialists with over 15 years of clinical
-            excellence.
+            Founders of Sumukha Nuface — leading every treatment plan personally
+            with 18+ years of combined clinical excellence.
           </p>
 
           <div className="nuface-about-team-grid">
@@ -41,6 +59,10 @@ export default function AboutPage() {
                   <span className="member-creds">{member.credentials}</span>
                   <h3>{member.name}</h3>
                   <p className="member-role">{member.role}</p>
+                  {member.registration && (
+                    <p className="member-registration">{member.registration}</p>
+                  )}
+                  <p className="member-description">{member.description}</p>
                   <div className="member-expertise">
                     <ul>
                       {member.expertise.map((point) => (
@@ -51,6 +73,86 @@ export default function AboutPage() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Consultants — Brigade-style compact grid */}
+      <section className="section nuface-consultants">
+        <div className="container">
+          <h2 className="section-title">
+            Our <span className="gradient-text">Expert Consultants</span>
+          </h2>
+          <p className="section-subtitle">
+            A panel of visiting specialists — from UK-certified aesthetic
+            surgeons to senior prosthodontists — extending the clinic's scope
+            across every sub-speciality.
+          </p>
+
+          <div className="consultants-grid">
+            {CONSULTANTS.map((doc) => (
+              <article className="consultant-card" key={doc.id}>
+                <div className="consultant-avatar">
+                  {doc.image ? (
+                    <img src={doc.image} alt={doc.name} />
+                  ) : (
+                    <div className="consultant-initials" aria-hidden="true">
+                      {doc.name
+                        .replace(/^Dr\.?\s*/i, '')
+                        .split(/\s+/)
+                        .map((part) => part[0])
+                        .slice(0, 2)
+                        .join('')
+                        .toUpperCase()}
+                    </div>
+                  )}
+                </div>
+                <div className="consultant-body">
+                  <h3>{doc.name}</h3>
+                  <p className="consultant-creds">{doc.credentials}</p>
+                  <p className="consultant-role">{doc.role}</p>
+                  {doc.subRole && (
+                    <p className="consultant-subrole">{doc.subRole}</p>
+                  )}
+                  <span className="consultant-avail">{doc.availability}</span>
+                </div>
+                <Link
+                  to="/book?service=consultation"
+                  className="btn btn-primary btn-sm consultant-book"
+                >
+                  Book Appointment
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities strip */}
+      <section className="nuface-facilities">
+        <div className="container">
+          <div className="facilities-inner">
+            <div className="facility-item">
+              <span className="facility-icon">💊</span>
+              <div>
+                <h4>Pharmacy</h4>
+                <p>In-house pharmacy with prescribed medicines ready at checkout.</p>
+              </div>
+            </div>
+            <div className="facility-item">
+              <span className="facility-icon">🩻</span>
+              <div>
+                <h4>Digital X-Ray</h4>
+                <p>On-site OPG & IOPA digital radiography for same-visit diagnosis.</p>
+              </div>
+            </div>
+            <div className="facility-item">
+              <span className="facility-icon">🧪</span>
+              <div>
+                <h4>Lab Facilities</h4>
+                <p>Diagnostic lab tie-up for pre-op workup and investigative reports.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -67,18 +169,18 @@ export default function AboutPage() {
                 Our <span className="gradient-text">Clinical Philosophy</span>
               </h2>
               <p>
-                Founded in 2008, {CLINIC_INFO.name} was built on the
+                Founded in 2008, {CLINIC_INFO.shortName} was built on the
                 intersection of medical precision and aesthetic balance. We
-                don't just "treat" — we plan pathways. Every root canal, hair
-                transplant, or laser protocol is backed by standardized clinical
-                guidelines.
+                don't just "treat" — we plan pathways. Every root canal,
+                implant, hair transplant, or laser protocol is backed by
+                standardized clinical guidelines.
               </p>
               <div className="story-values">
                 <div className="value-item">
                   <h3>Clinical Excellence</h3>
                   <p>
                     Adherence to international sterilization and safety
-                    protocols.
+                    protocols across every chair.
                   </p>
                 </div>
                 <div className="value-item">

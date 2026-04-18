@@ -8,7 +8,8 @@ export default function ServicesPage() {
   const [activeCategory, setActiveCategory] = useState('all');
 
   useEffect(() => {
-    if (categoryFromUrl && ['dental', 'hair', 'skin'].includes(categoryFromUrl)) {
+    const validCategories = SERVICE_CATEGORIES.map((c) => c.id);
+    if (categoryFromUrl && validCategories.includes(categoryFromUrl)) {
       setActiveCategory(categoryFromUrl);
     }
   }, [categoryFromUrl]);
@@ -24,8 +25,9 @@ export default function ServicesPage() {
         <div className="container">
           <h1>Our <span className="gradient-text">Services</span></h1>
           <p>
-            Dental, hair restoration, and skin care — from routine check-ups
-            to advanced treatments. Choose a category to see sub-types and book.
+            Dental, oral & maxillofacial surgery, implants, cosmetic dentistry,
+            hair restoration, and aesthetic skin care — all under one roof.
+            Choose a category to see sub-types and book.
           </p>
         </div>
       </section>
