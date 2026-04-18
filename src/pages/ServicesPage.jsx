@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { SERVICES, SERVICE_CATEGORIES } from '../config/services';
+import { renderIcon } from '../utils/iconMapper';
 
 export default function ServicesPage() {
   const [searchParams] = useSearchParams();
@@ -53,11 +54,10 @@ export default function ServicesPage() {
             {filteredServices.map((service) => (
               <div className="service-card" key={service.id} style={{ animationDelay: '0.1s' }}>
                 {service.popular && <span className="popular-badge">Popular</span>}
-                <div className="service-card-icon">{service.icon}</div>
+                <div className="service-card-icon">{renderIcon(service.icon, 32)}</div>
                 <h3>{service.name}</h3>
                 <p>{service.description}</p>
                 <div className="service-card-meta">
-                  <span className="service-card-price">{service.price}</span>
                   <span className="service-card-duration">🕐 {service.duration}</span>
                 </div>
                 <Link

@@ -69,13 +69,22 @@ export default function Header() {
               📞 {CLINIC_INFO.phone}
             </a>
             <Link
-              to="/services"
-              className="btn btn-accent btn-sm"
+              to="/book"
+              className="btn btn-accent btn-sm header-book-desktop"
               onClick={closeMenu}
             >
               Book Appointment
             </Link>
           </div>
+
+          <Link
+            to="/book"
+            className="header-book-mobile"
+            onClick={closeMenu}
+            aria-label="Book appointment"
+          >
+            Book
+          </Link>
 
           <button
             className={`hamburger ${menuOpen ? "open" : ""}`}

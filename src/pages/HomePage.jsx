@@ -9,6 +9,7 @@ import {
   TEAM_MEMBERS,
 } from '../config/landingContent';
 import { getClinicWhatsAppLink } from '../utils/whatsapp';
+import { renderIcon } from '../utils/iconMapper';
 
 function useCountUp(target, duration = 1500) {
   const [count, setCount] = useState(0);
@@ -107,14 +108,16 @@ export default function HomePage() {
 
             <div className="nuface-hero-visual">
               <article className="nuface-brand-panel">
-                <img src={BRAND_ASSETS.logo} alt="NUFACE clinic mark" />
+                <img
+                  src={BRAND_ASSETS.logo}
+                  alt={`${CLINIC_INFO.shortName} clinic mark`}
+                  fetchPriority="high"
+                />
                 <h2>{CLINIC_INFO.shortName}</h2>
                 <p>{CLINIC_INFO.slogan || CLINIC_INFO.tagline}</p>
                 <div className="nuface-brand-tags">
-                  {SPECIALTY_PILLARS.map((pillar) => (
-                    <span key={pillar.id}>
-                      {pillar.icon} {pillar.title}
-                    </span>
+                  {SPECIALTY_PILLARS.slice(0, 4).map((pillar) => (
+                    <span key={pillar.id}>{pillar.title}</span>
                   ))}
                 </div>
               </article>
@@ -147,11 +150,15 @@ export default function HomePage() {
                 className={`nuface-specialty-card ${pillar.colorClass}`}
                 key={pillar.id}
               >
-                <div className="nuface-specialty-icon">
-                  <i className="nuface-icon nuface-icon-white">{pillar.icon}</i>
+                <div className="nuface-specialty-head">
+                  <span className="nuface-specialty-icon" aria-hidden="true">
+                    {renderIcon(pillar.icon, 28)}
+                  </span>
+                  <div>
+                    <h3>{pillar.title}</h3>
+                    <p className="nuface-specialty-sub">{pillar.subtitle}</p>
+                  </div>
                 </div>
-                <h3>{pillar.title}</h3>
-                <p>{pillar.subtitle}</p>
                 <ul>
                   {pillar.points.map((point) => (
                     <li key={point}>{point}</li>
@@ -162,13 +169,13 @@ export default function HomePage() {
                     to={`/services?category=${pillar.id}`}
                     className="btn btn-primary btn-sm"
                   >
-                    View {pillar.title} Services
+                    View Services
                   </Link>
                   <Link
                     to={`/book?service=${pillar.bookingServiceId}`}
                     className="btn btn-outline btn-sm"
                   >
-                    Quick Book
+                    Book Now
                   </Link>
                 </div>
               </article>
@@ -337,7 +344,7 @@ export default function HomePage() {
           <div className="nuface-team-grid">
             {TEAM_MEMBERS.map((member) => (
               <article className="nuface-team-card" key={member.id}>
-                <img src={member.image} alt={member.name} />
+                <img src={member.image} alt={member.name} loading="lazy" />
                 <div className="nuface-team-body">
                   <h3>{member.name}</h3>
                   <p className="nuface-team-role">{member.role}</p>
@@ -403,7 +410,7 @@ export default function HomePage() {
           <div className="nuface-gallery-grid">
             {CLINIC_GALLERY.map((item) => (
               <article className="nuface-gallery-card" key={item.id}>
-                <img src={item.image} alt={item.title} />
+                <img src={item.image} alt={item.title} loading="lazy" />
                 <div className="nuface-gallery-overlay">
                   <h3>{item.title}</h3>
                   <p>{item.caption}</p>

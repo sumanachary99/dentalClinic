@@ -10,31 +10,35 @@ import {
 export default function AboutPage() {
   return (
     <main className="nuface-about">
-      {/* Hero */}
-      <section className="nuface-about-hero">
-        <div className="container">
-          <p className="nuface-badge">Est. 2008 · Hassan</p>
-          <h1>
-            About <span className="gradient-text">{CLINIC_INFO.shortName}</span>
-          </h1>
-          <p className="description">
-            Precision dentistry, oral & maxillofacial surgery, implantology,
-            cosmetic dentistry, hair restoration, and aesthetic skin care —
-            delivered with a patient-first philosophy in {CLINIC_INFO.city}.
-          </p>
-          <div className="about-hero-actions">
-            <a
-              href={BRAND_ASSETS.brochure}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              📄 Download Clinic Brochure
-            </a>
-            <Link to="/contact" className="btn btn-outline">
-              Visit / Contact Us
-            </Link>
+      {/* Hero with clinic storefront */}
+      <section className="nuface-about-hero about-hero-visual">
+        <div className="container about-hero-grid">
+          <div className="about-hero-copy">
+            <p className="nuface-badge">Est. 2008 · Hassan</p>
+            <h1>
+              About <span className="gradient-text">{CLINIC_INFO.shortName}</span>
+            </h1>
+            <p className="description">
+              Precision dentistry, oral & maxillofacial surgery, implantology,
+              cosmetic dentistry, hair restoration, and aesthetic skin care —
+              delivered with a patient-first philosophy in {CLINIC_INFO.city}.
+            </p>
+            <div className="about-hero-actions">
+              <Link to="/book" className="btn btn-primary">
+                Book Appointment
+              </Link>
+              <Link to="/contact" className="btn btn-outline">
+                Visit / Contact Us
+              </Link>
+            </div>
           </div>
+          <figure className="about-hero-photo">
+            <img
+              src={BRAND_ASSETS.storefront}
+              alt={`${CLINIC_INFO.shortName} clinic storefront in Hassan`}
+            />
+            <figcaption>Sampige Road · K R Puram · Hassan</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -53,7 +57,7 @@ export default function AboutPage() {
             {TEAM_MEMBERS.map((member) => (
               <article className="nuface-about-member-card" key={member.id}>
                 <div className="member-image">
-                  <img src={member.image} alt={member.name} />
+                  <img src={member.image} alt={member.name} loading="lazy" />
                 </div>
                 <div className="member-info">
                   <span className="member-creds">{member.credentials}</span>
@@ -93,19 +97,7 @@ export default function AboutPage() {
             {CONSULTANTS.map((doc) => (
               <article className="consultant-card" key={doc.id}>
                 <div className="consultant-avatar">
-                  {doc.image ? (
-                    <img src={doc.image} alt={doc.name} />
-                  ) : (
-                    <div className="consultant-initials" aria-hidden="true">
-                      {doc.name
-                        .replace(/^Dr\.?\s*/i, '')
-                        .split(/\s+/)
-                        .map((part) => part[0])
-                        .slice(0, 2)
-                        .join('')
-                        .toUpperCase()}
-                    </div>
-                  )}
+                  <img src={doc.image} alt={doc.name} loading="lazy" />
                 </div>
                 <div className="consultant-body">
                   <h3>{doc.name}</h3>

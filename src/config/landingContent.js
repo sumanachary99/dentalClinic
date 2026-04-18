@@ -4,14 +4,19 @@ import doctorSheetal from '../assets/sheetalDoctor.jpeg';
 import doctorPraveen from '../assets/doctor-praveen.jpeg';
 import doctorNirmala from '../assets/doctor-nirmala.jpeg';
 import doctorArya from '../assets/doctor-arya.jpeg';
-import clinicLounge from '../assets/clinic-reception-lounge.png';
-import clinicTreatment from '../assets/clinic-treatment-room.png';
-import heroBanner from '../assets/hero-banner.png';
+import clinicStorefront from '../assets/clinic-storefront.webp';
+import clinicReception from '../assets/clinic-reception.webp';
+import clinicMural from '../assets/clinic-mural.webp';
+import clinicOperatory1 from '../assets/clinic-operatory-1.webp';
+import clinicOperatory2 from '../assets/clinic-operatory-2.webp';
+import heroBanner from '../assets/hero-banner.jpg';
 import { CLINIC_INFO } from './constants';
 
 export const BRAND_ASSETS = {
   logo: nufaceLogo,
   heroImage: heroBanner,
+  storefront: clinicStorefront,
+  mural: clinicMural,
   galleryLink: CLINIC_INFO.mapLink,
   brochure: CLINIC_INFO.brochureUrl,
 };
@@ -21,7 +26,7 @@ export const SPECIALTY_PILLARS = [
     id: 'dental',
     title: 'Precision Dental',
     subtitle: 'General, RCT & rehabilitation',
-    icon: '🦷',
+    icon: 'Tooth',
     colorClass: 'track-dental',
     points: [
       'Rotary Single-Sitting RCT',
@@ -35,7 +40,7 @@ export const SPECIALTY_PILLARS = [
     id: 'maxillofacial',
     title: 'Oral & Maxillofacial Surgery',
     subtitle: 'Advanced surgical care',
-    icon: '🧑‍⚕️',
+    icon: 'Scalpel',
     colorClass: 'track-maxillofacial',
     points: [
       'Wisdom Tooth Surgery',
@@ -49,7 +54,7 @@ export const SPECIALTY_PILLARS = [
     id: 'implants',
     title: 'Dental Implants',
     subtitle: 'Single to full-mouth rehab',
-    icon: '🏗️',
+    icon: 'Wrench',
     colorClass: 'track-implants',
     points: [
       'Single Tooth Implants',
@@ -63,7 +68,7 @@ export const SPECIALTY_PILLARS = [
     id: 'cosmetic',
     title: 'Cosmetic Dentistry',
     subtitle: 'Smile design & aesthetics',
-    icon: '💎',
+    icon: 'Sparkles',
     colorClass: 'track-cosmetic',
     points: [
       'Teeth Whitening',
@@ -77,7 +82,7 @@ export const SPECIALTY_PILLARS = [
     id: 'hair',
     title: 'Hair / Trichology',
     subtitle: 'Restoration & regrowth',
-    icon: '💇',
+    icon: 'Scissors',
     colorClass: 'track-hair',
     points: [
       'Hair Transplant (FUE)',
@@ -91,7 +96,7 @@ export const SPECIALTY_PILLARS = [
     id: 'skin',
     title: 'Cosmetology / Skin',
     subtitle: 'Aesthetic laser & injectables',
-    icon: '✨',
+    icon: 'Droplet',
     colorClass: 'track-skin',
     points: [
       'Botox & Dermal Fillers',
@@ -290,75 +295,37 @@ export const CONSULTANTS = [
     availability: 'Visiting',
     image: doctorArya,
   },
-  {
-    id: 'dr-satish',
-    name: 'Dr. Satish H.V.',
-    credentials: 'MS, MCh, DNB',
-    role: 'Senior Plastic & Cosmetic Surgeon',
-    subRole: 'Reconstructive Surgery',
-    availability: 'Every Month · 2nd Friday',
-  },
-  {
-    id: 'dr-kiran',
-    name: 'Dr. Kiran Kumar H.S.',
-    credentials: 'MDS (FIO, Japan)',
-    role: 'Senior Prosthodontist & Implantologist',
-    subRole: 'Full Mouth Rehabilitation',
-    availability: 'On Call',
-  },
-  {
-    id: 'dr-bhoomika',
-    name: 'Dr. Bhoomika',
-    credentials: 'MDS',
-    role: 'Pedodontist',
-    subRole: 'Kids Dental Specialist',
-    availability: 'Visiting',
-  },
-  {
-    id: 'dr-shyam',
-    name: 'Dr. Shyam Sheth',
-    credentials: 'MDS, ICLPF (Switzerland)',
-    role: 'Senior Hair Transplant Surgeon',
-    subRole: 'Hair Transplant USA Fellowship',
-    availability: 'On Call',
-  },
-  {
-    id: 'dr-rithesh',
-    name: 'Dr. Rithesh Bangera',
-    credentials: 'MDS',
-    role: 'Orthodontist · Clip Specialist',
-    subRole: 'Certified Invisalign Provider',
-    availability: 'Every Month · 2nd Sunday',
-  },
-  {
-    id: 'dr-dipit',
-    name: 'Dr. Dipith Shah',
-    credentials: 'MDS, FHNO',
-    role: 'Head & Neck Oncologist',
-    subRole: 'Oral Cancer Specialist',
-    availability: 'On Call',
-  },
-  {
-    id: 'dr-suhas',
-    name: 'Dr. Suhas Setty',
-    credentials: 'MDS',
-    role: 'Oral & Maxillofacial Pathologist',
-    subRole: 'Biopsy & Diagnostics',
-    availability: 'On Call',
-  },
 ];
 
 export const CLINIC_GALLERY = [
   {
-    id: 'gallery-1',
-    title: 'Patient Lounge',
-    caption: 'Comfort-focused waiting space',
-    image: clinicLounge,
+    id: 'gallery-storefront',
+    title: 'Sumukha Nuface, Hassan',
+    caption: 'Our home at Sampige Road, 9th Cross — K R Puram',
+    image: clinicStorefront,
   },
   {
-    id: 'gallery-2',
-    title: 'Treatment Area',
-    caption: 'Procedure-ready clinical setup',
-    image: clinicTreatment,
+    id: 'gallery-reception',
+    title: 'Patient Lounge',
+    caption: '“Your smile, our happiness” — a calm place to wait',
+    image: clinicReception,
+  },
+  {
+    id: 'gallery-mural',
+    title: 'Service Mural',
+    caption: 'Every speciality we offer — at a glance',
+    image: clinicMural,
+  },
+  {
+    id: 'gallery-operatory-1',
+    title: 'Operatory · Chair 1',
+    caption: 'Glass-partitioned treatment bay with full sterilisation',
+    image: clinicOperatory1,
+  },
+  {
+    id: 'gallery-operatory-2',
+    title: 'Operatory · Chair 2',
+    caption: 'Digital diagnostics & implant-ready setup',
+    image: clinicOperatory2,
   },
 ];

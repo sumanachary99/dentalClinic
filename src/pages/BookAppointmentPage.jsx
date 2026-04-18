@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { SERVICES, TIME_SLOTS } from "../config/services";
+import { SERVICES, SERVICE_CATEGORIES, TIME_SLOTS } from '../config/services';
 import { getNextDays, formatDate } from '../utils/dateUtils';
-import { validateBookingForm } from "../utils/validators";
+import { validateBookingForm } from '../utils/validators';
 import { sendBookingConfirmation } from '../utils/whatsapp';
 import { addAppointment } from '../utils/googleSheets';
+import { renderIcon } from '../utils/iconMapper';
 
-const STEPS = ["Service", "Date & Time", "Details"];
+const STEPS = ['Service', 'Date & Time', 'Details'];
 
 export default function BookAppointmentPage() {
   const [searchParams] = useSearchParams();
@@ -14,21 +15,22 @@ export default function BookAppointmentPage() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const dates = getNextDays(14);
+  const defaultDate = dates.length > 0 ? dates[0].dateStr : '';
 
   const [formData, setFormData] = useState({
     serviceType: '',
-    appointmentDate: '',
+    appointmentDate: defaultDate,
     appointmentTime: '',
     patientName: '',
     phoneNumber: '',
     notes: '',
   });
 
-  const dates = getNextDays(14);
-
-  // Pre-select service from URL param
   useEffect(() => {
-    const serviceId = searchParams.get("service");
+    const serviceId = searchParams.get('service');
     if (serviceId) {
       const service = SERVICES.find((s) => s.id === serviceId);
       if (service && formData.serviceType !== service.name) {
@@ -38,7 +40,12 @@ export default function BookAppointmentPage() {
     }
   }, [searchParams, formData.serviceType]);
 
-  const selectedService = SERVICES.find(s => s.name === formData.serviceType);
+  const selectedService = SERVICES.find((s) => s.name === formData.serviceType);
+
+  const filteredServices =
+    activeCategory === 'all'
+      ? SERVICES
+      : SERVICES.filter((s) => s.category === activeCategory);
 
   const handleNext = () => {
     if (step === 0 && !formData.serviceType) {
@@ -46,19 +53,23 @@ export default function BookAppointmentPage() {
       return;
     }
     if (step === 1) {
-      if (!formData.appointmentDate)
-        return setErrors({ appointmentDate: "Please select a date" });
-      if (!formData.appointmentTime)
-        return setErrors({ appointmentTime: "Please select a time" });
+      if (!formData.appointmentDate) {
+        return setErrors({ appointmentDate: 'Please select a date' });
+      }
+      if (!formData.appointmentTime) {
+        return setErrors({ appointmentTime: 'Please select a time' });
+      }
     }
     setErrors({});
     setStep(step + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBack = () => {
     setErrors({});
     setSubmitStatus({ type: '', message: '' });
     setStep(Math.max(0, step - 1));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSubmit = async (e) => {
@@ -69,7 +80,6 @@ export default function BookAppointmentPage() {
     setSubmitting(true);
     setSubmitStatus({ type: '', message: '' });
 
-    // Keep WhatsApp confirmation immediate.
     sendBookingConfirmation({
       patientName: formData.patientName,
       phoneNumber: formData.phoneNumber,
@@ -91,18 +101,21 @@ export default function BookAppointmentPage() {
       if (syncResult?.success === false) {
         setSubmitStatus({
           type: 'error',
-          message: 'WhatsApp opened, but dashboard sync failed. Please call the clinic to confirm.',
+          message:
+            'WhatsApp opened, but dashboard sync failed. Please call the clinic to confirm.',
         });
       } else {
         setSubmitStatus({
           type: 'success',
-          message: 'WhatsApp opened and your request was logged for reception follow-up.',
+          message:
+            'WhatsApp opened and your request was logged for reception follow-up.',
         });
       }
     } catch {
       setSubmitStatus({
         type: 'error',
-        message: 'WhatsApp opened, but we could not sync your request. Please call the clinic to confirm.',
+        message:
+          'WhatsApp opened, but we could not sync your request. Please call the clinic to confirm.',
       });
     } finally {
       setSubmitting(false);
@@ -114,130 +127,65 @@ export default function BookAppointmentPage() {
       <div className="container">
         <div className="booking-container">
           {/* Steps indicator */}
-          <div
-            className="booking-steps"
-            style={{
-              overflowX: "auto",
-              whiteSpace: "nowrap",
-              paddingBottom: "10px",
-            }}
-          >
+          <div className="booking-steps">
             {STEPS.map((label, i) => (
               <div
                 key={i}
-                className={`booking-step ${i === step ? "active" : ""} ${i < step ? "completed" : ""}`}
-                style={{ flexShrink: 0 }}
+                className={`booking-step ${i === step ? 'active' : ''} ${i < step ? 'completed' : ''}`}
               >
                 <span className="booking-step-number">
-                  {i < step ? "✓" : i + 1}
+                  {i < step ? '✓' : i + 1}
                 </span>
                 <span className="booking-step-label">{label}</span>
               </div>
             ))}
           </div>
 
-          <div
-            className="booking-card"
-            style={{
-              padding: "var(--space-2xl)",
-              background: "linear-gradient(to bottom right, #ffffff, #f8fafc)",
-              border: "1px solid rgba(14, 165, 233, 0.2)",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.05)",
-            }}
-          >
+          <div className="booking-card">
             {/* Step 1: Select Service */}
             {step === 0 && (
               <div className="animate-fade-in">
                 <h2>Select a Service</h2>
                 <p className="subtitle">What treatment do you need?</p>
                 {errors.serviceType && (
-                  <p
-                    style={{
-                      color: "var(--color-danger)",
-                      fontSize: "var(--text-sm)",
-                      marginBottom: "var(--space-md)",
-                    }}
-                  >
-                    {errors.serviceType}
-                  </p>
+                  <p className="booking-error">{errors.serviceType}</p>
                 )}
-                <div
-                  className="service-selector-grid"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-                    gap: "var(--space-md)",
-                  }}
-                >
-                  {SERVICES.map((service) => (
-                    <div
+
+                {/* Category chips — help narrow down */}
+                <div className="booking-category-tabs">
+                  {SERVICE_CATEGORIES.map((cat) => (
+                    <button
+                      type="button"
+                      key={cat.id}
+                      className={`booking-category-tab ${activeCategory === cat.id ? 'active' : ''}`}
+                      onClick={() => setActiveCategory(cat.id)}
+                    >
+                      {cat.name}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="service-selector-grid">
+                  {filteredServices.map((service) => (
+                    <button
+                      type="button"
                       key={service.id}
-                      className={`service-option ${formData.serviceType === service.name ? "selected" : ""}`}
+                      className={`service-option ${formData.serviceType === service.name ? 'selected' : ''}`}
                       onClick={() =>
                         setFormData({ ...formData, serviceType: service.name })
                       }
-                      style={{
-                        padding: "var(--space-lg)",
-                        textAlign: "center",
-                        cursor: "pointer",
-                        border: "2px solid transparent",
-                        borderRadius: "var(--radius-xl)",
-                        background:
-                          formData.serviceType === service.name
-                            ? "var(--color-primary-50)"
-                            : "var(--color-bg)",
-                        boxShadow:
-                          formData.serviceType === service.name
-                            ? "0 0 0 2px var(--color-primary)"
-                            : "none",
-                        transition: "all 0.3s ease",
-                      }}
                     >
-                      <div
-                        className="icon"
-                        style={{
-                          fontSize: "2rem",
-                          marginBottom: "var(--space-xs)",
-                        }}
-                      >
-                        {service.icon}
-                      </div>
-                      <div
-                        className="name"
-                        style={{
-                          fontWeight: "700",
-                          fontSize: "var(--text-base)",
-                          color: "var(--color-dark)",
-                        }}
-                      >
-                        {service.shortName}
-                      </div>
-                      <div
-                        className="price"
-                        style={{
-                          color: "var(--color-primary)",
-                          fontSize: "var(--text-sm)",
-                          marginTop: "var(--space-xs)",
-                          fontWeight: "600",
-                        }}
-                      >
-                        {service.price}
-                      </div>
-                    </div>
+                      <span className="icon">{renderIcon(service.icon, 24)}</span>
+                      <span className="name">{service.shortName}</span>
+                      <span className="duration">📅 {service.duration}</span>
+                    </button>
                   ))}
                 </div>
-                <div
-                  className="booking-actions"
-                  style={{
-                    marginTop: "var(--space-xl)",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                >
+
+                <div className="booking-actions">
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-primary booking-next"
                     onClick={handleNext}
-                    style={{ width: "100%", maxWidth: "200px" }}
                   >
                     Continue →
                   </button>
@@ -252,200 +200,70 @@ export default function BookAppointmentPage() {
                 <p className="subtitle">
                   {selectedService
                     ? `${selectedService.icon} ${selectedService.name} — ${selectedService.duration}`
-                    : "Choose your preferred slot"}
+                    : 'Choose your preferred slot'}
                 </p>
 
-                {/* Date picker */}
-                <div style={{ marginBottom: "var(--space-md)" }}>
+                <div className="booking-field-head">
                   <label className="form-label">Select Date</label>
                   {errors.appointmentDate && (
-                    <p
-                      style={{
-                        color: "var(--color-danger)",
-                        fontSize: "var(--text-sm)",
-                      }}
-                    >
+                    <p className="booking-error-inline">
                       {errors.appointmentDate}
                     </p>
                   )}
                 </div>
-                <div
-                  className="date-picker-scroll"
-                  style={{
-                    display: "flex",
-                    gap: "var(--space-md)",
-                    overflowX: "auto",
-                    paddingBottom: "var(--space-lg)",
-                    scrollbarWidth: "none",
-                    WebkitOverflowScrolling: "touch",
-                  }}
-                >
-                  {dates.map((d) => (
-                    <div
-                      key={d.dateStr}
-                      className={`date-option ${formData.appointmentDate === d.dateStr ? "selected" : ""} ${d.isToday ? "today" : ""}`}
-                      onClick={() =>
-                        setFormData({ ...formData, appointmentDate: d.dateStr })
-                      }
-                      style={{
-                        minWidth: "90px",
-                        flexShrink: 0,
-                        border:
-                          formData.appointmentDate === d.dateStr
-                            ? "none"
-                            : "2px solid var(--color-gray-100)",
-                        background:
-                          formData.appointmentDate === d.dateStr
-                            ? "linear-gradient(135deg, var(--color-primary), var(--color-primary-light))"
-                            : "var(--color-white)",
-                        color:
-                          formData.appointmentDate === d.dateStr
-                            ? "white"
-                            : "inherit",
-                        borderRadius: "var(--radius-xl)",
-                        textAlign: "center",
-                        padding: "var(--space-md)",
-                        cursor: "pointer",
-                        boxShadow:
-                          formData.appointmentDate === d.dateStr
-                            ? "0 10px 15px -3px rgba(14, 165, 233, 0.3)"
-                            : "none",
-                        transition: "all 0.2s ease",
-                      }}
-                    >
-                      <div
-                        className="day-name"
-                        style={{
-                          fontSize: "var(--text-xs)",
-                          color:
-                            formData.appointmentDate === d.dateStr
-                              ? "rgba(255,255,255,0.8)"
-                              : "var(--color-gray)",
-                          fontWeight: "600",
-                          textTransform: "uppercase",
-                          letterSpacing: "1px",
-                        }}
+                <div className="date-picker-grid">
+                  {dates.map((d) => {
+                    const selected = formData.appointmentDate === d.dateStr;
+                    return (
+                      <button
+                        type="button"
+                        key={d.dateStr}
+                        className={`date-option ${selected ? 'selected' : ''} ${d.isToday ? 'today' : ''}`}
+                        onClick={() =>
+                          setFormData({
+                            ...formData,
+                            appointmentDate: d.dateStr,
+                          })
+                        }
                       >
-                        {d.isToday ? "Today" : d.day}
-                      </div>
-                      <div
-                        className="day-num"
-                        style={{
-                          fontSize: "var(--text-2xl)",
-                          fontWeight: "800",
-                          margin: "8px 0",
-                          color:
-                            formData.appointmentDate === d.dateStr
-                              ? "white"
-                              : "var(--color-dark)",
-                        }}
-                      >
-                        {d.date}
-                      </div>
-                      <div
-                        className="month"
-                        style={{
-                          fontSize: "var(--text-xs)",
-                          textTransform: "uppercase",
-                          fontWeight: "600",
-                          color:
-                            formData.appointmentDate === d.dateStr
-                              ? "rgba(255,255,255,0.8)"
-                              : "var(--color-gray)",
-                        }}
-                      >
-                        {d.month}
-                      </div>
-                    </div>
-                  ))}
+                        <span className="day-name">
+                          {d.isToday ? 'Today' : d.day}
+                        </span>
+                        <span className="day-num">{d.date}</span>
+                        <span className="month">{d.month}</span>
+                      </button>
+                    );
+                  })}
                 </div>
 
-                {/* Time slots */}
-                <div
-                  style={{
-                    marginBottom: "var(--space-md)",
-                    marginTop: "var(--space-lg)",
-                  }}
-                >
+                <div className="booking-field-head booking-field-head--mt">
                   <label className="form-label">Select Time</label>
                   {errors.appointmentTime && (
-                    <p
-                      style={{
-                        color: "var(--color-danger)",
-                        fontSize: "var(--text-sm)",
-                      }}
-                    >
+                    <p className="booking-error-inline">
                       {errors.appointmentTime}
                     </p>
                   )}
                 </div>
-                <div
-                  className="time-slots-grid"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(90px, 1fr))",
-                    gap: "var(--space-sm)",
-                  }}
-                >
+                <div className="time-slots-grid">
                   {TIME_SLOTS.map((time) => (
-                    <div
+                    <button
+                      type="button"
                       key={time}
-                      className={`time-slot ${formData.appointmentTime === time ? "selected" : ""}`}
+                      className={`time-slot ${formData.appointmentTime === time ? 'selected' : ''}`}
                       onClick={() =>
                         setFormData({ ...formData, appointmentTime: time })
                       }
-                      style={{
-                        border:
-                          formData.appointmentTime === time
-                            ? "none"
-                            : "2px solid var(--color-gray-100)",
-                        background:
-                          formData.appointmentTime === time
-                            ? "linear-gradient(135deg, var(--color-primary), var(--color-primary-light))"
-                            : "var(--color-white)",
-                        color:
-                          formData.appointmentTime === time
-                            ? "white"
-                            : "var(--color-dark)",
-                        borderRadius: "var(--radius-lg)",
-                        padding: "var(--space-md) var(--space-sm)",
-                        textAlign: "center",
-                        cursor: "pointer",
-                        fontSize: "var(--text-sm)",
-                        fontWeight: "600",
-                        boxShadow:
-                          formData.appointmentTime === time
-                            ? "0 8px 15px -3px rgba(14, 165, 233, 0.3)"
-                            : "none",
-                        transition: "all 0.2s ease",
-                      }}
                     >
                       {time}
-                    </div>
+                    </button>
                   ))}
                 </div>
 
-                <div
-                  className="booking-actions"
-                  style={{
-                    marginTop: "var(--space-xl)",
-                    display: "flex",
-                    gap: "var(--space-md)",
-                    flexDirection: "column",
-                  }}
-                >
-                  <button
-                    className="btn btn-primary"
-                    onClick={handleNext}
-                    style={{ width: "100%" }}
-                  >
+                <div className="booking-actions booking-actions--stack">
+                  <button className="btn btn-primary" onClick={handleNext}>
                     Continue →
                   </button>
-                  <button
-                    className="btn btn-outline"
-                    onClick={handleBack}
-                    style={{ width: "100%" }}
-                  >
+                  <button className="btn btn-outline" onClick={handleBack}>
                     ← Back
                   </button>
                 </div>
@@ -461,31 +279,14 @@ export default function BookAppointmentPage() {
                 </p>
                 {submitStatus.message && (
                   <p
-                    style={{
-                      marginBottom: "var(--space-lg)",
-                      padding: "10px 12px",
-                      borderRadius: "var(--radius-md)",
-                      fontSize: "var(--text-sm)",
-                      fontWeight: "600",
-                      background:
-                        submitStatus.type === "success"
-                          ? "var(--color-success-light)"
-                          : "var(--color-danger-light)",
-                      color:
-                        submitStatus.type === "success"
-                          ? "#065f46"
-                          : "#991b1b",
-                    }}
+                    className={`booking-status ${submitStatus.type === 'success' ? 'success' : 'error'}`}
                   >
                     {submitStatus.message}
                   </p>
                 )}
 
-                <form onSubmit={handleSubmit}>
-                  <div
-                    className="form-group"
-                    style={{ marginBottom: "var(--space-md)" }}
-                  >
+                <form onSubmit={handleSubmit} className="booking-form">
+                  <div className="form-group">
                     <label className="form-label">Full Name *</label>
                     <input
                       type="text"
@@ -498,32 +299,15 @@ export default function BookAppointmentPage() {
                           patientName: e.target.value,
                         })
                       }
-                      style={{
-                        width: "100%",
-                        padding: "16px",
-                        borderRadius: "var(--radius-lg)",
-                        border: "2px solid var(--color-gray-200)",
-                        fontSize: "var(--text-base)",
-                        transition: "border-color 0.2s",
-                      }}
                     />
                     {errors.patientName && (
-                      <p
-                        style={{
-                          color: "var(--color-danger)",
-                          fontSize: "var(--text-sm)",
-                          marginTop: "4px",
-                        }}
-                      >
+                      <p className="booking-error-inline">
                         {errors.patientName}
                       </p>
                     )}
                   </div>
 
-                  <div
-                    className="form-group"
-                    style={{ marginBottom: "var(--space-md)" }}
-                  >
+                  <div className="form-group">
                     <label className="form-label">Phone Number *</label>
                     <input
                       type="tel"
@@ -534,44 +318,19 @@ export default function BookAppointmentPage() {
                       onChange={(e) =>
                         setFormData({
                           ...formData,
-                          phoneNumber: e.target.value.replace(/\D/g, ""),
+                          phoneNumber: e.target.value.replace(/\D/g, ''),
                         })
                       }
-                      style={{
-                        width: "100%",
-                        padding: "12px",
-                        borderRadius: "var(--radius-md)",
-                        border: "1px solid var(--color-gray-300)",
-                      }}
                     />
                     {errors.phoneNumber && (
-                      <p
-                        style={{
-                          color: "var(--color-danger)",
-                          fontSize: "var(--text-sm)",
-                          marginTop: "4px",
-                        }}
-                      >
+                      <p className="booking-error-inline">
                         {errors.phoneNumber}
                       </p>
                     )}
                   </div>
 
-                  <div
-                    className="form-group"
-                    style={{ marginBottom: "var(--space-xl)" }}
-                  >
-                    <label
-                      className="form-label"
-                      style={{
-                        fontWeight: "600",
-                        color: "var(--color-dark)",
-                        marginBottom: "8px",
-                        display: "block",
-                      }}
-                    >
-                      Notes (optional)
-                    </label>
+                  <div className="form-group">
+                    <label className="form-label">Notes (optional)</label>
                     <textarea
                       className="form-textarea"
                       placeholder="Any specific concerns or requests?"
@@ -579,53 +338,21 @@ export default function BookAppointmentPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, notes: e.target.value })
                       }
-                      style={{
-                        width: "100%",
-                        padding: "16px",
-                        borderRadius: "var(--radius-lg)",
-                        border: "2px solid var(--color-gray-200)",
-                        fontSize: "var(--text-base)",
-                        minHeight: "120px",
-                        transition: "border-color 0.2s",
-                      }}
                     />
                   </div>
 
-                  <div
-                    className="booking-actions"
-                    style={{
-                      display: "flex",
-                      gap: "var(--space-md)",
-                      flexDirection: "column",
-                    }}
-                  >
+                  <div className="booking-actions booking-actions--stack">
                     <button
                       type="submit"
-                      className="btn btn-accent"
+                      className="btn btn-accent booking-submit"
                       disabled={submitting}
-                      style={{
-                        width: "100%",
-                        fontSize: "1.2rem",
-                        padding: "16px",
-                        borderRadius: "var(--radius-lg)",
-                        fontWeight: "700",
-                        boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.4)",
-                      }}
                     >
-                      {submitting
-                        ? "⏳ Redirecting..."
-                        : "💬 Send via WhatsApp"}
+                      {submitting ? '⏳ Redirecting...' : '💬 Send via WhatsApp'}
                     </button>
                     <button
                       type="button"
                       className="btn btn-outline"
                       onClick={handleBack}
-                      style={{
-                        width: "100%",
-                        padding: "14px",
-                        borderRadius: "var(--radius-lg)",
-                        fontWeight: "600",
-                      }}
                     >
                       ← Back
                     </button>

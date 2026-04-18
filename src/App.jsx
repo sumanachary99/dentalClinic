@@ -7,7 +7,6 @@ import ServicesPage from "./pages/ServicesPage";
 import BookAppointmentPage from "./pages/BookAppointmentPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-import DashboardPage from "./pages/DashboardPage";
 import { getClinicWhatsAppLink } from "./utils/whatsapp";
 
 export default function App() {
@@ -20,7 +19,6 @@ export default function App() {
         <Route path="/book" element={<BookAppointmentPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
       <Footer />
       <MobileNav />
