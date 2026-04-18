@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SERVICES, SERVICE_CATEGORIES, TIME_SLOTS } from '../config/services';
 import { getNextDays, formatDate } from '../utils/dateUtils';
@@ -15,6 +15,7 @@ export default function BookAppointmentPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
   const [activeCategory, setActiveCategory] = useState('all');
+  const continueButtonRef = useRef(null);
 
   const dates = getNextDays(14);
   const defaultDate = dates.length > 0 ? dates[0].dateStr : '';
@@ -44,6 +45,13 @@ export default function BookAppointmentPage() {
     activeCategory === 'all'
       ? SERVICES
       : SERVICES.filter((s) => s.category === activeCategory);
+
+  const handleServiceSelect = (serviceName) => {
+    setFormData({ ...formData, serviceType: serviceName });
+    setTimeout(() => {
+      continueButtonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  };
 
   const handleNext = () => {
     if (step === 0 && !formData.serviceType) {
@@ -169,9 +177,7 @@ export default function BookAppointmentPage() {
                       type="button"
                       key={service.id}
                       className={`service-option ${formData.serviceType === service.name ? 'selected' : ''}`}
-                      onClick={() =>
-                        setFormData({ ...formData, serviceType: service.name })
-                      }
+                      onClick={() => handleServiceSelect(service.name)}
                     >
                       <span className="icon">{service.icon}</span>
                       <span className="name">{service.shortName}</span>
@@ -180,7 +186,7 @@ export default function BookAppointmentPage() {
                   ))}
                 </div>
 
-                <div className="booking-actions">
+                <div className="booking-actions" ref={continueButtonRef}>
                   <button
                     className="btn btn-primary booking-next"
                     onClick={handleNext}
