@@ -1,0 +1,309 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Sumukha Nuface Sumukha Nuface Dental | Face | Hair | Cosmetic" [ref=e5] [cursor=pointer]:
+        - /url: "#/"
+        - img "Sumukha Nuface" [ref=e6]
+        - generic [ref=e7]:
+          - heading "Sumukha Nuface" [level=1] [ref=e8]
+          - generic [ref=e9]: Dental | Face | Hair | Cosmetic
+      - navigation [ref=e10]:
+        - link "Home" [ref=e11] [cursor=pointer]:
+          - /url: "#/"
+        - link "Services" [ref=e12] [cursor=pointer]:
+          - /url: "#/services"
+        - link "About" [ref=e13] [cursor=pointer]:
+          - /url: "#/about"
+        - link "Contact" [ref=e14] [cursor=pointer]:
+          - /url: "#/contact"
+      - generic [ref=e15]:
+        - link "📞 07411711098" [ref=e16] [cursor=pointer]:
+          - /url: tel:07411711098
+        - link "Book Appointment" [ref=e17] [cursor=pointer]:
+          - /url: "#/book"
+  - generic [ref=e18]:
+    - link "Home" [ref=e19] [cursor=pointer]:
+      - /url: "#/"
+    - link "Services" [ref=e20] [cursor=pointer]:
+      - /url: "#/services"
+    - link "About" [ref=e21] [cursor=pointer]:
+      - /url: "#/about"
+    - link "Contact" [ref=e22] [cursor=pointer]:
+      - /url: "#/contact"
+    - link "Book Appointment" [ref=e23] [cursor=pointer]:
+      - /url: "#/book"
+    - link "📞 07411711098" [ref=e24] [cursor=pointer]:
+      - /url: tel:07411711098
+  - main [ref=e502]:
+    - generic [ref=e504]:
+      - generic [ref=e505]:
+        - generic [ref=e506]:
+          - generic [ref=e507]: "1"
+          - generic [ref=e508]: Service
+        - generic [ref=e509]:
+          - generic [ref=e510]: "2"
+          - generic [ref=e511]: Date & Time
+        - generic [ref=e512]:
+          - generic [ref=e513]: "3"
+          - generic [ref=e514]: Details
+      - generic [ref=e516]:
+        - heading "Select a Service" [level=2] [ref=e517]
+        - paragraph [ref=e518]: What treatment do you need?
+        - generic [ref=e519]:
+          - button "All Services" [ref=e520] [cursor=pointer]
+          - button "Dental" [ref=e521] [cursor=pointer]
+          - button "Oral & Maxillofacial Surgery" [ref=e522] [cursor=pointer]
+          - button "Hair / Trichology" [ref=e523] [cursor=pointer]
+          - button "Cosmetology / Skin" [ref=e524] [cursor=pointer]
+          - button "Dental Implants" [ref=e525] [cursor=pointer]
+          - button "Cosmetic Dentistry" [ref=e526] [cursor=pointer]
+        - generic [ref=e527]:
+          - button "Consultation 📅 30 min" [ref=e528] [cursor=pointer]:
+            - img [ref=e530]
+            - generic [ref=e534]: Consultation
+            - generic [ref=e535]: 📅 30 min
+          - button "Cleaning 📅 45 min" [ref=e536] [cursor=pointer]:
+            - img [ref=e538]
+            - generic [ref=e541]: Cleaning
+            - generic [ref=e542]: 📅 45 min
+          - button "RCT 📅 60–90 min" [ref=e543] [cursor=pointer]:
+            - img [ref=e545]
+            - generic [ref=e549]: RCT
+            - generic [ref=e550]: 📅 60–90 min
+          - button "Extraction 📅 30–60 min" [ref=e551] [cursor=pointer]:
+            - generic [ref=e552]: Extraction
+            - generic [ref=e553]: 📅 30–60 min
+          - button "Kids 📅 30 min" [ref=e554] [cursor=pointer]:
+            - img [ref=e556]
+            - generic [ref=e559]: Kids
+            - generic [ref=e560]: 📅 30 min
+          - button "Gum Care 📅 30–60 min" [ref=e561] [cursor=pointer]:
+            - img [ref=e563]
+            - generic [ref=e567]: Gum Care
+            - generic [ref=e568]: 📅 30–60 min
+          - button "X-Ray 📅 15 min" [ref=e569] [cursor=pointer]:
+            - img [ref=e571]
+            - generic [ref=e574]: X-Ray
+            - generic [ref=e575]: 📅 15 min
+          - button "Orthodontics 📅 12–24 months" [ref=e576] [cursor=pointer]:
+            - img [ref=e578]
+            - generic [ref=e581]: Orthodontics
+            - generic [ref=e582]: 📅 12–24 months
+          - button "Wisdom Tooth 📅 45–90 min" [ref=e583] [cursor=pointer]:
+            - img [ref=e585]
+            - generic [ref=e589]: Wisdom Tooth
+            - generic [ref=e590]: 📅 45–90 min
+          - button "Cyst & Tumor 📅 Case based" [ref=e591] [cursor=pointer]:
+            - img [ref=e593]
+            - generic [ref=e595]: Cyst & Tumor
+            - generic [ref=e596]: 📅 Case based
+          - button "Facial Trauma 📅 Multi-session" [ref=e597] [cursor=pointer]:
+            - img [ref=e599]
+            - generic [ref=e601]: Facial Trauma
+            - generic [ref=e602]: 📅 Multi-session
+          - button "Facial Plastic 📅 Case based" [ref=e603] [cursor=pointer]:
+            - img [ref=e605]
+            - generic [ref=e611]: Facial Plastic
+            - generic [ref=e612]: 📅 Case based
+          - button "Cleft 📅 Multi-stage" [ref=e613] [cursor=pointer]:
+            - img [ref=e615]
+            - generic [ref=e618]: Cleft
+            - generic [ref=e619]: 📅 Multi-stage
+          - button "Jaw Surgery 📅 Multi-visit" [ref=e620] [cursor=pointer]:
+            - generic [ref=e621]: Jaw Surgery
+            - generic [ref=e622]: 📅 Multi-visit
+          - button "Single Implant 📅 2–3 visits" [ref=e623] [cursor=pointer]:
+            - img [ref=e625]
+            - generic [ref=e629]: Single Implant
+            - generic [ref=e630]: 📅 2–3 visits
+          - button "Multiple Implants 📅 Multi-visit" [ref=e631] [cursor=pointer]:
+            - img [ref=e633]
+            - generic [ref=e636]: Multiple Implants
+            - generic [ref=e637]: 📅 Multi-visit
+          - button "Full Mouth 📅 3–6 months" [ref=e638] [cursor=pointer]:
+            - img [ref=e640]
+            - generic [ref=e642]: Full Mouth
+            - generic [ref=e643]: 📅 3–6 months
+          - button "Advanced 📅 Staged" [ref=e644] [cursor=pointer]:
+            - img [ref=e646]
+            - generic [ref=e658]: Advanced
+            - generic [ref=e659]: 📅 Staged
+          - button "Whitening 📅 60 min" [ref=e660] [cursor=pointer]:
+            - img [ref=e662]
+            - generic [ref=e664]: Whitening
+            - generic [ref=e665]: 📅 60 min
+          - button "Jewellery 📅 20 min" [ref=e666] [cursor=pointer]:
+            - img [ref=e668]
+            - generic [ref=e671]: Jewellery
+            - generic [ref=e672]: 📅 20 min
+          - button "Gummy Smile 📅 45 min" [ref=e673] [cursor=pointer]:
+            - img [ref=e675]
+            - generic [ref=e678]: Gummy Smile
+            - generic [ref=e679]: 📅 45 min
+          - button "Veneers 📅 2–3 visits" [ref=e680] [cursor=pointer]:
+            - generic [ref=e681]: Veneers
+            - generic [ref=e682]: 📅 2–3 visits
+          - button "Crowns 📅 2–3 visits" [ref=e683] [cursor=pointer]:
+            - img [ref=e685]
+            - generic [ref=e687]: Crowns
+            - generic [ref=e688]: 📅 2–3 visits
+          - button "Smile Design 📅 Multi-visit" [ref=e689] [cursor=pointer]:
+            - img [ref=e691]
+            - generic [ref=e697]: Smile Design
+            - generic [ref=e698]: 📅 Multi-visit
+          - button "Hair Consult 📅 30 min" [ref=e699] [cursor=pointer]:
+            - img [ref=e701]
+            - generic [ref=e705]: Hair Consult
+            - generic [ref=e706]: 📅 30 min
+          - button "Alopecia 📅 Session based" [ref=e707] [cursor=pointer]:
+            - generic [ref=e708]: Alopecia
+            - generic [ref=e709]: 📅 Session based
+          - button "Hair Tx 📅 6–8 hr session" [ref=e710] [cursor=pointer]:
+            - img [ref=e712]
+            - generic [ref=e715]: Hair Tx
+            - generic [ref=e716]: 📅 6–8 hr session
+          - button "PRP 📅 45 min" [ref=e717] [cursor=pointer]:
+            - img [ref=e719]
+            - generic [ref=e726]: PRP
+            - generic [ref=e727]: 📅 45 min
+          - button "Mesotherapy 📅 30 min" [ref=e728] [cursor=pointer]:
+            - img [ref=e730]
+            - generic [ref=e732]: Mesotherapy
+            - generic [ref=e733]: 📅 30 min
+          - button "Laser Hair 📅 20–60 min" [ref=e734] [cursor=pointer]:
+            - img [ref=e736]
+            - generic [ref=e739]: Laser Hair
+            - generic [ref=e740]: 📅 20–60 min
+          - button "Skin Consult 📅 30 min" [ref=e741] [cursor=pointer]:
+            - img [ref=e743]
+            - generic [ref=e750]: Skin Consult
+            - generic [ref=e751]: 📅 30 min
+          - button "Peels 📅 30 min" [ref=e752] [cursor=pointer]:
+            - generic [ref=e753]: Peels
+            - generic [ref=e754]: 📅 30 min
+          - button "Microderm 📅 30 min" [ref=e755] [cursor=pointer]:
+            - img [ref=e757]
+            - generic [ref=e762]: Microderm
+            - generic [ref=e763]: 📅 30 min
+          - button "Hydrafacial 📅 45 min" [ref=e764] [cursor=pointer]:
+            - generic [ref=e765]: Hydrafacial
+            - generic [ref=e766]: 📅 45 min
+          - button "PRP Skin 📅 45 min" [ref=e767] [cursor=pointer]:
+            - img [ref=e769]
+            - generic [ref=e776]: PRP Skin
+            - generic [ref=e777]: 📅 45 min
+          - button "Carboxy 📅 30 min" [ref=e778] [cursor=pointer]:
+            - img [ref=e780]
+            - generic [ref=e784]: Carboxy
+            - generic [ref=e785]: 📅 30 min
+          - button "Skin Laser 📅 30–60 min" [ref=e786] [cursor=pointer]:
+            - img [ref=e788]
+            - generic [ref=e791]: Skin Laser
+            - generic [ref=e792]: 📅 30–60 min
+          - button "Botox 📅 20 min" [ref=e793] [cursor=pointer]:
+            - img [ref=e795]
+            - generic [ref=e797]: Botox
+            - generic [ref=e798]: 📅 20 min
+          - button "Fillers 📅 30 min" [ref=e799] [cursor=pointer]:
+            - generic [ref=e800]: Fillers
+            - generic [ref=e801]: 📅 30 min
+          - button "Threads 📅 45 min" [ref=e802] [cursor=pointer]:
+            - generic [ref=e803]: Threads
+            - generic [ref=e804]: 📅 45 min
+          - button "Tag & Mole 📅 15–30 min" [ref=e805] [cursor=pointer]:
+            - img [ref=e807]
+            - generic [ref=e811]: Tag & Mole
+            - generic [ref=e812]: 📅 15–30 min
+          - button "Pigment Care 📅 Consultation based" [ref=e813] [cursor=pointer]:
+            - generic [ref=e814]: Pigment Care
+            - generic [ref=e815]: 📅 Consultation based
+        - button "Continue →" [ref=e817] [cursor=pointer]
+  - contentinfo [ref=e362]:
+    - generic [ref=e363]:
+      - generic [ref=e364]:
+        - generic [ref=e365]:
+          - heading "🦷 Sumukha Nuface" [level=3] [ref=e366]
+          - paragraph [ref=e367]: Integrated care across dental treatment, skincare and laser procedures, hair restoration, and cosmetic planning with clear patient guidance.
+          - generic [ref=e368]:
+            - link "Instagram" [ref=e369] [cursor=pointer]:
+              - /url: "#"
+              - text: 📸
+            - link "Facebook" [ref=e370] [cursor=pointer]:
+              - /url: "#"
+              - text: 👥
+            - link "YouTube" [ref=e371] [cursor=pointer]:
+              - /url: "#"
+              - text: 🎥
+            - link "Google" [ref=e372] [cursor=pointer]:
+              - /url: https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201
+              - text: 🔍
+        - generic [ref=e373]:
+          - heading "Quick Links" [level=4] [ref=e374]
+          - list [ref=e375]:
+            - listitem [ref=e376]:
+              - link "Home" [ref=e377] [cursor=pointer]:
+                - /url: "#/"
+            - listitem [ref=e378]:
+              - link "Services" [ref=e379] [cursor=pointer]:
+                - /url: "#/services"
+            - listitem [ref=e380]:
+              - link "About Us" [ref=e381] [cursor=pointer]:
+                - /url: "#/about"
+            - listitem [ref=e382]:
+              - link "Contact" [ref=e383] [cursor=pointer]:
+                - /url: "#/contact"
+            - listitem [ref=e384]:
+              - link "Book Appointment" [ref=e385] [cursor=pointer]:
+                - /url: "#/book"
+        - generic [ref=e386]:
+          - heading "Services" [level=4] [ref=e387]
+          - list [ref=e388]:
+            - listitem [ref=e389]:
+              - link "Dental" [ref=e390] [cursor=pointer]:
+                - /url: "#/services?category=dental"
+            - listitem [ref=e391]:
+              - link "Oral & Maxillofacial Surgery" [ref=e392] [cursor=pointer]:
+                - /url: "#/services?category=maxillofacial"
+            - listitem [ref=e393]:
+              - link "Dental Implants" [ref=e394] [cursor=pointer]:
+                - /url: "#/services?category=implants"
+            - listitem [ref=e395]:
+              - link "Cosmetic Dentistry" [ref=e396] [cursor=pointer]:
+                - /url: "#/services?category=cosmetic"
+            - listitem [ref=e397]:
+              - link "Hair / Trichology" [ref=e398] [cursor=pointer]:
+                - /url: "#/services?category=hair"
+            - listitem [ref=e399]:
+              - link "Cosmetology / Skin" [ref=e400] [cursor=pointer]:
+                - /url: "#/services?category=skin"
+        - generic [ref=e401]:
+          - heading "Contact Us" [level=4] [ref=e402]
+          - generic [ref=e403]:
+            - generic [ref=e404]: 📍
+            - generic [ref=e405]: Sampige Road, 9th Cross, K R Puram, Hassan - 573201
+          - generic [ref=e406]:
+            - generic [ref=e407]: 📞
+            - generic [ref=e408]:
+              - link "07411711098" [ref=e409] [cursor=pointer]:
+                - /url: tel:07411711098
+              - text: ·
+              - link "9110443004" [ref=e410] [cursor=pointer]:
+                - /url: tel:9110443004
+          - generic [ref=e411]:
+            - generic [ref=e412]: ✉️
+            - link "hello@sumukhanuface.in" [ref=e414] [cursor=pointer]:
+              - /url: mailto:hello@sumukhanuface.in
+          - generic [ref=e415]:
+            - generic [ref=e416]: 🕐
+            - generic [ref=e417]:
+              - text: "Mon–Sat: 10:00 AM – 7:30 PM"
+              - text: Sundays Closed
+          - generic [ref=e418]:
+            - generic [ref=e419]: 🏥
+            - generic [ref=e420]: Pharmacy, X-Ray & Lab Facilities Available
+      - generic [ref=e421]:
+        - generic [ref=e422]: © 2026 Sumukha Nuface. All rights reserved.
+        - generic [ref=e423]: Made with ❤️ for healthier smiles
+  - link "Chat on WhatsApp" [ref=e424] [cursor=pointer]:
+    - /url: https://wa.me/919110443004?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Sumukha%20Nuface%20-%20Dental%2C%20Face%2C%20Hair%20%26%20Cosmetic%20Clinic.%20%F0%9F%A6%B7
+    - text: 💬

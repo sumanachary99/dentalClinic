@@ -1,0 +1,458 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Sumukha Nuface Sumukha Nuface Dental | Face | Hair | Cosmetic" [ref=e5] [cursor=pointer]:
+        - /url: "#/"
+        - img "Sumukha Nuface" [ref=e6]
+        - generic [ref=e7]:
+          - heading "Sumukha Nuface" [level=1] [ref=e8]
+          - generic [ref=e9]: Dental | Face | Hair | Cosmetic
+      - navigation [ref=e10]:
+        - link "Home" [ref=e11] [cursor=pointer]:
+          - /url: "#/"
+        - link "Services" [ref=e12] [cursor=pointer]:
+          - /url: "#/services"
+        - link "About" [ref=e13] [cursor=pointer]:
+          - /url: "#/about"
+        - link "Contact" [ref=e14] [cursor=pointer]:
+          - /url: "#/contact"
+      - generic [ref=e15]:
+        - link "📞 07411711098" [ref=e16] [cursor=pointer]:
+          - /url: tel:07411711098
+        - link "Book Appointment" [ref=e17] [cursor=pointer]:
+          - /url: "#/book"
+  - generic [ref=e18]:
+    - link "Home" [ref=e19] [cursor=pointer]:
+      - /url: "#/"
+    - link "Services" [ref=e20] [cursor=pointer]:
+      - /url: "#/services"
+    - link "About" [ref=e21] [cursor=pointer]:
+      - /url: "#/about"
+    - link "Contact" [ref=e22] [cursor=pointer]:
+      - /url: "#/contact"
+    - link "Book Appointment" [ref=e23] [cursor=pointer]:
+      - /url: "#/book"
+    - link "📞 07411711098" [ref=e24] [cursor=pointer]:
+      - /url: tel:07411711098
+  - main [ref=e25]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - paragraph [ref=e30]: Sumukha Nuface
+        - heading "Face. Hair. Smile. One Clinic, Structured Care." [level=1] [ref=e31]:
+          - text: Face. Hair. Smile.
+          - generic [ref=e32]: One Clinic, Structured Care.
+        - paragraph [ref=e33]: Sumukha Nuface brings dental precision, hair restoration planning, and laser skin protocols into one coordinated experience with transparent pre and post procedural guidance.
+        - generic [ref=e34]:
+          - link "Book Appointment" [ref=e35] [cursor=pointer]:
+            - /url: "#/services"
+          - link "Chat on WhatsApp" [ref=e36] [cursor=pointer]:
+            - /url: https://wa.me/919110443004?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Sumukha%20Nuface%20-%20Dental%2C%20Face%2C%20Hair%20%26%20Cosmetic%20Clinic.%20%F0%9F%A6%B7
+        - paragraph [ref=e37]:
+          - text: Call us at
+          - link "07411711098" [ref=e38] [cursor=pointer]:
+            - /url: tel:07411711098
+          - text: · Mon–Sat 10:00 AM – 7:30 PM · Sundays Closed
+        - generic [ref=e39]:
+          - article [ref=e40]:
+            - generic [ref=e41]: "0"
+            - paragraph [ref=e42]: Specialty Verticals
+            - paragraph [ref=e43]: Dental · Surgery · Implants · Cosmetic · Hair · Skin
+          - article [ref=e44]:
+            - generic [ref=e45]: 0+
+            - paragraph [ref=e46]: Years of Excellence
+            - paragraph [ref=e47]: Since 2008, Hassan
+          - article [ref=e48]:
+            - generic [ref=e49]: 0.0/5
+            - paragraph [ref=e50]: Patient Satisfaction
+            - paragraph [ref=e51]: Across Google reviews
+      - generic [ref=e52]:
+        - article [ref=e53]:
+          - img "Sumukha Nuface clinic mark" [ref=e54]
+          - heading "Sumukha Nuface" [level=2] [ref=e55]
+          - paragraph [ref=e56]: Your Smile, Our Happiness
+          - generic [ref=e57]:
+            - generic [ref=e58]: Precision Dental
+            - generic [ref=e59]: Oral & Maxillofacial Surgery
+            - generic [ref=e60]: Dental Implants
+            - generic [ref=e61]: Cosmetic Dentistry
+        - article [ref=e62]:
+          - heading "Before You Book" [level=3] [ref=e63]
+          - paragraph [ref=e64]: Every major treatment page includes what to do before and after your procedure so patients and families can prepare confidently.
+    - generic [ref=e66]:
+      - heading "Multi-Specialty Clinical Tracks" [level=2] [ref=e67]
+      - paragraph [ref=e68]: Select the care track that matches your concern. Our team aligns diagnosis, procedure planning, and follow-up within one system.
+      - generic [ref=e69]:
+        - article [ref=e70]:
+          - generic [ref=e73]:
+            - heading "Precision Dental" [level=3] [ref=e74]
+            - paragraph [ref=e75]: General, RCT & rehabilitation
+          - list [ref=e76]:
+            - listitem [ref=e77]: Rotary Single-Sitting RCT
+            - listitem [ref=e78]: Painless Tooth Extractions
+            - listitem [ref=e79]: Kids Dentistry (Pedodontics)
+            - listitem [ref=e80]: Gum & Bone Treatment
+          - generic [ref=e81]:
+            - link "View Services" [ref=e82] [cursor=pointer]:
+              - /url: "#/services?category=dental"
+            - link "Book Now" [ref=e83] [cursor=pointer]:
+              - /url: "#/book?service=consultation"
+        - article [ref=e84]:
+          - generic [ref=e87]:
+            - heading "Oral & Maxillofacial Surgery" [level=3] [ref=e88]
+            - paragraph [ref=e89]: Advanced surgical care
+          - list [ref=e90]:
+            - listitem [ref=e91]: Wisdom Tooth Surgery
+            - listitem [ref=e92]: Cyst & Tumor Removal
+            - listitem [ref=e93]: Facial Injuries & Trauma
+            - listitem [ref=e94]: Orofacial Cleft Surgery
+          - generic [ref=e95]:
+            - link "View Services" [ref=e96] [cursor=pointer]:
+              - /url: "#/services?category=maxillofacial"
+            - link "Book Now" [ref=e97] [cursor=pointer]:
+              - /url: "#/book?service=wisdom-tooth"
+        - article [ref=e98]:
+          - generic [ref=e101]:
+            - heading "Dental Implants" [level=3] [ref=e102]
+            - paragraph [ref=e103]: Single to full-mouth rehab
+          - list [ref=e104]:
+            - listitem [ref=e105]: Single Tooth Implants
+            - listitem [ref=e106]: Multiple Tooth Implants
+            - listitem [ref=e107]: Full Mouth Rehabilitation
+            - listitem [ref=e108]: Advanced Implantology
+          - generic [ref=e109]:
+            - link "View Services" [ref=e110] [cursor=pointer]:
+              - /url: "#/services?category=implants"
+            - link "Book Now" [ref=e111] [cursor=pointer]:
+              - /url: "#/book?service=single-implant"
+        - article [ref=e112]:
+          - generic [ref=e113]:
+            - img [ref=e115]
+            - generic [ref=e118]:
+              - heading "Cosmetic Dentistry" [level=3] [ref=e119]
+              - paragraph [ref=e120]: Smile design & aesthetics
+          - list [ref=e121]:
+            - listitem [ref=e122]: Teeth Whitening
+            - listitem [ref=e123]: Laminates & Veneers
+            - listitem [ref=e124]: Gummy Smile Correction
+            - listitem [ref=e125]: Digital Smile Design
+          - generic [ref=e126]:
+            - link "View Services" [ref=e127] [cursor=pointer]:
+              - /url: "#/services?category=cosmetic"
+            - link "Book Now" [ref=e128] [cursor=pointer]:
+              - /url: "#/book?service=smile-design"
+        - article [ref=e129]:
+          - generic [ref=e130]:
+            - img [ref=e132]
+            - generic [ref=e139]:
+              - heading "Hair / Trichology" [level=3] [ref=e140]
+              - paragraph [ref=e141]: Restoration & regrowth
+          - list [ref=e142]:
+            - listitem [ref=e143]: Hair Transplant (FUE)
+            - listitem [ref=e144]: PRP / GFC Therapy
+            - listitem [ref=e145]: Alopecia Treatment
+            - listitem [ref=e146]: Laser Hair Reduction
+          - generic [ref=e147]:
+            - link "View Services" [ref=e148] [cursor=pointer]:
+              - /url: "#/services?category=hair"
+            - link "Book Now" [ref=e149] [cursor=pointer]:
+              - /url: "#/book?service=hair-consultation"
+        - article [ref=e150]:
+          - generic [ref=e151]:
+            - img [ref=e153]
+            - generic [ref=e157]:
+              - heading "Cosmetology / Skin" [level=3] [ref=e158]
+              - paragraph [ref=e159]: Aesthetic laser & injectables
+          - list [ref=e160]:
+            - listitem [ref=e161]: Botox & Dermal Fillers
+            - listitem [ref=e162]: Hydrafacial & Peels
+            - listitem [ref=e163]: Laser Rejuvenation
+            - listitem [ref=e164]: Thread Lift & PRP
+          - generic [ref=e165]:
+            - link "View Services" [ref=e166] [cursor=pointer]:
+              - /url: "#/services?category=skin"
+            - link "Book Now" [ref=e167] [cursor=pointer]:
+              - /url: "#/book?service=skin-consultation"
+    - generic [ref=e169]:
+      - heading "Dental Procedures, Explained Simply" [level=2] [ref=e170]
+      - paragraph [ref=e171]: Understanding your treatment helps you walk in confident. Here's a quick look at three of our most common dental procedures.
+      - generic [ref=e172]:
+        - article [ref=e173]:
+          - generic [ref=e174]:
+            - generic [ref=e175]: 🦷
+            - generic [ref=e176]: Tooth Saving
+          - heading "Root Canal Treatment" [level=3] [ref=e177]
+          - paragraph [ref=e178]:
+            - text: When decay reaches the nerve, a root canal is the hero that saves your natural tooth! Root canals
+            - strong [ref=e179]: relieve pain
+            - text: ", they don't cause it."
+          - list [ref=e180]:
+            - listitem [ref=e181]:
+              - generic [ref=e182]: "1"
+              - generic [ref=e183]:
+                - strong [ref=e184]: Remove Decay
+                - paragraph [ref=e185]: Infected tissue and decay are carefully cleared from the tooth.
+            - listitem [ref=e186]:
+              - generic [ref=e187]: "2"
+              - generic [ref=e188]:
+                - strong [ref=e189]: Seal the Canals
+                - paragraph [ref=e190]: Canals are sealed with a special material to block bacteria. 🛡️
+            - listitem [ref=e191]:
+              - generic [ref=e192]: "3"
+              - generic [ref=e193]:
+                - strong [ref=e194]: Full Restoration
+                - paragraph [ref=e195]: A crown is placed to fully restore the tooth's strength. ✨
+        - article [ref=e196]:
+          - generic [ref=e197]:
+            - generic [ref=e198]: 🔩
+            - generic [ref=e199]: Permanent Fix
+          - heading "Dental Implant Process" [level=3] [ref=e200]
+          - paragraph [ref=e201]: Missing a tooth? A titanium implant acts as a permanent artificial root — restoring function and your natural smile.
+          - list [ref=e202]:
+            - listitem [ref=e203]:
+              - generic [ref=e204]: "1"
+              - generic [ref=e205]:
+                - strong [ref=e206]: Tooth Extraction
+                - paragraph [ref=e207]: The damaged or severely fractured tooth is carefully removed.
+            - listitem [ref=e208]:
+              - generic [ref=e209]: "2"
+              - generic [ref=e210]:
+                - strong [ref=e211]: Bone Preparation
+                - paragraph [ref=e212]: A precise space is created in the jawbone for the implant.
+            - listitem [ref=e213]:
+              - generic [ref=e214]: "3"
+              - generic [ref=e215]:
+                - strong [ref=e216]: Implant Placement
+                - paragraph [ref=e217]: A titanium implant is screwed into the prepared bone.
+            - listitem [ref=e218]:
+              - generic [ref=e219]: "4"
+              - generic [ref=e220]:
+                - strong [ref=e221]: Securing the Implant
+                - paragraph [ref=e222]: A torque wrench securely tightens the implant and abutment.
+            - listitem [ref=e223]:
+              - generic [ref=e224]: "5"
+              - generic [ref=e225]:
+                - strong [ref=e226]: Crown Placement
+                - paragraph [ref=e227]: A custom crown is attached — restoring full appearance and function.
+        - article [ref=e228]:
+          - generic [ref=e229]:
+            - generic [ref=e230]: 🪥
+            - generic [ref=e231]: Don't Wait!
+          - heading "Extractions & Cavity Treatments" [level=3] [ref=e232]
+          - paragraph [ref=e233]: We know you might be avoiding the dentist — but your teeth can't hide! Early treatment prevents pain and saves your smile.
+          - list [ref=e234]:
+            - listitem [ref=e235]:
+              - generic [ref=e236]: "1"
+              - generic [ref=e237]:
+                - strong [ref=e238]: Diagnosis
+                - paragraph [ref=e239]: X-rays and examination identify decay and damage severity.
+            - listitem [ref=e240]:
+              - generic [ref=e241]: "2"
+              - generic [ref=e242]:
+                - strong [ref=e243]: Cavity Filling
+                - paragraph [ref=e244]: Decay is removed and the tooth is filled to restore shape and function.
+            - listitem [ref=e245]:
+              - generic [ref=e246]: "3"
+              - generic [ref=e247]:
+                - strong [ref=e248]: Extraction (if needed)
+                - paragraph [ref=e249]: Severely damaged teeth are gently extracted with minimal discomfort.
+            - listitem [ref=e250]:
+              - generic [ref=e251]: "4"
+              - generic [ref=e252]:
+                - strong [ref=e253]: Wound Care
+                - paragraph [ref=e254]: Suturing and aftercare ensure clean, fast healing after extraction.
+    - generic [ref=e256]:
+      - heading "Meet The Doctors" [level=2] [ref=e257]
+      - paragraph [ref=e258]: Our specialists bring together dental surgery, hair restoration, and aesthetic skin care under one roof for coordinated, evidence-based care.
+      - generic [ref=e259]:
+        - article [ref=e260]:
+          - img "Dr. Manoj Kumar Jain" [ref=e261]
+          - generic [ref=e262]:
+            - heading "Dr. Manoj Kumar Jain" [level=3] [ref=e263]
+            - paragraph [ref=e264]: Senior Oral & Maxillofacial Surgeon · Co-Founder
+            - paragraph [ref=e265]: MDS (PGI), FAMS (Germany), Fellowship in Aesthetic Medicine & Implantology
+            - paragraph [ref=e266]: With nearly 18 years of clinical practice, Dr Manoj Kumar Jain leads Sumukha Nuface as one of the most referred centres for complicated dental work, medically compromised cases, and oral & maxillofacial surgeries. He has performed 1000+ major surgeries including maxillofacial trauma, cysts, tumours, and full-mouth rehabilitation with implants, lasers and scar revisions.
+            - list [ref=e267]:
+              - listitem [ref=e268]: Maxillofacial Surgery & Trauma
+              - listitem [ref=e269]: Dental Implantology
+              - listitem [ref=e270]: Aesthetic Medicine & Surgery
+              - listitem [ref=e271]: Trichology & Hair Transplant
+              - listitem [ref=e272]: Orofacial Cosmetology (PRP, Lasers, Botox)
+        - article [ref=e273]:
+          - img "Dr. Sheetal Jain" [ref=e274]
+          - generic [ref=e275]:
+            - heading "Dr. Sheetal Jain" [level=3] [ref=e276]
+            - paragraph [ref=e277]: Senior Periodontist & Implantologist · Co-Founder
+            - paragraph [ref=e278]: BDS, MDS (2008) — Periodontics & Implantology
+            - paragraph [ref=e279]: With 18 years of experience, Dr Sheetal Jain is an established expert in full mouth rehabilitation, gum surgeries and dental implants. She has completed thousands of single-sitting root canal treatments, periodontal surgeries, and over 500 implant placements — and is a certified aligner provider.
+            - list [ref=e280]:
+              - listitem [ref=e281]: Periodontology & Implants
+              - listitem [ref=e282]: Full Mouth Rehabilitation
+              - listitem [ref=e283]: Single-Sitting Root Canal
+              - listitem [ref=e284]: Gum Surgeries & Laser Perio
+              - listitem [ref=e285]: Certified Aligner Provider
+    - generic [ref=e287]:
+      - heading "Smart Appointment Flow" [level=2] [ref=e288]
+      - generic [ref=e289]:
+        - article [ref=e290]:
+          - text: "01"
+          - heading "Choose Service & Slot" [level=3] [ref=e291]
+          - paragraph [ref=e292]: Patients select treatment type, date, and preferred time directly on the booking page.
+        - article [ref=e293]:
+          - text: "02"
+          - heading "Submit Details" [level=3] [ref=e294]
+          - paragraph [ref=e295]: Contact details and notes are captured for clinic team review and scheduling context.
+        - article [ref=e296]:
+          - text: "03"
+          - heading "Sync + WhatsApp" [level=3] [ref=e297]
+          - paragraph [ref=e298]: Request is synced to the appointment log and WhatsApp opens for immediate confirmation with reception.
+    - generic [ref=e300]:
+      - heading "Clinic Look & Feel" [level=2] [ref=e301]
+      - paragraph [ref=e302]: Replace these placeholders with your real clinic photos. Live location link opens on Google Maps.
+      - generic [ref=e303]:
+        - article [ref=e304]:
+          - img "Sumukha Nuface, Hassan" [ref=e305]
+          - generic [ref=e306]:
+            - heading "Sumukha Nuface, Hassan" [level=3] [ref=e307]
+            - paragraph [ref=e308]: Our home at Sampige Road, 9th Cross — K R Puram
+        - article [ref=e309]:
+          - img "Patient Lounge" [ref=e310]
+          - generic [ref=e311]:
+            - heading "Patient Lounge" [level=3] [ref=e312]
+            - paragraph [ref=e313]: “Your smile, our happiness” — a calm place to wait
+        - article [ref=e314]:
+          - img "Service Mural" [ref=e315]
+          - generic [ref=e316]:
+            - heading "Service Mural" [level=3] [ref=e317]
+            - paragraph [ref=e318]: Every speciality we offer — at a glance
+        - article [ref=e319]:
+          - img "Operatory · Chair 1" [ref=e320]
+          - generic [ref=e321]:
+            - heading "Operatory · Chair 1" [level=3] [ref=e322]
+            - paragraph [ref=e323]: Glass-partitioned treatment bay with full sterilisation
+        - article [ref=e324]:
+          - img "Operatory · Chair 2" [ref=e325]
+          - generic [ref=e326]:
+            - heading "Operatory · Chair 2" [level=3] [ref=e327]
+            - paragraph [ref=e328]: Digital diagnostics & implant-ready setup
+      - link "Open Google Maps Location" [ref=e330] [cursor=pointer]:
+        - /url: https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201
+    - generic [ref=e332]:
+      - heading "Patient Stories" [level=2] [ref=e333]
+      - generic [ref=e334]:
+        - article [ref=e335]:
+          - generic [ref=e336]: ★★★★★
+          - paragraph [ref=e337]: "\"I visited for a painful molar and the root canal process was smooth. The team explained each step and the pain settled quickly after treatment.\""
+          - heading "Priya S." [level=3] [ref=e338]
+          - text: Root Canal Treatment
+        - article [ref=e339]:
+          - generic [ref=e340]: ★★★★★
+          - paragraph [ref=e341]: "\"The clinic feels modern and organized. I booked through WhatsApp and the reception followed up exactly on time.\""
+          - heading "Arjun K." [level=3] [ref=e342]
+          - text: Dental Consultation
+        - article [ref=e343]:
+          - generic [ref=e344]: ★★★★★
+          - paragraph [ref=e345]: "\"I started laser skin sessions here and appreciated how clearly they explained sun-care and recovery. Very professional setup.\""
+          - heading "Sahana R." [level=3] [ref=e346]
+          - text: Laser Skin Care
+        - article [ref=e347]:
+          - generic [ref=e348]: ★★★★★
+          - paragraph [ref=e349]: "\"The hair transplant planning felt realistic and transparent. The post-procedure timeline and follow-up support were clearly documented.\""
+          - heading "Rahul M." [level=3] [ref=e350]
+          - text: Hair Restoration
+    - generic [ref=e353]:
+      - heading "Ready To Plan Your Visit?" [level=2] [ref=e354]
+      - paragraph [ref=e355]: Book a slot now and our reception team will confirm your treatment pathway and preparation checklist.
+      - generic [ref=e356]:
+        - link "Book Appointment" [ref=e357] [cursor=pointer]:
+          - /url: "#/services"
+        - link "Call 07411711098" [ref=e358] [cursor=pointer]:
+          - /url: tel:07411711098
+  - contentinfo [ref=e359]:
+    - generic [ref=e360]:
+      - generic [ref=e361]:
+        - generic [ref=e362]:
+          - heading "🦷 Sumukha Nuface" [level=3] [ref=e363]
+          - paragraph [ref=e364]: Integrated care across dental treatment, skincare and laser procedures, hair restoration, and cosmetic planning with clear patient guidance.
+          - generic [ref=e365]:
+            - link "Instagram" [ref=e366] [cursor=pointer]:
+              - /url: "#"
+              - text: 📸
+            - link "Facebook" [ref=e367] [cursor=pointer]:
+              - /url: "#"
+              - text: 👥
+            - link "YouTube" [ref=e368] [cursor=pointer]:
+              - /url: "#"
+              - text: 🎥
+            - link "Google" [ref=e369] [cursor=pointer]:
+              - /url: https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201
+              - text: 🔍
+        - generic [ref=e370]:
+          - heading "Quick Links" [level=4] [ref=e371]
+          - list [ref=e372]:
+            - listitem [ref=e373]:
+              - link "Home" [ref=e374] [cursor=pointer]:
+                - /url: "#/"
+            - listitem [ref=e375]:
+              - link "Services" [ref=e376] [cursor=pointer]:
+                - /url: "#/services"
+            - listitem [ref=e377]:
+              - link "About Us" [ref=e378] [cursor=pointer]:
+                - /url: "#/about"
+            - listitem [ref=e379]:
+              - link "Contact" [ref=e380] [cursor=pointer]:
+                - /url: "#/contact"
+            - listitem [ref=e381]:
+              - link "Book Appointment" [ref=e382] [cursor=pointer]:
+                - /url: "#/book"
+        - generic [ref=e383]:
+          - heading "Services" [level=4] [ref=e384]
+          - list [ref=e385]:
+            - listitem [ref=e386]:
+              - link "Dental" [ref=e387] [cursor=pointer]:
+                - /url: "#/services?category=dental"
+            - listitem [ref=e388]:
+              - link "Oral & Maxillofacial Surgery" [ref=e389] [cursor=pointer]:
+                - /url: "#/services?category=maxillofacial"
+            - listitem [ref=e390]:
+              - link "Dental Implants" [ref=e391] [cursor=pointer]:
+                - /url: "#/services?category=implants"
+            - listitem [ref=e392]:
+              - link "Cosmetic Dentistry" [ref=e393] [cursor=pointer]:
+                - /url: "#/services?category=cosmetic"
+            - listitem [ref=e394]:
+              - link "Hair / Trichology" [ref=e395] [cursor=pointer]:
+                - /url: "#/services?category=hair"
+            - listitem [ref=e396]:
+              - link "Cosmetology / Skin" [ref=e397] [cursor=pointer]:
+                - /url: "#/services?category=skin"
+        - generic [ref=e398]:
+          - heading "Contact Us" [level=4] [ref=e399]
+          - generic [ref=e400]:
+            - generic [ref=e401]: 📍
+            - generic [ref=e402]: Sampige Road, 9th Cross, K R Puram, Hassan - 573201
+          - generic [ref=e403]:
+            - generic [ref=e404]: 📞
+            - generic [ref=e405]:
+              - link "07411711098" [ref=e406] [cursor=pointer]:
+                - /url: tel:07411711098
+              - text: ·
+              - link "9110443004" [ref=e407] [cursor=pointer]:
+                - /url: tel:9110443004
+          - generic [ref=e408]:
+            - generic [ref=e409]: ✉️
+            - link "hello@sumukhanuface.in" [ref=e411] [cursor=pointer]:
+              - /url: mailto:hello@sumukhanuface.in
+          - generic [ref=e412]:
+            - generic [ref=e413]: 🕐
+            - generic [ref=e414]:
+              - text: "Mon–Sat: 10:00 AM – 7:30 PM"
+              - text: Sundays Closed
+          - generic [ref=e415]:
+            - generic [ref=e416]: 🏥
+            - generic [ref=e417]: Pharmacy, X-Ray & Lab Facilities Available
+      - generic [ref=e418]:
+        - generic [ref=e419]: © 2026 Sumukha Nuface. All rights reserved.
+        - generic [ref=e420]: Made with ❤️ for healthier smiles
+  - link "Chat on WhatsApp" [ref=e421] [cursor=pointer]:
+    - /url: https://wa.me/919110443004?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Sumukha%20Nuface%20-%20Dental%2C%20Face%2C%20Hair%20%26%20Cosmetic%20Clinic.%20%F0%9F%A6%B7
+    - text: 💬

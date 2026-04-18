@@ -82,7 +82,7 @@ export const SPECIALTY_PILLARS = [
     id: 'hair',
     title: 'Hair / Trichology',
     subtitle: 'Restoration & regrowth',
-    icon: '✂️',
+    icon: '💇',
     colorClass: 'track-hair',
     points: [
       'Hair Transplant (FUE)',
@@ -96,7 +96,7 @@ export const SPECIALTY_PILLARS = [
     id: 'skin',
     title: 'Cosmetology / Skin',
     subtitle: 'Aesthetic laser & injectables',
-    icon: '💧',
+    icon: '💫',
     colorClass: 'track-skin',
     points: [
       'Botox & Dermal Fillers',

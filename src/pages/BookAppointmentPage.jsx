@@ -32,12 +32,11 @@ export default function BookAppointmentPage() {
     const serviceId = searchParams.get('service');
     if (serviceId) {
       const service = SERVICES.find((s) => s.id === serviceId);
-      if (service && formData.serviceType !== service.name) {
+      if (service) {
         setFormData((prev) => ({ ...prev, serviceType: service.name }));
-        setStep(1);
       }
     }
-  }, [searchParams, formData.serviceType]);
+  }, []);
 
   const selectedService = SERVICES.find((s) => s.name === formData.serviceType);
 

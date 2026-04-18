@@ -1,0 +1,187 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Sumukha Nuface Sumukha Nuface Dental | Face | Hair | Cosmetic" [ref=e5] [cursor=pointer]:
+        - /url: "#/"
+        - img "Sumukha Nuface" [ref=e6]
+        - generic [ref=e7]:
+          - heading "Sumukha Nuface" [level=1] [ref=e8]
+          - generic [ref=e9]: Dental | Face | Hair | Cosmetic
+      - navigation [ref=e10]:
+        - link "Home" [ref=e11] [cursor=pointer]:
+          - /url: "#/"
+        - link "Services" [ref=e12] [cursor=pointer]:
+          - /url: "#/services"
+        - link "About" [ref=e13] [cursor=pointer]:
+          - /url: "#/about"
+        - link "Contact" [ref=e14] [cursor=pointer]:
+          - /url: "#/contact"
+      - generic [ref=e15]:
+        - link "📞 07411711098" [ref=e16] [cursor=pointer]:
+          - /url: tel:07411711098
+        - link "Book Appointment" [ref=e17] [cursor=pointer]:
+          - /url: "#/book"
+  - generic [ref=e18]:
+    - link "Home" [ref=e19] [cursor=pointer]:
+      - /url: "#/"
+    - link "Services" [ref=e20] [cursor=pointer]:
+      - /url: "#/services"
+    - link "About" [ref=e21] [cursor=pointer]:
+      - /url: "#/about"
+    - link "Contact" [ref=e22] [cursor=pointer]:
+      - /url: "#/contact"
+    - link "Book Appointment" [ref=e23] [cursor=pointer]:
+      - /url: "#/book"
+    - link "📞 07411711098" [ref=e24] [cursor=pointer]:
+      - /url: tel:07411711098
+  - main [ref=e425]:
+    - generic [ref=e427]:
+      - heading "Contact Us" [level=1] [ref=e428]
+      - paragraph [ref=e429]: We'd love to hear from you. Reach out for appointments, queries, or feedback.
+    - generic [ref=e432]:
+      - generic [ref=e433]:
+        - generic [ref=e434]:
+          - img [ref=e436]
+          - generic [ref=e439]:
+            - heading "Visit Us" [level=4] [ref=e440]
+            - paragraph [ref=e441]: Sampige Road, 9th Cross, K R Puram, Hassan - 573201
+        - generic [ref=e442]:
+          - img [ref=e444]
+          - generic [ref=e446]:
+            - heading "Call Us" [level=4] [ref=e447]
+            - paragraph [ref=e448]:
+              - link "07411711098" [ref=e449] [cursor=pointer]:
+                - /url: tel:07411711098
+        - generic [ref=e450]:
+          - img [ref=e452]
+          - generic [ref=e454]:
+            - heading "WhatsApp" [level=4] [ref=e455]
+            - paragraph [ref=e456]:
+              - link "Message us on WhatsApp" [ref=e457] [cursor=pointer]:
+                - /url: https://wa.me/919110443004?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Sumukha%20Nuface%20-%20Dental%2C%20Face%2C%20Hair%20%26%20Cosmetic%20Clinic.%20%F0%9F%A6%B7
+        - generic [ref=e458]:
+          - img [ref=e460]
+          - generic [ref=e463]:
+            - heading "Email" [level=4] [ref=e464]
+            - paragraph [ref=e465]:
+              - link "hello@sumukhanuface.in" [ref=e466] [cursor=pointer]:
+                - /url: mailto:hello@sumukhanuface.in
+        - generic [ref=e467]:
+          - img [ref=e469]
+          - generic [ref=e472]:
+            - heading "Clinic Hours" [level=4] [ref=e473]
+            - paragraph [ref=e474]:
+              - text: "Mon–Sat: 10:00 AM – 7:30 PM"
+              - text: Sundays Closed
+        - generic [ref=e475]:
+          - img [ref=e477]
+          - generic [ref=e481]:
+            - heading "On-Site Facilities" [level=4] [ref=e482]
+            - paragraph [ref=e483]: Pharmacy, X-Ray & Lab Facilities Available
+      - generic [ref=e484]:
+        - heading "Send us a Message" [level=3] [ref=e485]
+        - generic [ref=e486]:
+          - generic [ref=e487]:
+            - generic [ref=e488]: Your Name
+            - textbox "Enter your name" [ref=e489]
+          - generic [ref=e490]:
+            - generic [ref=e491]: Phone Number
+            - textbox "10-digit number" [ref=e492]
+          - generic [ref=e493]:
+            - generic [ref=e494]: Message
+            - textbox "How can we help you?" [ref=e495]
+          - button "💬 Send via WhatsApp" [ref=e496] [cursor=pointer]
+    - generic [ref=e499]:
+      - iframe [ref=e500]:
+        
+      - link "🧭 Get Directions" [ref=e501] [cursor=pointer]:
+        - /url: https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201
+  - contentinfo [ref=e362]:
+    - generic [ref=e363]:
+      - generic [ref=e364]:
+        - generic [ref=e365]:
+          - heading "🦷 Sumukha Nuface" [level=3] [ref=e366]
+          - paragraph [ref=e367]: Integrated care across dental treatment, skincare and laser procedures, hair restoration, and cosmetic planning with clear patient guidance.
+          - generic [ref=e368]:
+            - link "Instagram" [ref=e369] [cursor=pointer]:
+              - /url: "#"
+              - text: 📸
+            - link "Facebook" [ref=e370] [cursor=pointer]:
+              - /url: "#"
+              - text: 👥
+            - link "YouTube" [ref=e371] [cursor=pointer]:
+              - /url: "#"
+              - text: 🎥
+            - link "Google" [ref=e372] [cursor=pointer]:
+              - /url: https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201
+              - text: 🔍
+        - generic [ref=e373]:
+          - heading "Quick Links" [level=4] [ref=e374]
+          - list [ref=e375]:
+            - listitem [ref=e376]:
+              - link "Home" [ref=e377] [cursor=pointer]:
+                - /url: "#/"
+            - listitem [ref=e378]:
+              - link "Services" [ref=e379] [cursor=pointer]:
+                - /url: "#/services"
+            - listitem [ref=e380]:
+              - link "About Us" [ref=e381] [cursor=pointer]:
+                - /url: "#/about"
+            - listitem [ref=e382]:
+              - link "Contact" [ref=e383] [cursor=pointer]:
+                - /url: "#/contact"
+            - listitem [ref=e384]:
+              - link "Book Appointment" [ref=e385] [cursor=pointer]:
+                - /url: "#/book"
+        - generic [ref=e386]:
+          - heading "Services" [level=4] [ref=e387]
+          - list [ref=e388]:
+            - listitem [ref=e389]:
+              - link "Dental" [ref=e390] [cursor=pointer]:
+                - /url: "#/services?category=dental"
+            - listitem [ref=e391]:
+              - link "Oral & Maxillofacial Surgery" [ref=e392] [cursor=pointer]:
+                - /url: "#/services?category=maxillofacial"
+            - listitem [ref=e393]:
+              - link "Dental Implants" [ref=e394] [cursor=pointer]:
+                - /url: "#/services?category=implants"
+            - listitem [ref=e395]:
+              - link "Cosmetic Dentistry" [ref=e396] [cursor=pointer]:
+                - /url: "#/services?category=cosmetic"
+            - listitem [ref=e397]:
+              - link "Hair / Trichology" [ref=e398] [cursor=pointer]:
+                - /url: "#/services?category=hair"
+            - listitem [ref=e399]:
+              - link "Cosmetology / Skin" [ref=e400] [cursor=pointer]:
+                - /url: "#/services?category=skin"
+        - generic [ref=e401]:
+          - heading "Contact Us" [level=4] [ref=e402]
+          - generic [ref=e403]:
+            - generic [ref=e404]: 📍
+            - generic [ref=e405]: Sampige Road, 9th Cross, K R Puram, Hassan - 573201
+          - generic [ref=e406]:
+            - generic [ref=e407]: 📞
+            - generic [ref=e408]:
+              - link "07411711098" [ref=e409] [cursor=pointer]:
+                - /url: tel:07411711098
+              - text: ·
+              - link "9110443004" [ref=e410] [cursor=pointer]:
+                - /url: tel:9110443004
+          - generic [ref=e411]:
+            - generic [ref=e412]: ✉️
+            - link "hello@sumukhanuface.in" [ref=e414] [cursor=pointer]:
+              - /url: mailto:hello@sumukhanuface.in
+          - generic [ref=e415]:
+            - generic [ref=e416]: 🕐
+            - generic [ref=e417]:
+              - text: "Mon–Sat: 10:00 AM – 7:30 PM"
+              - text: Sundays Closed
+          - generic [ref=e418]:
+            - generic [ref=e419]: 🏥
+            - generic [ref=e420]: Pharmacy, X-Ray & Lab Facilities Available
+      - generic [ref=e421]:
+        - generic [ref=e422]: © 2026 Sumukha Nuface. All rights reserved.
+        - generic [ref=e423]: Made with ❤️ for healthier smiles
+  - link "Chat on WhatsApp" [ref=e424] [cursor=pointer]:
+    - /url: https://wa.me/919110443004?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Sumukha%20Nuface%20-%20Dental%2C%20Face%2C%20Hair%20%26%20Cosmetic%20Clinic.%20%F0%9F%A6%B7
+    - text: 💬

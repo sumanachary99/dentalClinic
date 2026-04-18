@@ -1,0 +1,459 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Sumukha Nuface Sumukha Nuface Dental | Face | Hair | Cosmetic" [ref=e5] [cursor=pointer]:
+        - /url: "#/"
+        - img "Sumukha Nuface" [ref=e6]
+        - generic [ref=e7]:
+          - heading "Sumukha Nuface" [level=1] [ref=e8]
+          - generic [ref=e9]: Dental | Face | Hair | Cosmetic
+      - navigation [ref=e10]:
+        - link "Home" [ref=e11] [cursor=pointer]:
+          - /url: "#/"
+        - link "Services" [ref=e12] [cursor=pointer]:
+          - /url: "#/services"
+        - link "About" [ref=e13] [cursor=pointer]:
+          - /url: "#/about"
+        - link "Contact" [ref=e14] [cursor=pointer]:
+          - /url: "#/contact"
+      - generic [ref=e15]:
+        - link "📞 07411711098" [ref=e16] [cursor=pointer]:
+          - /url: tel:07411711098
+        - link "Book Appointment" [ref=e17] [cursor=pointer]:
+          - /url: "#/book"
+  - generic [ref=e18]:
+    - link "Home" [ref=e19] [cursor=pointer]:
+      - /url: "#/"
+    - link "Services" [ref=e20] [cursor=pointer]:
+      - /url: "#/services"
+    - link "About" [ref=e21] [cursor=pointer]:
+      - /url: "#/about"
+    - link "Contact" [ref=e22] [cursor=pointer]:
+      - /url: "#/contact"
+    - link "Book Appointment" [ref=e23] [cursor=pointer]:
+      - /url: "#/book"
+    - link "📞 07411711098" [ref=e24] [cursor=pointer]:
+      - /url: tel:07411711098
+  - main [ref=e25]:
+    - generic [ref=e27]:
+      - heading "Our Services" [level=1] [ref=e28]
+      - paragraph [ref=e29]: Dental, oral & maxillofacial surgery, implants, cosmetic dentistry, hair restoration, and aesthetic skin care — all under one roof. Choose a category to see sub-types and book.
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - button "All Services" [ref=e33] [cursor=pointer]
+        - button "Dental" [ref=e34] [cursor=pointer]
+        - button "Oral & Maxillofacial Surgery" [ref=e35] [cursor=pointer]
+        - button "Hair / Trichology" [ref=e36] [cursor=pointer]
+        - button "Cosmetology / Skin" [ref=e37] [cursor=pointer]
+        - button "Dental Implants" [ref=e38] [cursor=pointer]
+        - button "Cosmetic Dentistry" [ref=e39] [cursor=pointer]
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]: Popular
+          - generic [ref=e43]: Stethoscope
+          - heading "General Dental Consultation" [level=3] [ref=e44]
+          - paragraph [ref=e45]: Specialist-led consultation with personalized treatment planning and X-ray assessment.
+          - generic [ref=e47]: 🕐 30 min
+          - link "Book Now" [ref=e48] [cursor=pointer]:
+            - /url: "#/book?service=consultation"
+        - generic [ref=e49]:
+          - generic [ref=e50]: Popular
+          - generic [ref=e51]: Sparkles
+          - heading "Teeth Cleaning & Polishing" [level=3] [ref=e52]
+          - paragraph [ref=e53]: Professional scaling, polishing, and plaque removal for a brighter, healthier smile.
+          - generic [ref=e55]: 🕐 45 min
+          - link "Book Now" [ref=e56] [cursor=pointer]:
+            - /url: "#/book?service=cleaning"
+        - generic [ref=e57]:
+          - generic [ref=e58]: Popular
+          - generic [ref=e59]: Microscope
+          - heading "Root Canal Treatment (RCT)" [level=3] [ref=e60]
+          - paragraph [ref=e61]: Rotary single-sitting endodontic treatment to save infected teeth and eliminate pain permanently.
+          - generic [ref=e63]: 🕐 60–90 min
+          - link "Book Now" [ref=e64] [cursor=pointer]:
+            - /url: "#/book?service=rct"
+        - generic [ref=e65]:
+          - generic [ref=e66]: Tooth
+          - heading "Tooth Extraction" [level=3] [ref=e67]
+          - paragraph [ref=e68]: Safe and painless tooth removal by experts — with minimal discomfort protocols.
+          - generic [ref=e70]: 🕐 30–60 min
+          - link "Book Now" [ref=e71] [cursor=pointer]:
+            - /url: "#/book?service=extraction"
+        - generic [ref=e72]:
+          - generic [ref=e73]: Baby
+          - heading "Kids Dentistry (Pedodontics)" [level=3] [ref=e74]
+          - paragraph [ref=e75]: Gentle child-friendly dental care — fluoride, sealants, and early orthodontic screening.
+          - generic [ref=e77]: 🕐 30 min
+          - link "Book Now" [ref=e78] [cursor=pointer]:
+            - /url: "#/book?service=kids"
+        - generic [ref=e79]:
+          - generic [ref=e80]: Wind
+          - heading "Gum & Bone Treatment" [level=3] [ref=e81]
+          - paragraph [ref=e82]: Periodontal care for bleeding gums, infection, and advanced gum disease management.
+          - generic [ref=e84]: 🕐 30–60 min
+          - link "Book Now" [ref=e85] [cursor=pointer]:
+            - /url: "#/book?service=gum"
+        - generic [ref=e86]:
+          - generic [ref=e87]: Clipboard
+          - heading "Dental X-Ray & Diagnostics" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Digital radiography for accurate diagnosis and treatment planning. On-site pharmacy & lab.
+          - generic [ref=e91]: 🕐 15 min
+          - link "Book Now" [ref=e92] [cursor=pointer]:
+            - /url: "#/book?service=xray"
+        - generic [ref=e93]:
+          - generic [ref=e94]: Popular
+          - generic [ref=e95]: Smile
+          - heading "Braces & Clear Aligners" [level=3] [ref=e96]
+          - paragraph [ref=e97]: Orthodontic treatment with traditional braces or certified Invisalign-style clear aligners.
+          - generic [ref=e99]: 🕐 12–24 months
+          - link "Book Now" [ref=e100] [cursor=pointer]:
+            - /url: "#/book?service=braces"
+        - generic [ref=e101]:
+          - generic [ref=e102]: Popular
+          - generic [ref=e103]: Hammer
+          - heading "Wisdom Tooth Surgery" [level=3] [ref=e104]
+          - paragraph [ref=e105]: Impacted third molar removal under local anaesthesia with advanced surgical protocols.
+          - generic [ref=e107]: 🕐 45–90 min
+          - link "Book Now" [ref=e108] [cursor=pointer]:
+            - /url: "#/book?service=wisdom-tooth"
+        - generic [ref=e109]:
+          - generic [ref=e110]: Beaker
+          - heading "Cyst & Tumor Removal" [level=3] [ref=e111]
+          - paragraph [ref=e112]: Surgical removal of jaw cysts, benign tumors, and pathologies with biopsy support.
+          - generic [ref=e114]: 🕐 Case based
+          - link "Book Now" [ref=e115] [cursor=pointer]:
+            - /url: "#/book?service=cysts-tumors"
+        - generic [ref=e116]:
+          - generic [ref=e117]: Bandage
+          - heading "Facial Injuries & Trauma" [level=3] [ref=e118]
+          - paragraph [ref=e119]: Maxillofacial trauma management — fractures, lacerations, and reconstructive bone work.
+          - generic [ref=e121]: 🕐 Multi-session
+          - link "Book Now" [ref=e122] [cursor=pointer]:
+            - /url: "#/book?service=facial-injuries"
+        - generic [ref=e123]:
+          - generic [ref=e124]: Scissors
+          - heading "Facial Plastic Surgery" [level=3] [ref=e125]
+          - paragraph [ref=e126]: Scar revision, reconstructive procedures, and aesthetic corrections by senior plastic surgeons.
+          - generic [ref=e128]: 🕐 Case based
+          - link "Book Now" [ref=e129] [cursor=pointer]:
+            - /url: "#/book?service=facial-plastic"
+        - generic [ref=e130]:
+          - generic [ref=e131]: Baby
+          - heading "Orofacial Cleft Surgery" [level=3] [ref=e132]
+          - paragraph [ref=e133]: Cleft lip & palate correction for children and adults with staged rehabilitation support.
+          - generic [ref=e135]: 🕐 Multi-stage
+          - link "Book Now" [ref=e136] [cursor=pointer]:
+            - /url: "#/book?service=orofacial-cleft"
+        - generic [ref=e137]:
+          - generic [ref=e138]: Skeleton
+          - heading "Orthognathic & Jaw Surgery" [level=3] [ref=e139]
+          - paragraph [ref=e140]: Corrective jaw surgery for bite, breathing, and facial-profile alignment.
+          - generic [ref=e142]: 🕐 Multi-visit
+          - link "Book Now" [ref=e143] [cursor=pointer]:
+            - /url: "#/book?service=orthognathic"
+        - generic [ref=e144]:
+          - generic [ref=e145]: Popular
+          - generic [ref=e146]: Hammer
+          - heading "Single Tooth Implant" [level=3] [ref=e147]
+          - paragraph [ref=e148]: Permanent titanium implant with custom crown — the gold standard for one missing tooth.
+          - generic [ref=e150]: 🕐 2–3 visits
+          - link "Book Now" [ref=e151] [cursor=pointer]:
+            - /url: "#/book?service=single-implant"
+        - generic [ref=e152]:
+          - generic [ref=e153]: Popular
+          - generic [ref=e154]: Building
+          - heading "Multiple Tooth Implants" [level=3] [ref=e155]
+          - paragraph [ref=e156]: Implant-supported bridges for multiple missing teeth — stable, natural, and long-lasting.
+          - generic [ref=e158]: 🕐 Multi-visit
+          - link "Book Now" [ref=e159] [cursor=pointer]:
+            - /url: "#/book?service=multiple-implant"
+        - generic [ref=e160]:
+          - generic [ref=e161]: Popular
+          - generic [ref=e162]: Crown
+          - heading "Full Mouth Rehabilitation" [level=3] [ref=e163]
+          - paragraph [ref=e164]: All-on-4 / All-on-6 full-arch implant rehabilitation for complete oral reconstruction.
+          - generic [ref=e166]: 🕐 3–6 months
+          - link "Book Now" [ref=e167] [cursor=pointer]:
+            - /url: "#/book?service=full-mouth-implant"
+        - generic [ref=e168]:
+          - generic [ref=e169]: Dna
+          - heading "Advanced Implantology" [level=3] [ref=e170]
+          - paragraph [ref=e171]: Immediate loading, zygomatic implants, and bone grafting for complex implant cases.
+          - generic [ref=e173]: 🕐 Staged
+          - link "Book Now" [ref=e174] [cursor=pointer]:
+            - /url: "#/book?service=advanced-implantology"
+        - generic [ref=e175]:
+          - generic [ref=e176]: Popular
+          - generic [ref=e177]: Diamond
+          - heading "Teeth Whitening" [level=3] [ref=e178]
+          - paragraph [ref=e179]: Professional chairside whitening for a radiant, confident smile — safe and effective.
+          - generic [ref=e181]: 🕐 60 min
+          - link "Book Now" [ref=e182] [cursor=pointer]:
+            - /url: "#/book?service=whitening"
+        - generic [ref=e183]:
+          - generic [ref=e184]: Gem
+          - heading "Tooth Jewellery" [level=3] [ref=e185]
+          - paragraph [ref=e186]: Dental jewels bonded to your teeth — a painless aesthetic accent that reflects light.
+          - generic [ref=e188]: 🕐 20 min
+          - link "Book Now" [ref=e189] [cursor=pointer]:
+            - /url: "#/book?service=tooth-jewelry"
+        - generic [ref=e190]:
+          - generic [ref=e191]: Smile
+          - heading "Gummy Smile Correction" [level=3] [ref=e192]
+          - paragraph [ref=e193]: Laser or surgical gum contouring to reveal a more balanced, proportionate smile.
+          - generic [ref=e195]: 🕐 45 min
+          - link "Book Now" [ref=e196] [cursor=pointer]:
+            - /url: "#/book?service=gummy-smile"
+        - generic [ref=e197]:
+          - generic [ref=e198]: Popular
+          - generic [ref=e199]: Mirror
+          - heading "Laminates & Veneers" [level=3] [ref=e200]
+          - paragraph [ref=e201]: Porcelain veneers and laminates for smile designing — chips, spacing, and colour.
+          - generic [ref=e203]: 🕐 2–3 visits
+          - link "Book Now" [ref=e204] [cursor=pointer]:
+            - /url: "#/book?service=veneers"
+        - generic [ref=e205]:
+          - generic [ref=e206]: Crown
+          - heading "Crowns & Bridges" [level=3] [ref=e207]
+          - paragraph [ref=e208]: Zirconia, E-max, and ceramic crowns crafted to restore damaged or missing teeth.
+          - generic [ref=e210]: 🕐 2–3 visits
+          - link "Book Now" [ref=e211] [cursor=pointer]:
+            - /url: "#/book?service=crowns"
+        - generic [ref=e212]:
+          - generic [ref=e213]: Popular
+          - generic [ref=e214]: Palette
+          - heading "Digital Smile Designing" [level=3] [ref=e215]
+          - paragraph [ref=e216]: Digitally planned smile makeover combining veneers, whitening, and gum contouring.
+          - generic [ref=e218]: 🕐 Multi-visit
+          - link "Book Now" [ref=e219] [cursor=pointer]:
+            - /url: "#/book?service=smile-design"
+        - generic [ref=e220]:
+          - generic [ref=e221]: Popular
+          - generic [ref=e222]: Stethoscope
+          - heading "Trichology Consultation" [level=3] [ref=e223]
+          - paragraph [ref=e224]: Scalp analysis, diagnostic workup, and personalised restoration plan by hair specialists.
+          - generic [ref=e226]: 🕐 30 min
+          - link "Book Now" [ref=e227] [cursor=pointer]:
+            - /url: "#/book?service=hair-consultation"
+        - generic [ref=e228]:
+          - generic [ref=e229]: Bottle
+          - heading "Alopecia Areata Treatment" [level=3] [ref=e230]
+          - paragraph [ref=e231]: Medical management for patchy hair loss with intralesional steroids and topicals.
+          - generic [ref=e233]: 🕐 Session based
+          - link "Book Now" [ref=e234] [cursor=pointer]:
+            - /url: "#/book?service=alopecia"
+        - generic [ref=e235]:
+          - generic [ref=e236]: Popular
+          - generic [ref=e237]: Leaf
+          - heading "Hair Transplant (FUE/FUT)" [level=3] [ref=e238]
+          - paragraph [ref=e239]: Permanent hair restoration by UK-certified transplant surgeon using advanced grafting.
+          - generic [ref=e241]: 🕐 6–8 hr session
+          - link "Book Now" [ref=e242] [cursor=pointer]:
+            - /url: "#/book?service=hair-transplant"
+        - generic [ref=e243]:
+          - generic [ref=e244]: Popular
+          - generic [ref=e245]: Syringe
+          - heading "PRP / GFC Hair Therapy" [level=3] [ref=e246]
+          - paragraph [ref=e247]: Platelet-rich plasma & growth-factor concentrate sessions to improve scalp & density.
+          - generic [ref=e249]: 🕐 45 min
+          - link "Book Now" [ref=e250] [cursor=pointer]:
+            - /url: "#/book?service=prp-hair"
+        - generic [ref=e251]:
+          - generic [ref=e252]: Beaker
+          - heading "Hair Mesotherapy" [level=3] [ref=e253]
+          - paragraph [ref=e254]: Micro-injection of vitamins, peptides, and nutrients directly into the scalp.
+          - generic [ref=e256]: 🕐 30 min
+          - link "Book Now" [ref=e257] [cursor=pointer]:
+            - /url: "#/book?service=mesotherapy"
+        - generic [ref=e258]:
+          - generic [ref=e259]: Popular
+          - generic [ref=e260]: Sparkles
+          - heading "Laser Hair Reduction" [level=3] [ref=e261]
+          - paragraph [ref=e262]: Long-term hair reduction with skin-type based laser protocols, face & full body.
+          - generic [ref=e264]: 🕐 20–60 min
+          - link "Book Now" [ref=e265] [cursor=pointer]:
+            - /url: "#/book?service=laser-hair-reduction"
+        - generic [ref=e266]:
+          - generic [ref=e267]: Popular
+          - generic [ref=e268]: Radar
+          - heading "Aesthetic Skin Consultation" [level=3] [ref=e269]
+          - paragraph [ref=e270]: Doctor-led skin assessment with personalised protocol planning and skincare advice.
+          - generic [ref=e272]: 🕐 30 min
+          - link "Book Now" [ref=e273] [cursor=pointer]:
+            - /url: "#/book?service=skin-consultation"
+        - generic [ref=e274]:
+          - generic [ref=e275]: Popular
+          - generic [ref=e276]: Bottle
+          - heading "Medical Chemical Peels" [level=3] [ref=e277]
+          - paragraph [ref=e278]: Clinic-grade peels for acne marks, dullness, and uneven tone under dermatologist supervision.
+          - generic [ref=e280]: 🕐 30 min
+          - link "Book Now" [ref=e281] [cursor=pointer]:
+            - /url: "#/book?service=chemical-peel"
+        - generic [ref=e282]:
+          - generic [ref=e283]: Hand
+          - heading "Microdermabrasion" [level=3] [ref=e284]
+          - paragraph [ref=e285]: Gentle mechanical exfoliation to refresh skin texture and open congested pores.
+          - generic [ref=e287]: 🕐 30 min
+          - link "Book Now" [ref=e288] [cursor=pointer]:
+            - /url: "#/book?service=microdermabrasion"
+        - generic [ref=e289]:
+          - generic [ref=e290]: Popular
+          - generic [ref=e291]: Drop
+          - heading "Hydrafacial" [level=3] [ref=e292]
+          - paragraph [ref=e293]: Signature multi-step hydration facial for instant glow and deep cleansing.
+          - generic [ref=e295]: 🕐 45 min
+          - link "Book Now" [ref=e296] [cursor=pointer]:
+            - /url: "#/book?service=hydrafacial"
+        - generic [ref=e297]:
+          - generic [ref=e298]: Syringe
+          - heading "PRP / GFC for Skin" [level=3] [ref=e299]
+          - paragraph [ref=e300]: Platelet-rich plasma for acne scars, skin texture, and facial rejuvenation.
+          - generic [ref=e302]: 🕐 45 min
+          - link "Book Now" [ref=e303] [cursor=pointer]:
+            - /url: "#/book?service=prp-skin"
+        - generic [ref=e304]:
+          - generic [ref=e305]: Wind
+          - heading "Carboxytherapy" [level=3] [ref=e306]
+          - paragraph [ref=e307]: Medical CO₂ therapy for dark circles, stretch marks, and localised fat reduction.
+          - generic [ref=e309]: 🕐 30 min
+          - link "Book Now" [ref=e310] [cursor=pointer]:
+            - /url: "#/book?service=carboxytherapy"
+        - generic [ref=e311]:
+          - generic [ref=e312]: Popular
+          - generic [ref=e313]: Leaf
+          - heading "Laser Skin Rejuvenation" [level=3] [ref=e314]
+          - paragraph [ref=e315]: Lasers for texture, pigmentation, and rejuvenation — tailored to your skin profile.
+          - generic [ref=e317]: 🕐 30–60 min
+          - link "Book Now" [ref=e318] [cursor=pointer]:
+            - /url: "#/book?service=skin-laser"
+        - generic [ref=e319]:
+          - generic [ref=e320]: Popular
+          - generic [ref=e321]: Star
+          - heading "Botox (Anti-Wrinkle)" [level=3] [ref=e322]
+          - paragraph [ref=e323]: FDA-approved neuromodulator for forehead lines, crow's feet, and facial slimming.
+          - generic [ref=e325]: 🕐 20 min
+          - link "Book Now" [ref=e326] [cursor=pointer]:
+            - /url: "#/book?service=botox"
+        - generic [ref=e327]:
+          - generic [ref=e328]: Popular
+          - generic [ref=e329]: Lips
+          - heading "Dermal Fillers" [level=3] [ref=e330]
+          - paragraph [ref=e331]: Hyaluronic acid fillers for lips, cheeks, jawline definition, and under-eye correction.
+          - generic [ref=e333]: 🕐 30 min
+          - link "Book Now" [ref=e334] [cursor=pointer]:
+            - /url: "#/book?service=fillers"
+        - generic [ref=e335]:
+          - generic [ref=e336]: Needle
+          - heading "Thread Lift" [level=3] [ref=e337]
+          - paragraph [ref=e338]: PDO/PCL threads for non-surgical face lifting, contouring, and skin tightening.
+          - generic [ref=e340]: 🕐 45 min
+          - link "Book Now" [ref=e341] [cursor=pointer]:
+            - /url: "#/book?service=threads"
+        - generic [ref=e342]:
+          - generic [ref=e343]: XCircle
+          - heading "Skin Tag & Mole Removal" [level=3] [ref=e344]
+          - paragraph [ref=e345]: Radiofrequency and laser removal of skin tags, moles, and warts — minimal scar.
+          - generic [ref=e347]: 🕐 15–30 min
+          - link "Book Now" [ref=e348] [cursor=pointer]:
+            - /url: "#/book?service=skin-tag"
+        - generic [ref=e349]:
+          - generic [ref=e350]: Mirror
+          - heading "Scar & Pigmentation Care" [level=3] [ref=e351]
+          - paragraph [ref=e352]: Structured plans for scars and pigmentation combining procedures and home-care guidance.
+          - generic [ref=e354]: 🕐 Consultation based
+          - link "Book Now" [ref=e355] [cursor=pointer]:
+            - /url: "#/book?service=scar-pigmentation"
+    - generic [ref=e358]:
+      - heading "Not Sure What You Need?" [level=2] [ref=e359]
+      - paragraph [ref=e360]: Book a general consultation and our doctors will recommend the best treatment for you.
+      - link "📅 Book Consultation" [ref=e361] [cursor=pointer]:
+        - /url: "#/book?service=consultation"
+  - contentinfo [ref=e362]:
+    - generic [ref=e363]:
+      - generic [ref=e364]:
+        - generic [ref=e365]:
+          - heading "🦷 Sumukha Nuface" [level=3] [ref=e366]
+          - paragraph [ref=e367]: Integrated care across dental treatment, skincare and laser procedures, hair restoration, and cosmetic planning with clear patient guidance.
+          - generic [ref=e368]:
+            - link "Instagram" [ref=e369] [cursor=pointer]:
+              - /url: "#"
+              - text: 📸
+            - link "Facebook" [ref=e370] [cursor=pointer]:
+              - /url: "#"
+              - text: 👥
+            - link "YouTube" [ref=e371] [cursor=pointer]:
+              - /url: "#"
+              - text: 🎥
+            - link "Google" [ref=e372] [cursor=pointer]:
+              - /url: https://www.google.com/maps?sca_esv=ccae66869844adf7&sxsrf=ANbL-n7DE2lvLwUiXqapOJYK4qntAnw48g:1772595918545&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiFW51ZmFjZSBzdW11a2hhIGNsaW5pYzIEECMYJzILEC4YgAQYxwEYrwEyCxAAGIAEGIYDGIoFMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBEj1BFChAlihAnABeACQAQCYAZMCoAH4A6oBAzItMrgBA8gBAPgBAZgCAqACpwLCAgsQABiABBiwAxiiBMICCBAAGLADGO8FmAMAiAYBkAYFkgcFMS4wLjGgB8kQsgcDMi0xuAefAsIHBTItMS4xyAcNgAgA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KdOH6NSlSaU7MeNqSTUvguH0&daddr=Sampige+Road,+9th+Cross+Rd,+Hassan,+Karnataka+573201
+              - text: 🔍
+        - generic [ref=e373]:
+          - heading "Quick Links" [level=4] [ref=e374]
+          - list [ref=e375]:
+            - listitem [ref=e376]:
+              - link "Home" [ref=e377] [cursor=pointer]:
+                - /url: "#/"
+            - listitem [ref=e378]:
+              - link "Services" [ref=e379] [cursor=pointer]:
+                - /url: "#/services"
+            - listitem [ref=e380]:
+              - link "About Us" [ref=e381] [cursor=pointer]:
+                - /url: "#/about"
+            - listitem [ref=e382]:
+              - link "Contact" [ref=e383] [cursor=pointer]:
+                - /url: "#/contact"
+            - listitem [ref=e384]:
+              - link "Book Appointment" [ref=e385] [cursor=pointer]:
+                - /url: "#/book"
+        - generic [ref=e386]:
+          - heading "Services" [level=4] [ref=e387]
+          - list [ref=e388]:
+            - listitem [ref=e389]:
+              - link "Dental" [ref=e390] [cursor=pointer]:
+                - /url: "#/services?category=dental"
+            - listitem [ref=e391]:
+              - link "Oral & Maxillofacial Surgery" [ref=e392] [cursor=pointer]:
+                - /url: "#/services?category=maxillofacial"
+            - listitem [ref=e393]:
+              - link "Dental Implants" [ref=e394] [cursor=pointer]:
+                - /url: "#/services?category=implants"
+            - listitem [ref=e395]:
+              - link "Cosmetic Dentistry" [ref=e396] [cursor=pointer]:
+                - /url: "#/services?category=cosmetic"
+            - listitem [ref=e397]:
+              - link "Hair / Trichology" [ref=e398] [cursor=pointer]:
+                - /url: "#/services?category=hair"
+            - listitem [ref=e399]:
+              - link "Cosmetology / Skin" [ref=e400] [cursor=pointer]:
+                - /url: "#/services?category=skin"
+        - generic [ref=e401]:
+          - heading "Contact Us" [level=4] [ref=e402]
+          - generic [ref=e403]:
+            - generic [ref=e404]: 📍
+            - generic [ref=e405]: Sampige Road, 9th Cross, K R Puram, Hassan - 573201
+          - generic [ref=e406]:
+            - generic [ref=e407]: 📞
+            - generic [ref=e408]:
+              - link "07411711098" [ref=e409] [cursor=pointer]:
+                - /url: tel:07411711098
+              - text: ·
+              - link "9110443004" [ref=e410] [cursor=pointer]:
+                - /url: tel:9110443004
+          - generic [ref=e411]:
+            - generic [ref=e412]: ✉️
+            - link "hello@sumukhanuface.in" [ref=e414] [cursor=pointer]:
+              - /url: mailto:hello@sumukhanuface.in
+          - generic [ref=e415]:
+            - generic [ref=e416]: 🕐
+            - generic [ref=e417]:
+              - text: "Mon–Sat: 10:00 AM – 7:30 PM"
+              - text: Sundays Closed
+          - generic [ref=e418]:
+            - generic [ref=e419]: 🏥
+            - generic [ref=e420]: Pharmacy, X-Ray & Lab Facilities Available
+      - generic [ref=e421]:
+        - generic [ref=e422]: © 2026 Sumukha Nuface. All rights reserved.
+        - generic [ref=e423]: Made with ❤️ for healthier smiles
+  - link "Chat on WhatsApp" [ref=e424] [cursor=pointer]:
+    - /url: https://wa.me/919110443004?text=Hi!%20I'd%20like%20to%20book%20an%20appointment%20at%20Sumukha%20Nuface%20-%20Dental%2C%20Face%2C%20Hair%20%26%20Cosmetic%20Clinic.%20%F0%9F%A6%B7
+    - text: 💬
