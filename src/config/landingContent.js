@@ -249,7 +249,7 @@ export const TEAM_MEMBERS = [
     role: 'Senior Oral & Maxillofacial Surgeon · Co-Founder',
     credentials: 'MDS (PGI), FAMS (Germany), Fellowship in Aesthetic Medicine & Implantology',
     registration: 'KSDC Reg. No. 16162-A',
-    highlight: 'Only Indian Board Certified Maxillofacial Surgeon',
+    highlight: 'Only Indian Board Certified Maxillofacial Surgeon in Hassan',
     description:
       'With nearly 18 years of clinical practice, Dr Manoj Kumar Jain leads Sumukha Nuface as one of the most referred centres for complicated dental work, medically compromised cases, and oral & maxillofacial surgeries. He has performed 1000+ major surgeries including maxillofacial trauma, cysts, tumours, and full-mouth rehabilitation with implants, lasers and scar revisions.',
     expertise: [
