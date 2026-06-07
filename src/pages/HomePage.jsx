@@ -72,7 +72,7 @@ export default function HomePage() {
                 <span> One Clinic, Structured Care.</span>
               </h1>
               <p className="nuface-hero-description">
-                {CLINIC_INFO.shortName} brings dental precision, hair
+                {CLINIC_INFO.shortName} brings basic and advanced dentistry, hair
                 restoration planning, and laser skin protocols into one
                 coordinated experience with transparent pre and post procedural
                 guidance.
@@ -115,8 +115,10 @@ export default function HomePage() {
                 <h2>{CLINIC_INFO.shortName}</h2>
                 <p>{CLINIC_INFO.slogan || CLINIC_INFO.tagline}</p>
                 <div className="nuface-brand-tags">
-                  {SPECIALTY_PILLARS.slice(0, 4).map((pillar) => (
-                    <span key={pillar.id}>{pillar.title}</span>
+                  {SPECIALTY_PILLARS.map((pillar) => (
+                    <Link key={pillar.id} to={`/services?category=${pillar.id}`} className="nuface-brand-tag-link">
+                      {pillar.title}
+                    </Link>
                   ))}
                 </div>
               </article>
@@ -345,6 +347,11 @@ export default function HomePage() {
               <article className="nuface-team-card" key={member.id}>
                 <img src={member.image} alt={member.name} loading="lazy" />
                 <div className="nuface-team-body">
+                  {member.highlight && (
+                    <div className="member-highlight-badge">
+                      ★ {member.highlight}
+                    </div>
+                  )}
                   <h3>{member.name}</h3>
                   <p className="nuface-team-role">{member.role}</p>
                   <p className="nuface-team-creds">{member.credentials}</p>

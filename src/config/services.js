@@ -5,7 +5,7 @@ export const SERVICES = [
   // ───────────────────────────────────────────────
   {
     id: 'consultation',
-    name: 'General Dental Consultation',
+    name: 'General Consultation',
     shortName: 'Consultation',
     description: 'Specialist-led consultation with personalized treatment planning and X-ray assessment.',
     icon: '🩺',
@@ -74,14 +74,34 @@ export const SERVICES = [
     popular: false,
   },
   {
-    id: 'braces',
-    name: 'Braces & Clear Aligners',
-    shortName: 'Orthodontics',
-    description: 'Orthodontic treatment with traditional braces or certified Invisalign-style clear aligners.',
-    icon: '🔧',
-    duration: '12–24 months',
+    id: 'restoration',
+    name: 'Dental Restoration & Cavity Fillings',
+    shortName: 'Fillings',
+    description: 'Tooth-colored composite fillings and restorations to treat cavities and rebuild damaged tooth structure.',
+    icon: '🩹',
+    duration: '30–45 min',
     category: 'dental',
     popular: true,
+  },
+  {
+    id: 'dentures',
+    name: 'Complete & Partial Dentures',
+    shortName: 'Dentures',
+    description: 'Custom-designed complete and partial dentures to restore chewing function, speech, and a natural smile.',
+    icon: '🦷',
+    duration: 'Case based',
+    category: 'dental',
+    popular: false,
+  },
+  {
+    id: 'crowns',
+    name: 'Crowns & Bridges',
+    shortName: 'Crowns',
+    description: 'Zirconia, E-max, and ceramic crowns crafted to restore damaged or missing teeth.',
+    icon: '💫',
+    duration: '2–3 visits',
+    category: 'dental',
+    popular: false,
   },
 
   // ───────────────────────────────────────────────
@@ -235,16 +255,7 @@ export const SERVICES = [
     category: 'cosmetic',
     popular: true,
   },
-  {
-    id: 'crowns',
-    name: 'Crowns & Bridges',
-    shortName: 'Crowns',
-    description: 'Zirconia, E-max, and ceramic crowns crafted to restore damaged or missing teeth.',
-    icon: '💫',
-    duration: '2–3 visits',
-    category: 'cosmetic',
-    popular: false,
-  },
+
   {
     id: 'smile-design',
     name: 'Digital Smile Designing',
@@ -253,6 +264,40 @@ export const SERVICES = [
     icon: '🖼️',
     duration: 'Multi-visit',
     category: 'cosmetic',
+    popular: true,
+  },
+
+  // ───────────────────────────────────────────────
+  // BRACES & ALIGNERS (ORTHODONTICS)
+  // ───────────────────────────────────────────────
+  {
+    id: 'growth-modulation',
+    name: 'Growth Modulation Therapy',
+    shortName: 'Growth Modulation',
+    description: 'Early orthopedic treatment to guide jaw development and correct skeletal discrepancies in growing children.',
+    icon: '🧒',
+    duration: '12–18 months',
+    category: 'orthodontics',
+    popular: false,
+  },
+  {
+    id: 'habit-breaking',
+    name: 'Habit Breaking Appliances',
+    shortName: 'Habit Appliances',
+    description: 'Custom appliances to address oral habits like thumb sucking, tongue thrusting, and mouth breathing.',
+    icon: '👶',
+    duration: '6–12 months',
+    category: 'orthodontics',
+    popular: false,
+  },
+  {
+    id: 'braces',
+    name: 'Basic Braces & Aligners',
+    shortName: 'Braces & Aligners',
+    description: 'Traditional metal/ceramic braces and custom clear aligner treatments to correct tooth alignment and bites.',
+    icon: '😬',
+    duration: '12–24 months',
+    category: 'orthodontics',
     popular: true,
   },
 
@@ -447,12 +492,13 @@ export const SERVICES = [
 
 export const SERVICE_CATEGORIES = [
   { id: 'all', name: 'All Services' },
-  { id: 'dental', name: 'Dental' },
+  { id: 'dental', name: 'Basic & Advanced Dentistry' },
   { id: 'maxillofacial', name: 'Oral & Maxillofacial Surgery' },
-  { id: 'hair', name: 'Hair / Trichology' },
-  { id: 'skin', name: 'Cosmetology / Skin' },
   { id: 'implants', name: 'Dental Implants' },
   { id: 'cosmetic', name: 'Cosmetic Dentistry' },
+  { id: 'orthodontics', name: 'Braces & Aligners' },
+  { id: 'skin', name: 'Orofacial Cosmetology / Aesthetic Medicine' },
+  { id: 'hair', name: 'Hair Restoration' },
 ];
 
 // Mon–Sat 10:00 AM to 7:30 PM (Sundays closed)

@@ -24,7 +24,7 @@ export const BRAND_ASSETS = {
 export const SPECIALTY_PILLARS = [
   {
     id: 'dental',
-    title: 'Precision Dental',
+    title: 'Basic & Advanced Dentistry',
     subtitle: 'General, RCT & rehabilitation',
     icon: '🦷',
     colorClass: 'track-dental',
@@ -47,6 +47,7 @@ export const SPECIALTY_PILLARS = [
       'Cyst & Tumor Removal',
       'Facial Injuries & Trauma',
       'Orofacial Cleft Surgery',
+      'Minor Oral Surgery (Abscess Drainage, Frenectomy & Mucosal Removal)',
     ],
     bookingServiceId: 'wisdom-tooth',
   },
@@ -79,8 +80,22 @@ export const SPECIALTY_PILLARS = [
     bookingServiceId: 'smile-design',
   },
   {
+    id: 'orthodontics',
+    title: 'Braces & Aligners',
+    subtitle: 'Bite correction & alignment',
+    icon: '😬',
+    colorClass: 'track-orthodontics',
+    points: [
+      'Growth Modulation Therapy',
+      'Habit Breaking Appliances',
+      'Metal & Ceramic Braces',
+      'Clear Aligners (Invisalign)',
+    ],
+    bookingServiceId: 'braces',
+  },
+  {
     id: 'hair',
-    title: 'Hair / Trichology',
+    title: 'Hair Restoration',
     subtitle: 'Restoration & regrowth',
     icon: '💇',
     colorClass: 'track-hair',
@@ -94,7 +109,7 @@ export const SPECIALTY_PILLARS = [
   },
   {
     id: 'skin',
-    title: 'Cosmetology / Skin',
+    title: 'Orofacial Cosmetology / Aesthetic Medicine',
     subtitle: 'Aesthetic laser & injectables',
     icon: '💫',
     colorClass: 'track-skin',
@@ -234,6 +249,7 @@ export const TEAM_MEMBERS = [
     role: 'Senior Oral & Maxillofacial Surgeon · Co-Founder',
     credentials: 'MDS (PGI), FAMS (Germany), Fellowship in Aesthetic Medicine & Implantology',
     registration: 'KSDC Reg. No. 16162-A',
+    highlight: 'Only Indian Board Certified Maxillofacial Surgeon',
     description:
       'With nearly 18 years of clinical practice, Dr Manoj Kumar Jain leads Sumukha Nuface as one of the most referred centres for complicated dental work, medically compromised cases, and oral & maxillofacial surgeries. He has performed 1000+ major surgeries including maxillofacial trauma, cysts, tumours, and full-mouth rehabilitation with implants, lasers and scar revisions.',
     expertise: [

@@ -49,7 +49,7 @@ export const TESTIMONIALS = [
     name: 'Arjun K.',
     text: 'The clinic feels modern and organized. I booked through WhatsApp and the reception followed up exactly on time.',
     rating: 5,
-    service: 'Dental Consultation',
+    service: 'General Consultation',
   },
   {
     id: 3,

@@ -19,7 +19,7 @@ export default function AboutPage() {
               About <span className="gradient-text">{CLINIC_INFO.shortName}</span>
             </h1>
             <p className="description">
-              Precision dentistry, oral & maxillofacial surgery, implantology,
+              Basic and advanced dentistry, oral & maxillofacial surgery, implantology,
               cosmetic dentistry, hair restoration, and aesthetic skin care —
               delivered with a patient-first philosophy in {CLINIC_INFO.city}.
             </p>
@@ -60,6 +60,11 @@ export default function AboutPage() {
                   <img src={member.image} alt={member.name} loading="lazy" />
                 </div>
                 <div className="member-info">
+                  {member.highlight && (
+                    <div className="member-highlight-badge">
+                      ★ {member.highlight}
+                    </div>
+                  )}
                   <span className="member-creds">{member.credentials}</span>
                   <h3>{member.name}</h3>
                   <p className="member-role">{member.role}</p>
