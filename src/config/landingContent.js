@@ -4,6 +4,7 @@ import doctorSheetal from '../assets/sheetalDoctor.jpeg';
 import doctorPraveen from '../assets/doctor-praveen.jpeg';
 import doctorNirmala from '../assets/doctor-nirmala.jpeg';
 import doctorArya from '../assets/doctor-arya.jpeg';
+import doctorBhoomika from '../assets/doctor-bhoomika.jpeg';
 import clinicStorefront from '../assets/clinic-storefront.webp';
 import clinicReception from '../assets/clinic-reception.webp';
 import clinicMural from '../assets/clinic-mural.webp';
@@ -135,7 +136,7 @@ export const SPECIALTY_PILLARS = [
 export const EXPERIENCE_POINTS = [
   { label: 'Specialty Verticals', value: '6', note: 'Dental · Surgery · Implants · Cosmetic · Hair · Skin' },
   { label: 'Years of Excellence', value: '17+', note: 'Since 2008, Hassan' },
-  { label: 'Patient Satisfaction', value: '4.8/5', note: 'Across Google reviews' },
+  { label: 'Patient Satisfaction', value: '4.9/5', note: 'Across Google reviews' },
 ];
 
 export const CARE_PROTOCOLS = [
@@ -319,6 +320,15 @@ export const CONSULTANTS = [
     subRole: 'Cosmetology & Trichology',
     availability: 'Visiting',
     image: doctorArya,
+  },
+  {
+    id: 'dr-bhoomika',
+    name: 'Dr. Bhoomika',
+    credentials: 'MDS',
+    role: 'Pedodontist & Preventive Dentist',
+    subRole: 'Kids Dental Specialist',
+    availability: 'Visiting',
+    image: doctorBhoomika,
   },
 ];
 

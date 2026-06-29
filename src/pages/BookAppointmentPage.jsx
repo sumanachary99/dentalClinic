@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SERVICES, SERVICE_CATEGORIES, TIME_SLOTS } from '../config/services';
+import { serviceImageFor } from '../config/cardImages';
 import { getNextDays, formatDate } from '../utils/dateUtils';
 import { validateBookingForm } from '../utils/validators';
 import { sendBookingConfirmation } from '../utils/whatsapp';
@@ -179,9 +180,17 @@ export default function BookAppointmentPage() {
                       className={`service-option ${formData.serviceType === service.name ? 'selected' : ''}`}
                       onClick={() => handleServiceSelect(service.name)}
                     >
-                      <span className="icon">{service.icon}</span>
-                      <span className="name">{service.shortName}</span>
-                      <span className="duration">📅 {service.duration}</span>
+                      <span className="service-option-thumb">
+                        <img
+                          src={serviceImageFor(service.id, service.category)}
+                          alt=""
+                          loading="lazy"
+                        />
+                      </span>
+                      <span className="service-option-body">
+                        <span className="name">{service.shortName}</span>
+                        <span className="duration">📅 {service.duration}</span>
+                      </span>
                     </button>
                   ))}
                 </div>

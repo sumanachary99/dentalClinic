@@ -54,7 +54,8 @@ function useCountUp(target, duration = 1500) {
 }
 
 function MetricCard({ item }) {
-  const numericValue = Number.parseFloat(item.value.replace(/[^0-9.]/g, ''));
+  // parseFloat stops at the first non-numeric char, so "4.9/5" → 4.9 and "17+" → 17
+  const numericValue = Number.parseFloat(item.value);
   const { count, ref } = useCountUp(Number.isNaN(numericValue) ? 0 : numericValue);
   const formatted = item.value.includes('/') ? count.toFixed(1) : Math.round(count).toString();
 

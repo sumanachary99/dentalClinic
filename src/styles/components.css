@@ -9,15 +9,15 @@
   left: 0;
   right: 0;
   z-index: var(--z-sticky);
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, rgba(31, 97, 99, 0.97) 0%, rgba(20, 60, 63, 0.97) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all var(--transition-base);
 }
 
 .header.scrolled {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 24px rgba(13, 43, 45, 0.28);
 }
 
 .header-inner {
@@ -36,7 +36,7 @@
   align-items: center;
   gap: var(--space-sm);
   text-decoration: none;
-  color: var(--color-dark);
+  color: #ffffff;
 }
 
 .header-logo-icon {
@@ -44,14 +44,14 @@
   height: 42px;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .header-logo-text h1 {
   font-family: var(--font-display);
   font-size: var(--text-xl);
   font-weight: 700;
-  color: var(--color-primary-dark);
+  color: #ffffff;
   line-height: 1.2;
   max-width: 330px;
   white-space: nowrap;
@@ -61,7 +61,7 @@
 
 .header-logo-text span {
   font-size: var(--text-xs);
-  color: var(--color-gray);
+  color: rgba(255, 255, 255, 0.72);
   letter-spacing: 1px;
   text-transform: uppercase;
   display: block;
@@ -80,7 +80,7 @@
 .header-nav a {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-dark-600);
+  color: rgba(255, 255, 255, 0.85);
   transition: color var(--transition-fast);
   position: relative;
 }
@@ -92,14 +92,14 @@
   bottom: -4px;
   width: 0;
   height: 2px;
-  background: var(--color-primary);
+  background: var(--color-accent);
   transition: width var(--transition-base);
   border-radius: var(--radius-full);
 }
 
 .header-nav a:hover,
 .header-nav a.active {
-  color: var(--color-primary);
+  color: #ffffff;
 }
 
 .header-nav a:hover::after,
@@ -120,7 +120,7 @@
   gap: 0.375rem;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-primary-dark);
+  color: #ffffff;
 }
 
 .header-book-desktop {
@@ -141,7 +141,7 @@
 .hamburger span {
   width: 24px;
   height: 2px;
-  background: var(--color-dark);
+  background: #ffffff;
   border-radius: var(--radius-full);
   transition: all var(--transition-base);
 }
@@ -3698,21 +3698,23 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.4s ease;
 }
+/* soft teal fade only at the photo's lower edge, so on hover the photo
+   stays vivid (and zooms) while blending into the teal content panel */
 .nuface-card-media::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(31, 97, 99, 0) 55%, rgba(31, 97, 99, 0.30) 100%);
-  opacity: 0.5;
-  transition: opacity 0.4s ease;
+  background: linear-gradient(180deg, rgba(31, 97, 99, 0) 48%, rgba(31, 97, 99, 0.72) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-spring);
 }
 .nuface-card-tag {
   position: absolute;
   top: 12px;
   right: 12px;
-  z-index: 2;
+  z-index: 3;
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
   color: #fff;
   font-size: 0.66rem;
@@ -3724,6 +3726,7 @@
   box-shadow: 0 6px 14px -4px rgba(249, 115, 22, 0.5);
 }
 .nuface-card-content {
+  position: relative;
   padding: 1.2rem 1.4rem 1.4rem;
   display: flex;
   flex-direction: column;
@@ -3745,63 +3748,93 @@
   transition: transform 0.3s ease;
 }
 
-/* ── Specialty (Clinical Tracks) cards ── */
-.nuface-specialty-card {
-  padding: 0;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform var(--transition-spring), box-shadow var(--transition-spring),
-              border-color var(--transition-base);
-}
-.nuface-specialty-card:hover,
-.nuface-specialty-card:focus-visible {
-  transform: translateY(-8px);
-  box-shadow: 0 22px 44px rgba(24, 55, 58, 0.22);
-  border-color: rgba(43, 129, 131, 0.4);
-  outline: none;
-}
-.nuface-specialty-card:focus-visible {
-  box-shadow: 0 22px 44px rgba(24, 55, 58, 0.22), 0 0 0 3px rgba(43, 129, 131, 0.45);
-}
-.nuface-specialty-card:hover .nuface-card-media img,
-.nuface-specialty-card:focus-visible .nuface-card-media img {
-  transform: scale(1.06);
-}
-.nuface-specialty-card:hover .nuface-card-media::after { opacity: 0.85; }
-.nuface-specialty-card:hover .nuface-card-cta { gap: 11px; color: #1f6163; }
-.nuface-specialty-card:hover .nuface-card-cta svg { transform: translateX(3px); }
-.nuface-specialty-card ul { margin: 0.85rem 0 1.1rem; }
-
-/* ── Services page cards ── */
+/* ════════ Shared "fill teal on hover" behaviour (Brigade-style) ════════
+   A gradient layer sweeps up behind the content; the photo (an in-flow
+   <img>) paints above it, so it stays visible while the white text area
+   turns teal. All text flips to white on hover. */
+.nuface-specialty-card,
 .service-card {
+  position: relative;
   padding: 0;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
   transition: transform var(--transition-spring), box-shadow var(--transition-spring),
               border-color var(--transition-base);
 }
-.service-card::before { display: none; }   /* retire the old top accent bar */
+.nuface-specialty-card::before,
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(160deg, #2b8183 0%, #1f6163 100%);
+  transform: translateY(101%);
+  transform-origin: bottom;
+  transition: transform var(--transition-spring);
+}
+.nuface-specialty-card:hover,
+.nuface-specialty-card:focus-visible,
 .service-card:hover,
 .service-card:focus-visible {
   transform: translateY(-8px);
-  box-shadow: 0 22px 44px rgba(24, 55, 58, 0.22);
-  border-color: rgba(43, 129, 131, 0.4);
+  box-shadow: 0 26px 50px rgba(20, 60, 63, 0.34),
+              0 0 30px rgba(43, 129, 131, 0.30);
+  border-color: transparent;
   outline: none;
 }
+.nuface-specialty-card:focus-visible,
 .service-card:focus-visible {
-  box-shadow: 0 22px 44px rgba(24, 55, 58, 0.22), 0 0 0 3px rgba(43, 129, 131, 0.45);
+  box-shadow: 0 26px 50px rgba(20, 60, 63, 0.34),
+              0 0 0 3px rgba(43, 129, 131, 0.6);
 }
+/* sweep the teal fill up */
+.nuface-specialty-card:hover::before,
+.nuface-specialty-card:focus-visible::before,
+.service-card:hover::before,
+.service-card:focus-visible::before { transform: translateY(0); }
+/* photo: gentle zoom + teal wash */
+.nuface-specialty-card:hover .nuface-card-media img,
+.nuface-specialty-card:focus-visible .nuface-card-media img,
 .service-card:hover .nuface-card-media img,
-.service-card:focus-visible .nuface-card-media img {
-  transform: scale(1.06);
-}
-.service-card:hover .nuface-card-media::after { opacity: 0.85; }
-.service-card:hover .nuface-card-cta { gap: 11px; color: #1f6163; }
+.service-card:focus-visible .nuface-card-media img { transform: scale(1.07); }
+.nuface-specialty-card:hover .nuface-card-media::after,
+.nuface-specialty-card:focus-visible .nuface-card-media::after,
+.service-card:hover .nuface-card-media::after,
+.service-card:focus-visible .nuface-card-media::after { opacity: 1; }
+/* flip all text to white over the teal fill */
+.nuface-specialty-card:hover h3,
+.nuface-specialty-card:hover .nuface-specialty-sub,
+.nuface-specialty-card:hover li,
+.nuface-specialty-card:hover .nuface-card-cta,
+.nuface-specialty-card:focus-visible h3,
+.nuface-specialty-card:focus-visible .nuface-specialty-sub,
+.nuface-specialty-card:focus-visible li,
+.nuface-specialty-card:focus-visible .nuface-card-cta,
+.service-card:hover h3,
+.service-card:hover p,
+.service-card:hover .service-card-duration,
+.service-card:hover .nuface-card-cta,
+.service-card:focus-visible h3,
+.service-card:focus-visible p,
+.service-card:focus-visible .service-card-duration,
+.service-card:focus-visible .nuface-card-cta { color: #ffffff; }
+.nuface-specialty-card:hover li::before,
+.nuface-specialty-card:focus-visible li::before { background: rgba(255, 255, 255, 0.85); }
+.service-card:hover .service-card-meta,
+.service-card:focus-visible .service-card-meta { border-top-color: rgba(255, 255, 255, 0.25); }
+.nuface-specialty-card:hover .nuface-card-cta,
+.service-card:hover .nuface-card-cta { gap: 11px; }
+.nuface-specialty-card:hover .nuface-card-cta svg,
 .service-card:hover .nuface-card-cta svg { transform: translateX(3px); }
+.nuface-specialty-card ul { margin: 0.85rem 0 1.1rem; }
 .service-card h3 { margin-top: 0; }
 .service-card p { margin-bottom: var(--space-md); }
-.service-card-meta { margin-top: auto; }
+.service-card-meta { margin-top: auto; transition: border-color var(--transition-spring); }
 
 /* ══════════════════════════════════════════════════════════════
    AUTO-SCROLL GALLERY (marquee — pauses on hover)
@@ -3965,4 +3998,82 @@
 @media (prefers-reduced-motion: reduce) {
   .sdm-backdrop, .sdm-modal { transition: opacity 120ms ease; }
   .sdm-modal { transform: none; }
+}
+
+/* ── Booking "Select Service" option thumbnails ── */
+.service-option {
+  padding: 0;
+  overflow: hidden;
+  min-height: 0;
+  gap: 0;
+  text-align: center;
+}
+.service-option-thumb {
+  width: 100%;
+  height: 78px;
+  display: block;
+  overflow: hidden;
+  background: #e6f3f3;
+}
+.service-option-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.service-option:hover .service-option-thumb img {
+  transform: scale(1.06);
+}
+.service-option-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  padding: 0.6rem 0.5rem 0.75rem;
+  width: 100%;
+}
+.service-option.selected .service-option-body .name { color: var(--color-primary-dark); }
+
+/* ══════════════════════════════════════════════════════════════
+   COHESIVE HOVER FOR INFORMATIONAL CARDS
+   (doctors, consultants, testimonials, procedures — not clickable,
+    so a refined lift + teal glow + photo zoom rather than a fill)
+══════════════════════════════════════════════════════════════ */
+.nuface-team-card,
+.consultant-card,
+.nuface-testimonial-card,
+.procedure-card {
+  transition: transform var(--transition-spring), box-shadow var(--transition-spring),
+              border-color var(--transition-base);
+}
+.nuface-team-card:hover,
+.consultant-card:hover,
+.nuface-testimonial-card:hover,
+.procedure-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(20, 60, 63, 0.18),
+              0 0 0 1.5px rgba(43, 129, 131, 0.45),
+              0 0 26px rgba(43, 129, 131, 0.18);
+  border-color: transparent;
+}
+
+/* Doctor cards — zoom the portrait, accent the name */
+.nuface-team-card img { transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.nuface-team-card:hover img { transform: scale(1.05); }
+.nuface-team-body h3 { transition: color var(--transition-base); }
+.nuface-team-card:hover .nuface-team-body h3 { color: #2b8183; }
+
+/* Consultant cards — zoom the photo, accent the name */
+.consultant-avatar img { transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.consultant-card:hover .consultant-avatar img { transform: scale(1.05); }
+.consultant-body h3 { transition: color var(--transition-base); }
+.consultant-card:hover .consultant-body h3 { color: #2b8183; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nuface-team-card img,
+  .consultant-avatar img,
+  .nuface-card-media img,
+  .nuface-specialty-card::before,
+  .service-card::before { transition: none; }
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { SERVICES, SERVICE_CATEGORIES } from '../config/services';
-import { cardImageFor } from '../config/cardImages';
+import { serviceImageFor } from '../config/cardImages';
 import ServiceDetailModal from '../components/ServiceDetailModal';
 
 function CardArrow() {
@@ -35,7 +35,7 @@ export default function ServicesPage() {
   const openService = (service, e) => {
     e.currentTarget.focus();
     setActiveService({
-      image: cardImageFor(service.category),
+      image: serviceImageFor(service.id, service.category),
       icon: service.icon,
       title: service.name,
       subtitle: categoryName(service.category),
@@ -95,7 +95,7 @@ export default function ServicesPage() {
                 }}
               >
                 <div className="nuface-card-media">
-                  <img src={cardImageFor(service.category)} alt={service.name} loading="lazy" />
+                  <img src={serviceImageFor(service.id, service.category)} alt={service.name} loading="lazy" />
                   {service.popular && <span className="nuface-card-tag">Popular</span>}
                 </div>
                 <div className="nuface-card-content">
