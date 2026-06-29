@@ -28,6 +28,8 @@ export const SPECIALTY_PILLARS = [
     subtitle: 'General, RCT & rehabilitation',
     icon: '🦷',
     colorClass: 'track-dental',
+    popular: true,
+    lead: 'Everyday dentistry done precisely — single-sitting root canals, gentle extractions, kids’ care and gum treatment, all planned and finished within one coordinated system.',
     points: [
       'Rotary Single-Sitting RCT',
       'Painless Tooth Extractions',
@@ -42,6 +44,7 @@ export const SPECIALTY_PILLARS = [
     subtitle: 'Advanced surgical care',
     icon: '🔪',
     colorClass: 'track-maxillofacial',
+    lead: 'Senior-surgeon-led care for impacted teeth, jaw cysts, facial trauma and reconstructive work — with full pre- and post-operative guidance at every step.',
     points: [
       'Wisdom Tooth Surgery',
       'Cyst & Tumor Removal',
@@ -57,6 +60,8 @@ export const SPECIALTY_PILLARS = [
     subtitle: 'Single to full-mouth rehab',
     icon: '🔧',
     colorClass: 'track-implants',
+    popular: true,
+    lead: 'Permanent, natural-feeling tooth replacement — from a single titanium implant to full-arch All-on-4 / All-on-6 rehabilitation by certified implantologists.',
     points: [
       'Single Tooth Implants',
       'Multiple Tooth Implants',
@@ -71,6 +76,7 @@ export const SPECIALTY_PILLARS = [
     subtitle: 'Smile design & aesthetics',
     icon: '✨',
     colorClass: 'track-cosmetic',
+    lead: 'Digitally planned smile makeovers that combine whitening, veneers and gum contouring for a balanced, natural and confident smile.',
     points: [
       'Teeth Whitening',
       'Laminates & Veneers',
@@ -85,6 +91,7 @@ export const SPECIALTY_PILLARS = [
     subtitle: 'Bite correction & alignment',
     icon: '😬',
     colorClass: 'track-orthodontics',
+    lead: 'Straighter teeth and a healthier bite — for children and adults — using metal, ceramic and clear-aligner treatments tailored to each case.',
     points: [
       'Growth Modulation Therapy',
       'Habit Breaking Appliances',
@@ -99,6 +106,7 @@ export const SPECIALTY_PILLARS = [
     subtitle: 'Restoration & regrowth',
     icon: '💇',
     colorClass: 'track-hair',
+    lead: 'Scalp diagnostics, medical management and UK-certified transplant surgery to restore hair density and confidence with a clear long-term plan.',
     points: [
       'Hair Transplant (FUE)',
       'PRP / GFC Therapy',
@@ -113,6 +121,7 @@ export const SPECIALTY_PILLARS = [
     subtitle: 'Aesthetic laser & injectables',
     icon: '💫',
     colorClass: 'track-skin',
+    lead: 'Doctor-led aesthetic skin care — lasers, peels, hydrafacials and injectables — each delivered with a clear protocol and a structured aftercare plan.',
     points: [
       'Botox & Dermal Fillers',
       'Hydrafacial & Peels',

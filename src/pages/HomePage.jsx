@@ -8,7 +8,18 @@ import {
   SPECIALTY_PILLARS,
   TEAM_MEMBERS,
 } from '../config/landingContent';
+import { CATEGORY_IMAGES } from '../config/cardImages';
+import ServiceDetailModal from '../components/ServiceDetailModal';
 import { getClinicWhatsAppLink } from '../utils/whatsapp';
+
+function CardArrow() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
 
 function useCountUp(target, duration = 1500) {
   const [count, setCount] = useState(0);
@@ -60,6 +71,23 @@ function MetricCard({ item }) {
 }
 
 export default function HomePage() {
+  const [activeTrack, setActiveTrack] = useState(null);
+
+  const openTrack = (pillar, e) => {
+    e.currentTarget.focus();
+    setActiveTrack({
+      image: CATEGORY_IMAGES[pillar.id],
+      icon: pillar.icon,
+      title: pillar.title,
+      subtitle: pillar.subtitle,
+      lead: pillar.lead,
+      chips: pillar.points,
+      chipsLabel: 'What this track includes',
+      bookServiceId: pillar.bookingServiceId,
+      category: pillar.id,
+    });
+  };
+
   return (
     <main className="nuface-home">
       <section className="nuface-hero">
@@ -150,34 +178,32 @@ export default function HomePage() {
               <article
                 className={`nuface-specialty-card ${pillar.colorClass}`}
                 key={pillar.id}
+                role="button"
+                tabIndex={0}
+                aria-label={`${pillar.title} — view details`}
+                onClick={(e) => openTrack(pillar, e)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openTrack(pillar, e);
+                  }
+                }}
               >
-                <div className="nuface-specialty-head">
-                  <span className="nuface-specialty-icon" aria-hidden="true">
-                    {pillar.icon}
-                  </span>
-                  <div>
-                    <h3>{pillar.title}</h3>
-                    <p className="nuface-specialty-sub">{pillar.subtitle}</p>
-                  </div>
+                <div className="nuface-card-media">
+                  <img src={CATEGORY_IMAGES[pillar.id]} alt={pillar.title} loading="lazy" />
+                  {pillar.popular && <span className="nuface-card-tag">Popular</span>}
                 </div>
-                <ul>
-                  {pillar.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-                <div className="nuface-specialty-actions">
-                  <Link
-                    to={`/services?category=${pillar.id}`}
-                    className="btn btn-primary btn-sm"
-                  >
-                    View Services
-                  </Link>
-                  <Link
-                    to={`/book?service=${pillar.bookingServiceId}`}
-                    className="btn btn-outline btn-sm"
-                  >
-                    Book Now
-                  </Link>
+                <div className="nuface-card-content">
+                  <h3>{pillar.title}</h3>
+                  <p className="nuface-specialty-sub">{pillar.subtitle}</p>
+                  <ul>
+                    {pillar.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  <span className="nuface-card-cta">
+                    View details <CardArrow />
+                  </span>
                 </div>
               </article>
             ))}
@@ -410,10 +436,12 @@ export default function HomePage() {
             Clinic <span className="gradient-text">Look & Feel</span>
           </h2>
           <p className="section-subtitle">
-            Replace these placeholders with your real clinic photos. Live
-            location link opens on Google Maps.
+            A continuous, auto-scrolling view of our space. Hover to pause and read each caption.
           </p>
-          <div className="nuface-gallery-grid">
+        </div>
+
+        <div className="nuface-gallery-marquee">
+          <div className="nuface-gallery-track">
             {CLINIC_GALLERY.map((item) => (
               <article className="nuface-gallery-card" key={item.id}>
                 <img src={item.image} alt={item.title} loading="lazy" />
@@ -423,7 +451,23 @@ export default function HomePage() {
                 </div>
               </article>
             ))}
+            {/* duplicate copy for a seamless loop — hidden from screen readers */}
+            {CLINIC_GALLERY.map((item) => (
+              <article className="nuface-gallery-card" key={`${item.id}-dupe`} aria-hidden="true">
+                <img src={item.image} alt="" loading="lazy" />
+                <div className="nuface-gallery-overlay">
+                  <h3>{item.title}</h3>
+                  <p>{item.caption}</p>
+                </div>
+              </article>
+            ))}
           </div>
+        </div>
+
+        <div className="container">
+          <p className="nuface-gallery-hint">
+            Auto-scrolls continuously · <kbd>hover</kbd> to pause · respects reduced-motion
+          </p>
           <div className="nuface-section-action">
             <a
               href={BRAND_ASSETS.galleryLink}
@@ -481,6 +525,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {activeTrack && (
+        <ServiceDetailModal item={activeTrack} onClose={() => setActiveTrack(null)} />
+      )}
     </main>
   );
 }

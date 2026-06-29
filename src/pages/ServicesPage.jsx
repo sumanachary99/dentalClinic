@@ -1,11 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { SERVICES, SERVICE_CATEGORIES } from '../config/services';
+import { cardImageFor } from '../config/cardImages';
+import ServiceDetailModal from '../components/ServiceDetailModal';
+
+function CardArrow() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
 
 export default function ServicesPage() {
   const [searchParams] = useSearchParams();
   const categoryFromUrl = searchParams.get('category');
   const [activeCategory, setActiveCategory] = useState('all');
+  const [activeService, setActiveService] = useState(null);
 
   useEffect(() => {
     const validCategories = SERVICE_CATEGORIES.map((c) => c.id);
@@ -17,6 +29,23 @@ export default function ServicesPage() {
   const filteredServices = activeCategory === 'all'
     ? SERVICES
     : SERVICES.filter(s => s.category === activeCategory);
+
+  const categoryName = (id) => SERVICE_CATEGORIES.find((c) => c.id === id)?.name;
+
+  const openService = (service, e) => {
+    e.currentTarget.focus();
+    setActiveService({
+      image: cardImageFor(service.category),
+      icon: service.icon,
+      title: service.name,
+      subtitle: categoryName(service.category),
+      lead: service.description,
+      chips: [`🕐 ${service.duration}`],
+      chipsLabel: 'Typical duration',
+      bookServiceId: service.id,
+      category: service.category,
+    });
+  };
 
   return (
     <main>
@@ -51,22 +80,35 @@ export default function ServicesPage() {
           {/* Grid */}
           <div className="services-grid">
             {filteredServices.map((service) => (
-              <div className="service-card" key={service.id} style={{ animationDelay: '0.1s' }}>
-                {service.popular && <span className="popular-badge">Popular</span>}
-                <div className="service-card-icon">{service.icon}</div>
-                <h3>{service.name}</h3>
-                <p>{service.description}</p>
-                <div className="service-card-meta">
-                  <span className="service-card-duration">🕐 {service.duration}</span>
+              <article
+                className="service-card"
+                key={service.id}
+                role="button"
+                tabIndex={0}
+                aria-label={`${service.name} — view details`}
+                onClick={(e) => openService(service, e)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openService(service, e);
+                  }
+                }}
+              >
+                <div className="nuface-card-media">
+                  <img src={cardImageFor(service.category)} alt={service.name} loading="lazy" />
+                  {service.popular && <span className="nuface-card-tag">Popular</span>}
                 </div>
-                <Link
-                  to={`/book?service=${service.id}`}
-                  className="btn btn-primary btn-sm"
-                  style={{ width: '100%', marginTop: 'var(--space-lg)' }}
-                >
-                  Book Now
-                </Link>
-              </div>
+                <div className="nuface-card-content">
+                  <h3>{service.name}</h3>
+                  <p>{service.description}</p>
+                  <div className="service-card-meta">
+                    <span className="service-card-duration">🕐 {service.duration}</span>
+                    <span className="nuface-card-cta">
+                      View details <CardArrow />
+                    </span>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
 
@@ -92,6 +134,10 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {activeService && (
+        <ServiceDetailModal item={activeService} onClose={() => setActiveService(null)} />
+      )}
     </main>
   );
 }
