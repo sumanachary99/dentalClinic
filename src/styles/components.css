@@ -4077,3 +4077,24 @@
   .nuface-specialty-card::before,
   .service-card::before { transition: none; }
 }
+
+/* Lead Doctor cards (About) — same cohesive light hover as the rest */
+.nuface-about-member-card {
+  transition: transform var(--transition-spring), box-shadow var(--transition-spring),
+              border-color var(--transition-base);
+}
+.nuface-about-member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(20, 60, 63, 0.18),
+              0 0 0 1.5px rgba(43, 129, 131, 0.45),
+              0 0 26px rgba(43, 129, 131, 0.18);
+  border-color: transparent;
+}
+.member-image {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+.member-image img { transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.nuface-about-member-card:hover .member-image img { transform: scale(1.05); }
+.member-info h3 { transition: color var(--transition-base); }
+.nuface-about-member-card:hover .member-info h3 { color: #2b8183; }
