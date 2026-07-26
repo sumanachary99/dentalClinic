@@ -89,7 +89,7 @@ function ReviewCard({ review }) {
         ) : null}
       </div>
       <footer className="gr-card-foot">
-        {review.avatar ? (
+        {review.photo && review.avatar ? (
           <img
             className="gr-card-avatar"
             src={review.avatar}

@@ -1,63 +1,26 @@
-// Reviewer profile pictures, taken from the same public Google listing
-// as the reviews and served from our own origin — Google's own image URLs
-// expire, and self-hosting keeps the clinic's page off a third-party
-// request on every visit.
-import avManjunatha from '../assets/reviewers/manjunatha.webp';
+// Profile pictures for the eight reviewers who uploaded one, taken from the
+// same public Google listing as the reviews and served from our own origin —
+// Google's image URLs expire, and self-hosting keeps the clinic's page off a
+// third-party request on every visit. Everyone else renders a monogram, so
+// there is no file here for them.
 import avKalpesh from '../assets/reviewers/kalpesh.webp';
-import avNeelmani from '../assets/reviewers/neelmani.webp';
 import avLuckyHubli from '../assets/reviewers/lucky-hubli.webp';
-import avAruna from '../assets/reviewers/aruna.webp';
-import avYashwanth from '../assets/reviewers/yashwanth.webp';
-import avShankar from '../assets/reviewers/shankar.webp';
-import avMurthy from '../assets/reviewers/murthy.webp';
-import avUjwala from '../assets/reviewers/ujwala.webp';
-import avAshok from '../assets/reviewers/ashok.webp';
-import avFarzana from '../assets/reviewers/farzana.webp';
-import avNoorulhuda from '../assets/reviewers/noorulhuda.webp';
-import avShahid from '../assets/reviewers/shahid.webp';
 import avPrajwal from '../assets/reviewers/prajwal.webp';
 import avSomesh from '../assets/reviewers/somesh.webp';
-import avNagaraj from '../assets/reviewers/nagaraj.webp';
-import avVageesh from '../assets/reviewers/vageesh.webp';
 import avAanchal from '../assets/reviewers/aanchal.webp';
-import avDhruvanth from '../assets/reviewers/dhruvanth.webp';
-import avHemanth from '../assets/reviewers/hemanth.webp';
 import avKhan from '../assets/reviewers/khan.webp';
-import avYasmin from '../assets/reviewers/yasmin.webp';
-import avAfsar from '../assets/reviewers/afsar.webp';
 import avAyush from '../assets/reviewers/ayush.webp';
 import avSupreeth from '../assets/reviewers/supreeth.webp';
-import avSrinivasan from '../assets/reviewers/srinivasan.webp';
 
 const AVATARS = {
-  'gr-manjunatha': avManjunatha,
   'gr-kalpesh': avKalpesh,
-  'gr-neelmani': avNeelmani,
   'gr-lucky-hubli': avLuckyHubli,
-  'gr-aruna': avAruna,
-  'gr-yashwanth': avYashwanth,
-  'gr-shankar': avShankar,
-  'gr-murthy': avMurthy,
-  'gr-ujwala': avUjwala,
-  'gr-ashok': avAshok,
-  'gr-farzana': avFarzana,
-  'gr-noorulhuda': avNoorulhuda,
-  'gr-shahid': avShahid,
   'gr-prajwal': avPrajwal,
   'gr-somesh': avSomesh,
-  'gr-nagaraj': avNagaraj,
-  'gr-vageesh': avVageesh,
   'gr-aanchal': avAanchal,
-  'gr-dhruvanth': avDhruvanth,
-  'gr-hemanth': avHemanth,
   'gr-khan': avKhan,
-  'gr-yasmin': avYasmin,
   'gr-ayush': avAyush,
   'gr-supreeth': avSupreeth,
-  'story-afsar': avAfsar,
-  'story-ayush': avAyush,
-  'story-supreeth': avSupreeth,
-  'story-srinivasan': avSrinivasan,
 };
 
 const withAvatar = (list) =>
