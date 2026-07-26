@@ -1,0 +1,398 @@
+/* ══════════════════════════════════════════════════════════════
+   GOOGLE REVIEWS — rating anchor + two opposing marquee rows
+   Scoped: every class is prefixed `gr-`.
+   Owned by src/components/GoogleReviewsMarquee.jsx
+══════════════════════════════════════════════════════════════ */
+
+.gr-section {
+  padding: var(--space-4xl) 0;
+  background: #f3fafb;
+  border-top: 1px solid rgba(8, 145, 178, 0.12);
+  border-bottom: 1px solid rgba(8, 145, 178, 0.12);
+  overflow: hidden;
+}
+
+.gr-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── The rating bar ───────────────────────────────────────────
+   One compact horizontal band. Deliberately not a tall side panel:
+   a column tall enough to sit beside two marquee rows can only be
+   filled with padding, and padding reads as a mistake.
+──────────────────────────────────────────────────────────────── */
+.gr-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  padding: 1.15rem 1.5rem;
+  margin-bottom: 2.25rem;
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 14px 30px -20px rgba(14, 116, 144, 0.7);
+}
+
+.gr-bar-score {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.gr-score {
+  font-family: var(--font-display);
+  font-size: 3.1rem;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+}
+
+.gr-score-scale {
+  font-family: var(--font-primary);
+  font-size: 0.28em;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.45);
+  margin-left: 0.15em;
+  vertical-align: baseline;
+}
+
+.gr-bar-score-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.gr-anchor-stars {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--color-gold);
+}
+
+.gr-anchor-stars svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  display: block;
+}
+
+.gr-anchor-meta {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
+}
+
+.gr-travel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.gr-travel-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+
+.gr-travel-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gr-travel-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.2rem 0.58rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.gr-link {
+  display: inline-block;
+  margin-left: auto;
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-primary-light);
+  border-bottom: 1px solid rgba(34, 211, 238, 0.4);
+  padding-bottom: 2px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.gr-link:hover,
+.gr-link:focus-visible {
+  color: var(--color-white);
+  border-bottom-color: var(--color-white);
+}
+
+.gr-link:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Right: the two marquee rows ──────────────────────────── */
+.gr-rows {
+  display: grid;
+  gap: 1.1rem;
+  min-width: 0;
+}
+
+.gr-marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.gr-track {
+  display: flex;
+  width: max-content;
+  padding: 0.4rem 0;
+  animation: gr-scroll-x var(--gr-duration, 60s) linear infinite;
+}
+
+.gr-track-reverse {
+  animation-direction: reverse;
+}
+
+/* The duplicate half must lay out exactly like the first half. */
+.gr-track-copy {
+  display: contents;
+}
+
+@keyframes gr-scroll-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.gr-rows:hover .gr-track,
+.gr-rows:focus-within .gr-track {
+  animation-play-state: paused;
+}
+
+/* ── The review card ──────────────────────────────────────── */
+.gr-card {
+  /* No fixed height: the flex row stretches every card to match the tallest
+     one in that row, so the cards stay level without forcing empty space
+     into the short reviews. */
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  margin-right: 1.05rem;   /* margin (not gap) keeps the -50% loop seamless */
+  padding: 1.35rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.gr-card-stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--color-gold);
+}
+
+.gr-card-stars svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  display: block;
+}
+
+.gr-card-text {
+  /* A floor of four lines keeps short reviews from leaving a hole above the
+     footer, and the clamp keeps long ones from pushing the card out of line. */
+  margin: 0.7rem 0 1rem;
+  min-height: calc(3 * 1.6 * 0.94rem);
+  font-family: var(--font-primary);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--color-dark-600);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+}
+
+.gr-card-tags {
+  margin-top: auto;
+  margin-bottom: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.gr-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.015em;
+  padding: 0.26rem 0.62rem;
+  border-radius: var(--radius-full);
+}
+
+.gr-chip-treatment {
+  background: var(--color-primary-50);
+  border: 1px solid rgba(8, 145, 178, 0.16);
+  color: var(--color-primary-dark);
+}
+
+/* Signature element — the travel tag. */
+.gr-chip-travel {
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.24);
+  color: var(--color-accent-dark);
+}
+
+.gr-pin {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.gr-card-foot {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.gr-card-avatar {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  background: var(--color-primary-50);
+}
+
+/* Only shown if a reviewer's picture is unavailable. */
+.gr-card-avatar-fallback {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.gr-card-who {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.gr-card-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gr-card-when {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  white-space: nowrap;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .gr-link {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .gr-bar {
+    gap: 1rem 1.5rem;
+  }
+
+  .gr-bar-score {
+    padding-right: 1.5rem;
+  }
+
+  .gr-travel {
+    flex: 1 1 100%;
+  }
+
+  .gr-card {
+    width: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .gr-section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .gr-bar {
+    padding: 1.15rem 1.15rem 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .gr-bar-score {
+    padding-right: 0;
+    border-right: 0;
+    flex: 1 1 100%;
+  }
+
+  .gr-score {
+    font-size: 2.6rem;
+  }
+
+  .gr-card {
+    width: 290px;
+    padding: 1.1rem;
+    margin-right: 0.85rem;
+  }
+
+  .gr-card-text {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+  }
+}
+
+/* ── Motion preference ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .gr-track {
+    animation: none;
+  }
+
+  .gr-marquee {
+    overflow-x: auto;
+  }
+}

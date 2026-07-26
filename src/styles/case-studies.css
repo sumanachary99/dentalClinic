@@ -1,0 +1,355 @@
+/* ============================================
+   CASE RECORDS PAGE
+   Scoped styles — every class prefixed `cs-`.
+   ============================================ */
+
+.cs-page {
+  background: var(--color-white);
+}
+
+.cs-page a:focus-visible,
+.cs-page a:focus-visible.btn {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 3px;
+}
+
+/* ── Hero ───────────────────────────────────── */
+
+.cs-hero {
+  padding: 7.5rem 0 var(--space-3xl);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.cs-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.cs-hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.125rem, 5.2vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--color-dark);
+  max-width: 20ch;
+  margin-bottom: var(--space-lg);
+}
+
+.cs-lead {
+  font-size: var(--text-lg);
+  line-height: 1.65;
+  color: var(--color-dark-600);
+  max-width: 58ch;
+}
+
+/* Factual strip — typographic, hairline dividers, no cards. */
+.cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0;
+  margin-top: var(--space-2xl);
+  list-style: none;
+}
+
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0 var(--space-xl);
+  border-left: 1px solid var(--color-gray-200);
+}
+
+.cs-meta-item:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.cs-meta-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+
+.cs-meta-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+
+/* ── Records ────────────────────────────────── */
+
+.cs-records {
+  padding: var(--space-4xl) 0;
+}
+
+.cs-list {
+  list-style: none;
+}
+
+.cs-case {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.cs-case + .cs-case {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-3xl);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* Image column — natural aspect ratio, no crop, no hover effects. */
+.cs-figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.cs-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background: var(--color-gray-100);
+}
+
+/* Record column */
+.cs-record {
+  min-width: 0;
+}
+
+.cs-record-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+/* The file-tab numeral: decorative treatment of real information.
+   Sits beside the record header, never behind readable text. */
+.cs-ghost-number {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.75rem, 7vw, 4.25rem);
+  line-height: 0.78;
+  color: var(--color-primary-50);
+  -webkit-text-stroke: 1px rgba(8, 145, 178, 0.32);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.cs-record-head {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.cs-case-no {
+  color: var(--color-gray);
+}
+
+.cs-discipline {
+  color: var(--color-primary);
+}
+
+/* The separator rides with the discipline, so a wrapped header never
+   leaves a stranded middot at the end of the first line. */
+.cs-discipline::before {
+  content: '· ';
+  color: var(--color-gray-light);
+}
+
+.cs-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-dark);
+  margin-bottom: var(--space-md);
+  max-width: 22ch;
+}
+
+.cs-note {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-dark-600);
+  max-width: 54ch;
+}
+
+.cs-facts {
+  margin-top: var(--space-xl);
+  border-top: 1px solid var(--color-gray-200);
+  max-width: 34rem;
+}
+
+.cs-fact {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.cs-fact-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: 0.15rem;
+}
+
+.cs-fact-value {
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--color-dark);
+}
+
+/* ── Closing ────────────────────────────────── */
+
+.cs-closing {
+  padding: 0 0 var(--space-4xl);
+}
+
+.cs-disclaimer {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--color-gray);
+  max-width: 62ch;
+  margin: 0 auto var(--space-2xl);
+  text-align: center;
+}
+
+.cs-cta {
+  background: var(--color-primary-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-3xl) var(--space-xl);
+  text-align: center;
+}
+
+.cs-cta-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.cs-cta-copy {
+  font-size: var(--text-lg);
+  color: var(--color-dark-600);
+  max-width: 46ch;
+  margin: 0 auto var(--space-xl);
+}
+
+.cs-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+/* ── Two-column records from 900px up ───────── */
+
+@media (min-width: 900px) {
+  .cs-case {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .cs-case + .cs-case {
+    margin-top: var(--space-4xl);
+    padding-top: var(--space-4xl);
+  }
+
+  /* Alternate sides. Defined only inside this query, so the single-column
+     layout below 900px always keeps the photograph first. */
+  .cs-case:nth-child(odd) .cs-figure,
+  .cs-case:nth-child(even) .cs-record {
+    order: 1;
+  }
+
+  .cs-case:nth-child(odd) .cs-record,
+  .cs-case:nth-child(even) .cs-figure {
+    order: 2;
+  }
+
+  .cs-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* ── Small screens ──────────────────────────── */
+
+@media (max-width: 640px) {
+  .cs-hero {
+    padding-top: 6.5rem;
+  }
+
+  .cs-meta {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .cs-meta-item {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-sm);
+    padding: var(--space-md) 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-gray-200);
+  }
+
+  .cs-meta-item:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .cs-cta {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+
+  .cs-cta-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ── Motion ─────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-page *,
+  .cs-page *::before,
+  .cs-page *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cs-page .btn:hover {
+    transform: none;
+  }
+}

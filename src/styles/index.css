@@ -2,7 +2,8 @@
    DENTAL CLINIC — GLOBAL DESIGN SYSTEM
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap');
+/* Fonts are loaded from index.html with preconnect — an @import here would
+   block rendering behind a second round trip. Do not re-add it. */
 
 /* ── Design Tokens ── */
 :root {
@@ -579,4 +580,10 @@ ul, ol {
   .container {
     padding: 0 var(--space-md);
   }
+}
+
+/* Holds vertical space while a lazily-loaded route arrives, so the footer
+   does not jump up and then back down. */
+.route-fallback {
+  min-height: 60vh;
 }

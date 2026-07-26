@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { CLINIC_INFO } from '../../config/constants';
-import nufaceLogo from "../../assets/logo.jpg";
+import nufaceLogo from "../../assets/logo.webp";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,6 +47,13 @@ export default function Header() {
               onClick={closeMenu}
             >
               Services
+            </Link>
+            <Link
+              to="/before-after"
+              className={isActive("/before-after") ? "active" : ""}
+              onClick={closeMenu}
+            >
+              Before &amp; After
             </Link>
             <Link
               to="/about"
@@ -119,6 +126,13 @@ export default function Header() {
           onClick={closeMenu}
         >
           Services
+        </Link>
+        <Link
+          to="/before-after"
+          className={isActive("/before-after") ? "active" : ""}
+          onClick={closeMenu}
+        >
+          Before &amp; After
         </Link>
         <Link
           to="/about"

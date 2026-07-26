@@ -1,23 +1,38 @@
-import nufaceLogo from '../assets/logo.jpg';
-import doctorManoj from '../assets/ManojKumarDoctor.jpeg';
-import doctorSheetal from '../assets/sheetalDoctor.jpeg';
-import doctorPraveen from '../assets/doctor-praveen.jpeg';
-import doctorNirmala from '../assets/doctor-nirmala.jpeg';
-import doctorArya from '../assets/doctor-arya.jpeg';
-import doctorBhoomika from '../assets/doctor-bhoomika.jpeg';
-import clinicStorefront from '../assets/clinic-storefront.webp';
-import clinicReception from '../assets/clinic-reception.webp';
-import clinicMural from '../assets/clinic-mural.webp';
-import clinicOperatory1 from '../assets/clinic-operatory-1.webp';
-import clinicOperatory2 from '../assets/clinic-operatory-2.webp';
-import heroBanner from '../assets/hero-banner.jpg';
+import nufaceLogo from '../assets/logo.webp';
+import doctorPraveen from '../assets/doctor-praveen.webp';
+import doctorNirmala from '../assets/doctor-nirmala.webp';
+import doctorArya from '../assets/doctor-arya.webp';
+import doctorBhoomika from '../assets/doctor-bhoomika.webp';
+// Photographs of the clinic, shot on site in Hassan.
+import nfStorefront from '../assets/nf-storefront.webp';
+import nfStorefrontEvening from '../assets/nf-storefront-evening.webp';
+import nfStreetSign from '../assets/nf-street-sign.webp';
+import nfMuralWall from '../assets/nf-mural-wall.webp';
+import nfReception from '../assets/nf-reception.webp';
+import nfLounge from '../assets/nf-lounge.webp';
+import nfLogoWall from '../assets/nf-logo-wall.webp';
+import nfOperatoryCorridor from '../assets/nf-operatory-corridor.webp';
+import nfOperatoryChair from '../assets/nf-operatory-chair.webp';
+import nfLaserRoom from '../assets/nf-laser-room.webp';
+import nfSkinRoom from '../assets/nf-skin-room.webp';
+import nfConsultingRoom from '../assets/nf-consulting-room.webp';
+import nfConsultantsBoard from '../assets/nf-consultants-board.webp';
+import nfOperationTheatre from '../assets/nf-operation-theatre.webp';
+import nfFounders from '../assets/nf-founders.webp';
+import drManojPortrait from '../assets/dr-manoj-portrait.webp';
+import drManojOperatory from '../assets/dr-manoj-operatory.webp';
+import drManojHairPlanning from '../assets/dr-manoj-hair-planning.webp';
+import drManojLaser from '../assets/dr-manoj-laser.webp';
+import drSheetalConsult from '../assets/dr-sheetal-consult.webp';
+import nfMpConsult from '../assets/nf-mp-consult.webp';
+import nfMpTreatment from '../assets/nf-mp-treatment.webp';
 import { CLINIC_INFO } from './constants';
 
 export const BRAND_ASSETS = {
   logo: nufaceLogo,
-  heroImage: heroBanner,
-  storefront: clinicStorefront,
-  mural: clinicMural,
+  storefront: nfStorefront,
+  mural: nfMuralWall,
+  founders: nfFounders,
   galleryLink: CLINIC_INFO.mapLink,
   brochure: CLINIC_INFO.brochureUrl,
 };
@@ -136,7 +151,7 @@ export const SPECIALTY_PILLARS = [
 export const EXPERIENCE_POINTS = [
   { label: 'Specialty Verticals', value: '6', note: 'Dental · Surgery · Implants · Cosmetic · Hair · Skin' },
   { label: 'Years of Excellence', value: '17+', note: 'Since 2008, Hassan' },
-  { label: 'Patient Satisfaction', value: '4.9/5', note: 'Across Google reviews' },
+  { label: 'Patient Satisfaction', value: '4.9/5', note: 'Across 434 Google reviews' },
 ];
 
 export const CARE_PROTOCOLS = [
@@ -269,7 +284,7 @@ export const TEAM_MEMBERS = [
       'Trichology & Hair Transplant',
       'Orofacial Cosmetology (PRP, Lasers, Botox)',
     ],
-    image: doctorManoj,
+    image: drManojPortrait,
   },
   {
     id: 'doctor-sheetal',
@@ -277,7 +292,7 @@ export const TEAM_MEMBERS = [
     role: 'Senior Periodontist & Implantologist · Co-Founder',
     credentials: 'BDS, MDS (2008) — Periodontics & Implantology',
     registration: 'KSDC Reg. No. 15883-A',
-    image: doctorSheetal,
+    image: drSheetalConsult,
     description:
       'With 18 years of experience, Dr Sheetal Jain is an established expert in full mouth rehabilitation, gum surgeries and dental implants. She has completed thousands of single-sitting root canal treatments, periodontal surgeries, and over 500 implant placements — and is a certified aligner provider.',
     expertise: [
@@ -337,30 +352,144 @@ export const CLINIC_GALLERY = [
     id: 'gallery-storefront',
     title: 'Sumukha Nuface, Hassan',
     caption: 'Our home at Sampige Road, 9th Cross — K R Puram',
-    image: clinicStorefront,
+    image: nfStorefront,
+  },
+  {
+    id: 'gallery-storefront-evening',
+    title: 'Open Till 7:30 PM',
+    caption: 'Evening slots for patients who work through the day',
+    image: nfStorefrontEvening,
+  },
+  {
+    id: 'gallery-street-sign',
+    title: 'Find Us From The Road',
+    caption: 'Every speciality listed in Kannada and English',
+    image: nfStreetSign,
+  },
+  {
+    id: 'gallery-logo-wall',
+    title: 'Your Smile, Our Happiness',
+    caption: 'The line the clinic has worked to since 2008',
+    image: nfLogoWall,
   },
   {
     id: 'gallery-reception',
+    title: 'Reception',
+    caption: 'Where every visit is logged and every follow-up scheduled',
+    image: nfReception,
+  },
+  {
+    id: 'gallery-lounge',
     title: 'Patient Lounge',
     caption: '“Your smile, our happiness” — a calm place to wait',
-    image: clinicReception,
+    image: nfLounge,
   },
   {
     id: 'gallery-mural',
     title: 'Service Mural',
     caption: 'Every speciality we offer — at a glance',
-    image: clinicMural,
+    image: nfMuralWall,
   },
   {
-    id: 'gallery-operatory-1',
-    title: 'Operatory · Chair 1',
-    caption: 'Glass-partitioned treatment bay with full sterilisation',
-    image: clinicOperatory1,
+    id: 'gallery-operatory-corridor',
+    title: 'Operatory Wing',
+    caption: 'Glass-partitioned treatment bays, sterilised between patients',
+    image: nfOperatoryCorridor,
   },
   {
-    id: 'gallery-operatory-2',
-    title: 'Operatory · Chair 2',
-    caption: 'Digital diagnostics & implant-ready setup',
-    image: clinicOperatory2,
+    id: 'gallery-operatory-chair',
+    title: 'Dental Operatory',
+    caption: 'Chairside monitor so you see what the dentist sees',
+    image: nfOperatoryChair,
+  },
+  {
+    id: 'gallery-laser-room',
+    title: 'Laser & Aesthetics Room',
+    caption: 'Diode laser, hydrafacial and injectable protocols',
+    image: nfLaserRoom,
+  },
+  {
+    id: 'gallery-skin-room',
+    title: 'Skin Treatment Bay',
+    caption: 'A separate room for peels, PRP and laser sessions',
+    image: nfSkinRoom,
+  },
+  {
+    id: 'gallery-consulting',
+    title: 'Consulting Room',
+    caption: 'Where the treatment plan is explained before anything starts',
+    image: nfConsultingRoom,
   },
 ];
+
+// ───────────────────────────────────────────────────────────────
+// The clinic at work — used on the About page
+// ───────────────────────────────────────────────────────────────
+export const CLINIC_AT_WORK = [
+  {
+    id: 'work-theatre',
+    title: 'In the operation theatre',
+    caption:
+      'Maxillofacial surgery under general anaesthesia, with a full scrubbed team.',
+    image: nfOperationTheatre,
+  },
+  {
+    id: 'work-hair',
+    title: 'Planning a hair transplant',
+    caption:
+      'Donor area and graft count are mapped before a single follicle is moved.',
+    image: drManojHairPlanning,
+  },
+  {
+    id: 'work-laser',
+    title: 'Laser and aesthetics',
+    caption:
+      'Diode laser sessions are run by the doctor, not handed to a technician.',
+    image: drManojLaser,
+  },
+  {
+    id: 'work-consultants',
+    title: 'Our visiting consultants',
+    caption:
+      'The specialist panel, posted on the wall where every patient can read it.',
+    image: nfConsultantsBoard,
+  },
+];
+
+export const FOUNDER_PORTRAITS = {
+  manoj: drManojOperatory,
+  sheetal: drSheetalConsult,
+  together: nfFounders,
+};
+
+// ───────────────────────────────────────────────────────────────
+// Visit by the Member of Parliament for Hassan.
+// Shreyas M. Patel (Indian National Congress) has represented the
+// Hassan Lok Sabha constituency since 4 June 2024.
+// ───────────────────────────────────────────────────────────────
+export const MP_VISIT = {
+  personName: 'Shreyas M. Patel',
+  personRole: 'Member of Parliament, Hassan',
+  eyebrow: 'At the clinic',
+  heading: 'The Hassan MP chose Sumukha Nuface for his own treatment',
+  body:
+    'Shreyas M. Patel, the sitting Member of Parliament for Hassan, came to the clinic as a patient — consulted with Dr Manoj Kumar Jain and Dr Sheetal Jain, reviewed his radiographs with them, and was treated in the operatory the same way every patient is.',
+  photos: [
+    {
+      id: 'mp-consult',
+      image: nfMpConsult,
+      caption:
+        'Reviewing radiographs with Dr Manoj Kumar Jain and Dr Sheetal Jain',
+      alt:
+        'Shreyas M. Patel, MP for Hassan, in consultation with Dr Manoj Kumar Jain and Dr Sheetal Jain, with dental radiographs on screen',
+    },
+    {
+      id: 'mp-treatment',
+      image: nfMpTreatment,
+      caption: 'Treatment in the operatory',
+      alt:
+        'Dr Manoj Kumar Jain treating Shreyas M. Patel in the clinic operatory, assisted by clinic staff',
+    },
+  ],
+  storyUrl: 'https://en.wikipedia.org/wiki/Shreyas_M._Patel',
+};

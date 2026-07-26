@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import { CLINIC_INFO, STATS } from '../config/constants';
 import {
   BRAND_ASSETS,
+  CLINIC_AT_WORK,
   CONSULTANTS,
   TEAM_MEMBERS,
   CLINIC_GALLERY,
 } from '../config/landingContent';
+import MPVisitBand from '../components/MPVisitBand';
 
 export default function AboutPage() {
   return (
@@ -86,6 +88,9 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* A notable patient — the sitting MP for Hassan */}
+      <MPVisitBand />
+
       {/* Consultants — Brigade-style compact grid */}
       <section className="section nuface-consultants">
         <div className="container">
@@ -159,7 +164,10 @@ export default function AboutPage() {
         <div className="container">
           <div className="nuface-story-grid">
             <div className="story-image">
-              <img src={CLINIC_GALLERY[0].image} alt="Clinic Interior" />
+              <img
+                src={BRAND_ASSETS.founders}
+                alt="Dr Manoj Kumar Jain and Dr Sheetal Jain at the consulting desk in Sumukha Nuface"
+              />
             </div>
             <div className="story-content">
               <h2 className="section-title">
@@ -189,6 +197,30 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The clinic at work */}
+      <section className="section nuface-about-gallery">
+        <div className="container">
+          <h2 className="section-title">
+            The Clinic <span className="gradient-text">At Work</span>
+          </h2>
+          <p className="section-subtitle">
+            Not stock photography — these are our own theatre, our own
+            equipment and our own consultant panel.
+          </p>
+          <div className="nuface-about-gallery-grid">
+            {CLINIC_AT_WORK.map((item) => (
+              <figure key={item.id} className="about-gallery-item">
+                <img src={item.image} alt={item.title} loading="lazy" />
+                <figcaption>
+                  <h4>{item.title}</h4>
+                  <p>{item.caption}</p>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

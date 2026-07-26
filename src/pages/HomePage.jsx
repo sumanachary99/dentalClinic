@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CLINIC_INFO, TESTIMONIALS } from '../config/constants';
+import { CLINIC_INFO } from '../config/constants';
+import GoogleReviewsMarquee from '../components/GoogleReviewsMarquee';
 import {
   BRAND_ASSETS,
   CLINIC_GALLERY,
@@ -163,6 +164,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <GoogleReviewsMarquee />
 
       <section className="section nuface-specialties">
         <div className="container">
@@ -356,6 +359,12 @@ export default function HomePage() {
             </article>
 
           </div>
+
+          <div className="nuface-section-action">
+            <Link to="/before-after" className="btn btn-outline">
+              See real before &amp; after cases
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -478,28 +487,6 @@ export default function HomePage() {
             >
               Open Google Maps Location
             </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="section nuface-testimonials">
-        <div className="container">
-          <h2 className="section-title">
-            Patient <span className="gradient-text">Stories</span>
-          </h2>
-          <div className="nuface-testimonial-grid">
-            {TESTIMONIALS.map((testimonial) => (
-              <article className="nuface-testimonial-card" key={testimonial.id}>
-                <div className="nuface-stars">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <span key={i}>★</span>
-                  ))}
-                </div>
-                <p>"{testimonial.text}"</p>
-                <h3>{testimonial.name}</h3>
-                <span>{testimonial.service}</span>
-              </article>
-            ))}
           </div>
         </div>
       </section>
