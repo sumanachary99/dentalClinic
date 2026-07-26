@@ -29,10 +29,6 @@ const STAR_OFFSETS = [0, 1, 2, 3, 4].map((i) => i * STAR_PITCH);
    dropped. 97s is unhurried enough to read a review as it goes by. */
 const ROW_LOOP_SECONDS = 97;
 
-/* Without an observer we can never learn that the rows are on-screen, so
-   they must start running rather than start paused. */
-const HAS_OBSERVER = typeof IntersectionObserver === 'function';
-
 /* One node per star instead of one <svg> per star: a card carries 6 star
    nodes rather than 11. */
 function StarRow({ count = 5, className }) {
@@ -145,7 +141,7 @@ function ChevronIcon({ back }) {
  * prefers-reduced-motion it never runs at all — the row is still fully
  * scrollable by hand.
  */
-function MarqueeRow({ reviews, loopSeconds, offscreen }) {
+function MarqueeRow({ reviews, loopSeconds }) {
   const viewportRef = useRef(null);
   const trackRef = useRef(null);
   const [held, setHeld] = useState(false);
@@ -155,7 +151,7 @@ function MarqueeRow({ reviews, loopSeconds, offscreen }) {
   useEffect(() => {
     const viewport = viewportRef.current;
     const track = trackRef.current;
-    if (!viewport || !track || offscreen || held) return undefined;
+    if (!viewport || !track || held) return undefined;
 
     const stillPreferred =
       typeof matchMedia === 'function' &&
@@ -164,14 +160,26 @@ function MarqueeRow({ reviews, loopSeconds, offscreen }) {
 
     let frame = 0;
     let last = 0;
+    let tick = 0;
+    let onScreen = true;
     /* Kept alongside scrollLeft because a sub-pixel-per-frame delta would be
        lost to rounding if it were written and re-read every frame. */
     let pos = viewport.scrollLeft;
 
     const step = (now) => {
+      /* Off-screen is checked here rather than with an IntersectionObserver
+         gating the whole loop. Gating meant that anywhere the observer did not
+         deliver a callback, the row simply never moved — a silent failure with
+         no way back. A rect read six times a second costs nothing next to
+         that, and requestAnimationFrame already stops in a background tab. */
+      if (tick++ % 10 === 0) {
+        const box = viewport.getBoundingClientRect();
+        onScreen = box.bottom > -200 && box.top < window.innerHeight + 200;
+      }
+
       const half = track.scrollWidth / 2;
 
-      if (last && half > 0) {
+      if (last && onScreen && half > 0) {
         // Someone scrolled by hand while the loop was running — take their position.
         if (Math.abs(pos - viewport.scrollLeft) > 2) pos = viewport.scrollLeft;
 
@@ -186,7 +194,7 @@ function MarqueeRow({ reviews, loopSeconds, offscreen }) {
 
     frame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(frame);
-  }, [held, loopSeconds, offscreen]);
+  }, [held, loopSeconds]);
 
   useEffect(() => () => clearTimeout(resumeRef.current), []);
 
@@ -246,7 +254,17 @@ function MarqueeRow({ reviews, loopSeconds, offscreen }) {
 
     const card = viewport.querySelector('.gr-card');
     const stride = card ? card.getBoundingClientRect().width + 18 : 320;
-    viewport.scrollBy({ left: direction * stride, behavior: 'smooth' });
+    const from = viewport.scrollLeft;
+    const target = from + direction * stride;
+
+    viewport.scrollTo({ left: target, behavior: 'smooth' });
+    /* Some engines quietly ignore smooth scrolling on a masked, contained
+       scroller. Only forced when the row has not budged at all, so a real
+       smooth scroll is never cut short. */
+    setTimeout(() => {
+      if (viewport.scrollLeft === from) viewport.scrollLeft = target;
+    }, 250);
+
     releaseAfterIdle();
   };
 
@@ -254,6 +272,27 @@ function MarqueeRow({ reviews, loopSeconds, offscreen }) {
 
   return (
     <div className="gr-row">
+      {/* Above the row, not below it: the floating WhatsApp button is fixed to
+          the bottom-right corner and sat directly on top of the next arrow. */}
+      <div className="gr-nav">
+        <button
+          type="button"
+          className="gr-nav-btn"
+          onClick={() => nudge(-1)}
+          aria-label="Previous reviews"
+        >
+          <ChevronIcon back />
+        </button>
+        <button
+          type="button"
+          className="gr-nav-btn"
+          onClick={() => nudge(1)}
+          aria-label="Next reviews"
+        >
+          <ChevronIcon />
+        </button>
+      </div>
+
       <div
         className="gr-marquee"
         ref={viewportRef}
@@ -283,49 +322,11 @@ function MarqueeRow({ reviews, loopSeconds, offscreen }) {
         </div>
       </div>
 
-      <div className="gr-nav">
-        <button
-          type="button"
-          className="gr-nav-btn"
-          onClick={() => nudge(-1)}
-          aria-label="Previous reviews"
-        >
-          <ChevronIcon back />
-        </button>
-        <button
-          type="button"
-          className="gr-nav-btn"
-          onClick={() => nudge(1)}
-          aria-label="Next reviews"
-        >
-          <ChevronIcon />
-        </button>
-      </div>
     </div>
   );
 }
 
 export default function GoogleReviewsMarquee() {
-  const rowsRef = useRef(null);
-  /* Off until proven on-screen: this section sits far down a very tall page,
-     so the tracks should not burn compositor time before anyone sees them. */
-  const [rowsPaused, setRowsPaused] = useState(HAS_OBSERVER);
-
-  useEffect(() => {
-    const node = rowsRef.current;
-    if (!node || !HAS_OBSERVER) return undefined;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        setRowsPaused(!entries.some((entry) => entry.isIntersecting));
-      },
-      { rootMargin: '200px 0px', threshold: 0 },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
   const reviews = Array.isArray(MARQUEE_REVIEWS) ? MARQUEE_REVIEWS : [];
   if (reviews.length === 0) return null;
 
@@ -383,15 +384,8 @@ export default function GoogleReviewsMarquee() {
             ) : null}
           </aside>
 
-          <div
-            className={rowsPaused ? 'gr-rows gr-rows--paused' : 'gr-rows'}
-            ref={rowsRef}
-          >
-            <MarqueeRow
-              reviews={reviews}
-              loopSeconds={ROW_LOOP_SECONDS}
-              offscreen={rowsPaused}
-            />
+          <div className="gr-rows">
+            <MarqueeRow reviews={reviews} loopSeconds={ROW_LOOP_SECONDS} />
           </div>
         </div>
       </div>
