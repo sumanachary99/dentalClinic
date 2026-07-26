@@ -6,6 +6,7 @@ import { getNextDays, formatDate } from '../utils/dateUtils';
 import { validateBookingForm } from '../utils/validators';
 import { sendBookingConfirmation } from '../utils/whatsapp';
 import { addAppointment } from '../utils/googleSheets';
+import '../styles/booking.css';
 
 const STEPS = ['Service', 'Date & Time', 'Details'];
 

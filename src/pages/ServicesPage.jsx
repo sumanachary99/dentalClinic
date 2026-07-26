@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { SERVICES, SERVICE_CATEGORIES } from '../config/services';
 import { serviceImageFor } from '../config/cardImages';
 import ServiceDetailModal from '../components/ServiceDetailModal';
+import '../styles/services.css';
 
 function CardArrow() {
   return (

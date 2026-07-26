@@ -54,6 +54,35 @@ function useCountUp(target, duration = 1500) {
   return { count, ref };
 }
 
+/**
+ * The gallery track is ~6,800px wide and animates forever. The home page is
+ * ~14,700px tall, so without this it keeps the compositor busy the whole time
+ * a visitor is reading something else — real battery and frame cost on a
+ * mid-range phone. Returns a ref to put on the marquee wrapper, and whether
+ * it is currently off-screen.
+ */
+function useOffscreenPause(rootMargin = '200px 0px') {
+  const ref = useRef(null);
+  const [paused, setPaused] = useState(true);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return undefined;
+    if (typeof IntersectionObserver !== 'function') {
+      setPaused(false);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setPaused(!entry.isIntersecting),
+      { rootMargin, threshold: 0 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [rootMargin]);
+
+  return [ref, paused];
+}
+
 function MetricCard({ item }) {
   // parseFloat stops at the first non-numeric char, so "4.9/5" → 4.9 and "17+" → 17
   const numericValue = Number.parseFloat(item.value);
@@ -74,6 +103,7 @@ function MetricCard({ item }) {
 
 export default function HomePage() {
   const [activeTrack, setActiveTrack] = useState(null);
+  const [galleryRef, galleryPaused] = useOffscreenPause();
 
   const openTrack = (pillar, e) => {
     e.currentTarget.focus();
@@ -450,7 +480,10 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="nuface-gallery-marquee">
+        <div
+          className={`nuface-gallery-marquee${galleryPaused ? ' nuface-gallery-marquee--paused' : ''}`}
+          ref={galleryRef}
+        >
           <div className="nuface-gallery-track">
             {CLINIC_GALLERY.map((item) => (
               <article className="nuface-gallery-card" key={item.id}>

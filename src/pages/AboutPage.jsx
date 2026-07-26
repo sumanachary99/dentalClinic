@@ -8,6 +8,7 @@ import {
   CLINIC_GALLERY,
 } from '../config/landingContent';
 import MPVisitBand from '../components/MPVisitBand';
+import '../styles/about.css';
 
 export default function AboutPage() {
   return (
@@ -38,6 +39,10 @@ export default function AboutPage() {
             <img
               src={BRAND_ASSETS.storefront}
               alt={`${CLINIC_INFO.shortName} clinic storefront in Hassan`}
+              width="1400"
+              height="875"
+              fetchPriority="high"
+              decoding="async"
             />
             <figcaption>Sampige Road · K R Puram · Hassan</figcaption>
           </figure>
@@ -90,6 +95,50 @@ export default function AboutPage() {
 
       {/* A notable patient — the sitting MP for Hassan */}
       <MPVisitBand />
+
+      {/* Story & Philosophy */}
+      <section className="section nuface-about-story">
+        <div className="container">
+          <div className="nuface-story-grid">
+            <div className="story-image">
+              <img
+                src={BRAND_ASSETS.founders}
+                alt="Dr Manoj Kumar Jain and Dr Sheetal Jain at the consulting desk in Sumukha Nuface"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="story-content">
+              <h2 className="section-title">
+                Our <span className="gradient-text">Clinical Philosophy</span>
+              </h2>
+              <p>
+                Founded in 2008, {CLINIC_INFO.shortName} was built on the
+                intersection of medical precision and aesthetic balance. We
+                don't just "treat" — we plan pathways. Every root canal,
+                implant, hair transplant, or laser protocol is backed by
+                standardized clinical guidelines.
+              </p>
+              <div className="story-values">
+                <div className="value-item">
+                  <h3>Clinical Excellence</h3>
+                  <p>
+                    Adherence to international sterilization and safety
+                    protocols across every chair.
+                  </p>
+                </div>
+                <div className="value-item">
+                  <h3>Transparent Guidance</h3>
+                  <p>
+                    Clear pre and post procedure roadmaps for every major
+                    treatment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Consultants — Brigade-style compact grid */}
       <section className="section nuface-consultants">
@@ -159,48 +208,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story & Philosophy */}
-      <section className="section nuface-about-story">
-        <div className="container">
-          <div className="nuface-story-grid">
-            <div className="story-image">
-              <img
-                src={BRAND_ASSETS.founders}
-                alt="Dr Manoj Kumar Jain and Dr Sheetal Jain at the consulting desk in Sumukha Nuface"
-              />
-            </div>
-            <div className="story-content">
-              <h2 className="section-title">
-                Our <span className="gradient-text">Clinical Philosophy</span>
-              </h2>
-              <p>
-                Founded in 2008, {CLINIC_INFO.shortName} was built on the
-                intersection of medical precision and aesthetic balance. We
-                don't just "treat" — we plan pathways. Every root canal,
-                implant, hair transplant, or laser protocol is backed by
-                standardized clinical guidelines.
-              </p>
-              <div className="story-values">
-                <div className="value-item">
-                  <h3>Clinical Excellence</h3>
-                  <p>
-                    Adherence to international sterilization and safety
-                    protocols across every chair.
-                  </p>
-                </div>
-                <div className="value-item">
-                  <h3>Transparent Guidance</h3>
-                  <p>
-                    Clear pre and post procedure roadmaps for every major
-                    treatment.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* The clinic at work */}
       <section className="section nuface-about-gallery">
         <div className="container">
@@ -234,7 +241,7 @@ export default function AboutPage() {
           <div className="nuface-about-gallery-grid">
             {CLINIC_GALLERY.map((item) => (
               <figure key={item.id} className="about-gallery-item">
-                <img src={item.image} alt={item.title} />
+                <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
                 <figcaption>
                   <h4>{item.title}</h4>
                   <p>{item.caption}</p>

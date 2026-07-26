@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import SeoHead from "./components/SeoHead";
+import ScrollToTop from "./components/ScrollToTop";
 import Footer from "./components/layout/Footer";
 import MobileNav from "./components/layout/MobileNav";
 import HomePage from "./pages/HomePage";
@@ -23,6 +24,7 @@ function RouteFallback() {
 export default function App() {
   return (
     <HashRouter basename="/">
+      <ScrollToTop />
       <SeoHead />
       <Header />
       <Suspense fallback={<RouteFallback />}>

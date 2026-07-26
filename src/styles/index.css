@@ -244,7 +244,7 @@ ul, ol {
   font-size: var(--text-base);
   font-weight: 600;
   border-radius: var(--radius-lg);
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
   white-space: nowrap;
   position: relative;
   overflow: hidden;
@@ -338,7 +338,7 @@ ul, ol {
   padding: var(--space-xl);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-gray-200);
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .card:hover {
@@ -375,7 +375,7 @@ ul, ol {
   font-size: var(--text-base);
   color: var(--color-dark);
   background: var(--color-white);
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-input:focus {
@@ -401,7 +401,7 @@ ul, ol {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-select:focus {
@@ -420,7 +420,7 @@ ul, ol {
   background: var(--color-white);
   resize: vertical;
   min-height: 100px;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-textarea:focus {
@@ -497,11 +497,6 @@ ul, ol {
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 @keyframes shimmer {

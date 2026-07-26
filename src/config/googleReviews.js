@@ -52,6 +52,8 @@ const AVATARS = {
   'gr-hemanth': avHemanth,
   'gr-khan': avKhan,
   'gr-yasmin': avYasmin,
+  'gr-ayush': avAyush,
+  'gr-supreeth': avSupreeth,
   'story-afsar': avAfsar,
   'story-ayush': avAyush,
   'story-supreeth': avSupreeth,
@@ -96,6 +98,7 @@ const REVIEW_RECORDS = [
   },
   {
     id: 'gr-kalpesh',
+    photo: true,
     name: 'Kalpesh Jain',
     rating: 5,
     when: '8 months ago',
@@ -114,6 +117,7 @@ const REVIEW_RECORDS = [
   },
   {
     id: 'gr-lucky-hubli',
+    photo: true,
     name: 'Lucky Opticians hubli',
     rating: 5,
     when: 'a year ago',
@@ -204,6 +208,7 @@ const REVIEW_RECORDS = [
   },
   {
     id: 'gr-prajwal',
+    photo: true,
     name: 'Prajwal N S',
     rating: 5,
     when: '11 months ago',
@@ -213,6 +218,7 @@ const REVIEW_RECORDS = [
   },
   {
     id: 'gr-somesh',
+    photo: true,
     name: 'Somesh Cp',
     rating: 5,
     when: '6 months ago',
@@ -240,6 +246,7 @@ const REVIEW_RECORDS = [
   },
   {
     id: 'gr-aanchal',
+    photo: true,
     name: 'Aanchal Desharlla',
     rating: 5,
     when: 'a year ago',
@@ -267,6 +274,7 @@ const REVIEW_RECORDS = [
   },
   {
     id: 'gr-khan',
+    photo: true,
     name: 'khan nawazkhan',
     rating: 5,
     when: '3 months ago',
@@ -283,9 +291,37 @@ const REVIEW_RECORDS = [
     from: null,
     text: 'First time I felt secure and with no fear at the dentist. Did not feel pain at all and everything was very clean, quick and well done. A special thanks to Dr. Manoj Kumar Jain sir for your technical and skilled high standard of care.',
   },
+
+  {
+    id: 'gr-ayush',
+    photo: true,
+    name: 'Ayush Bohra',
+    rating: 5,
+    when: 'a year ago',
+    treatment: 'Long-term dental care',
+    from: 'Bangalore',
+    text: 'I have been coming to Nuface clinic for years now, for all my tooth related problems, and I have never been disappointed by the slightest bit. I come all the way from Bangalore because of their state of the art facility and the experienced doctors.',
+  },
+  {
+    id: 'gr-supreeth',
+    photo: true,
+    name: 'supreeth k s',
+    rating: 5,
+    when: 'a year ago',
+    treatment: 'Skin & hair treatment',
+    from: null,
+    text: 'Dr. Manoj Kumar Jain takes the time to understand your concerns, explains every step of the treatment clearly, and ensures you feel completely at ease. Whether it is acne, hair fall, pigmentation, or anti-aging treatments, the results speak for themselves.',
+  },
 ];
 
 export const GOOGLE_REVIEWS = withAvatar(REVIEW_RECORDS);
+
+/**
+ * The marquee shows only reviewers who uploaded a real Google profile picture.
+ * Google's generated letter circles read as missing images next to real faces,
+ * and a row of eight photographs is more convincing than twenty-two mixed.
+ */
+export const MARQUEE_REVIEWS = GOOGLE_REVIEWS.filter((r) => r.photo && r.avatar);
 
 // ───────────────────────────────────────────────────────────────
 // Longer patient stories, kept separate from the marquee so the
