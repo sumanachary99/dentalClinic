@@ -7,12 +7,12 @@ import {
 } from '../config/googleReviews';
 
 /**
- * "Top-rated on Google" — a tall rating panel on the left with two rows of
- * review cards streaming past it on the right.
+ * "Top-rated on Google" — a rating panel on the left, with a single row of
+ * review cards drifting past it on the right that the reader can also scroll
+ * by hand.
  *
- * Both rows travel the same way; only their speeds differ, so they never
- * look locked together. Data comes straight from src/config/googleReviews.js;
- * takes no props. Renders nothing when there are no reviews.
+ * Data comes straight from src/config/googleReviews.js; takes no props.
+ * Renders nothing when there are no reviews.
  */
 
 const STAR_PATH =
@@ -24,12 +24,10 @@ const STAR_PITCH = 27;
 const STAR_VIEWBOX = '0 0 132 24';
 const STAR_OFFSETS = [0, 1, 2, 3, 4].map((i) => i * STAR_PITCH);
 
-/* One row of the eight reviewers who have a real profile photograph,
-   rendered twice for the seamless loop = 16 cards. The duplicate half is what
-   makes the -50% translate wrap invisibly, so it cannot be dropped.
-   78s is unhurried enough that a review is readable as it passes, and one
-   slow row costs the compositor far less than two quick ones. */
-const ROW_DURATION = '78s';
+/* Seconds for one full pass of the row. Ten reviewers rendered twice = 20
+   cards; the duplicate half is what makes the wrap invisible, so it cannot be
+   dropped. 97s is unhurried enough to read a review as it goes by. */
+const ROW_LOOP_SECONDS = 97;
 
 /* Without an observer we can never learn that the rows are on-screen, so
    they must start running rather than start paused. */
@@ -115,24 +113,193 @@ function ReviewCard({ review }) {
   );
 }
 
+function ChevronIcon({ back }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d={back ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'} />
+    </svg>
+  );
+}
+
 /**
- * One seamless row. The subset is rendered twice — the second copy is
- * aria-hidden and only exists so the -50% translate loops invisibly.
+ * One seamless row the reader can also drive by hand.
+ *
+ * The row is a real horizontal scroll container rather than a CSS transform,
+ * which is what lets a trackpad, a touch swipe, a mouse drag and the arrow
+ * keys all move it. Ambient motion is a rAF loop writing scrollLeft; it steps
+ * back by exactly half the track when it passes the seam, so the duplicated
+ * second copy makes the wrap invisible.
+ *
+ * The loop yields to the reader: it stops while the pointer is over the cards,
+ * while anything inside has focus, and while a drag is in progress, then picks
+ * up from wherever it was left. It never runs off-screen, and under
+ * prefers-reduced-motion it never runs at all — the row is still fully
+ * scrollable by hand.
  */
-function MarqueeRow({ reviews, duration }) {
+function MarqueeRow({ reviews, loopSeconds, offscreen }) {
+  const viewportRef = useRef(null);
+  const trackRef = useRef(null);
+  const [held, setHeld] = useState(false);
+  const dragRef = useRef(null);
+  const resumeRef = useRef(0);
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+    if (!viewport || !track || offscreen || held) return undefined;
+
+    const stillPreferred =
+      typeof matchMedia === 'function' &&
+      matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (stillPreferred) return undefined;
+
+    let frame = 0;
+    let last = 0;
+    /* Kept alongside scrollLeft because a sub-pixel-per-frame delta would be
+       lost to rounding if it were written and re-read every frame. */
+    let pos = viewport.scrollLeft;
+
+    const step = (now) => {
+      const half = track.scrollWidth / 2;
+
+      if (last && half > 0) {
+        // Someone scrolled by hand while the loop was running — take their position.
+        if (Math.abs(pos - viewport.scrollLeft) > 2) pos = viewport.scrollLeft;
+
+        pos += (half / loopSeconds) * ((now - last) / 1000);
+        if (pos >= half) pos -= half;
+        viewport.scrollLeft = pos;
+      }
+
+      last = now;
+      frame = requestAnimationFrame(step);
+    };
+
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }, [held, loopSeconds, offscreen]);
+
+  useEffect(() => () => clearTimeout(resumeRef.current), []);
+
+  /* A touch swipe has no pointerleave to resume on, so hand control back a
+     beat after the finger lifts. */
+  const releaseAfterIdle = () => {
+    clearTimeout(resumeRef.current);
+    resumeRef.current = setTimeout(() => setHeld(false), 2500);
+  };
+
+  const hold = () => {
+    clearTimeout(resumeRef.current);
+    setHeld(true);
+  };
+
+  const onPointerDown = (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    hold();
+    dragRef.current = { x: event.clientX, from: viewport.scrollLeft, moved: false };
+  };
+
+  const onPointerMove = (event) => {
+    const drag = dragRef.current;
+    const viewport = viewportRef.current;
+    if (!drag || !viewport) return;
+
+    const travelled = event.clientX - drag.x;
+    if (!drag.moved && Math.abs(travelled) < 3) return;
+
+    // Claim the gesture only once it is clearly a drag, so a tap still selects text.
+    if (!drag.moved) {
+      drag.moved = true;
+      viewport.setPointerCapture?.(event.pointerId);
+      /* Toggled on the node rather than through state: a re-render on every
+         drag frame would be wasted work, and nothing else depends on it. */
+      viewport.classList.add('is-dragging');
+    }
+    viewport.scrollLeft = drag.from - travelled;
+  };
+
+  const endDrag = (event) => {
+    const viewport = viewportRef.current;
+    if (dragRef.current?.moved) {
+      viewport?.releasePointerCapture?.(event.pointerId);
+      viewport?.classList.remove('is-dragging');
+    }
+    dragRef.current = null;
+    if (event.pointerType !== 'mouse') releaseAfterIdle();
+  };
+
+  const nudge = (direction) => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const card = viewport.querySelector('.gr-card');
+    const stride = card ? card.getBoundingClientRect().width + 18 : 320;
+    viewport.scrollBy({ left: direction * stride, behavior: 'smooth' });
+    releaseAfterIdle();
+  };
+
   if (!reviews.length) return null;
 
   return (
-    <div className="gr-marquee">
-      <div className="gr-track" style={{ '--gr-duration': duration }}>
-        {reviews.map((review) => (
-          <ReviewCard key={review.id} review={review} />
-        ))}
-        <div className="gr-track-copy" aria-hidden="true">
+    <div className="gr-row">
+      <div
+        className="gr-marquee"
+        ref={viewportRef}
+        /* Focusable so the arrow keys scroll it, and labelled because a
+           scrollable region is meaningless to a screen reader otherwise. */
+        tabIndex={0}
+        role="group"
+        aria-label="Patient reviews from Google — scroll to read more"
+        onPointerEnter={hold}
+        onPointerLeave={() => setHeld(false)}
+        onFocus={hold}
+        onBlur={() => setHeld(false)}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+      >
+        <div className="gr-track" ref={trackRef}>
           {reviews.map((review) => (
-            <ReviewCard key={`dup-${review.id}`} review={review} />
+            <ReviewCard key={review.id} review={review} />
           ))}
+          <div className="gr-track-copy" aria-hidden="true">
+            {reviews.map((review) => (
+              <ReviewCard key={`dup-${review.id}`} review={review} />
+            ))}
+          </div>
         </div>
+      </div>
+
+      <div className="gr-nav">
+        <button
+          type="button"
+          className="gr-nav-btn"
+          onClick={() => nudge(-1)}
+          aria-label="Previous reviews"
+        >
+          <ChevronIcon back />
+        </button>
+        <button
+          type="button"
+          className="gr-nav-btn"
+          onClick={() => nudge(1)}
+          aria-label="Next reviews"
+        >
+          <ChevronIcon />
+        </button>
       </div>
     </div>
   );
@@ -220,7 +387,11 @@ export default function GoogleReviewsMarquee() {
             className={rowsPaused ? 'gr-rows gr-rows--paused' : 'gr-rows'}
             ref={rowsRef}
           >
-            <MarqueeRow reviews={reviews} duration={ROW_DURATION} />
+            <MarqueeRow
+              reviews={reviews}
+              loopSeconds={ROW_LOOP_SECONDS}
+              offscreen={rowsPaused}
+            />
           </div>
         </div>
       </div>

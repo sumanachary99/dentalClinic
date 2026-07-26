@@ -317,11 +317,32 @@ const REVIEW_RECORDS = [
 export const GOOGLE_REVIEWS = withAvatar(REVIEW_RECORDS);
 
 /**
- * The marquee shows only reviewers who uploaded a real Google profile picture.
- * Google's generated letter circles read as missing images next to real faces,
- * and a row of eight photographs is more convincing than twenty-two mixed.
+ * Who appears in the home-page row, in order.
+ *
+ * Eight of these reviewers uploaded a real Google profile picture. Manjunatha
+ * and Ashok did not, but their reviews — a six-hour facial reconstruction and a
+ * ten-hour tumour resection — carry more weight than anything else on the
+ * listing, so they are in by name and render a branded monogram rather than
+ * Google's grey letter circle.
+ *
+ * They are placed apart so the two monograms never sit side by side.
  */
-export const MARQUEE_REVIEWS = GOOGLE_REVIEWS.filter((r) => r.photo && r.avatar);
+const MARQUEE_IDS = [
+  'gr-manjunatha',
+  'gr-kalpesh',
+  'gr-lucky-hubli',
+  'gr-khan',
+  'gr-ashok',
+  'gr-somesh',
+  'gr-prajwal',
+  'gr-supreeth',
+  'gr-aanchal',
+  'gr-ayush',
+];
+
+export const MARQUEE_REVIEWS = MARQUEE_IDS.map((id) =>
+  GOOGLE_REVIEWS.find((r) => r.id === id),
+).filter(Boolean);
 
 // ───────────────────────────────────────────────────────────────
 // Longer patient stories, kept separate from the marquee so the
