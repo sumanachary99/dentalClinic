@@ -165,7 +165,9 @@ export default function AboutPage() {
                   {doc.subRole && (
                     <p className="consultant-subrole">{doc.subRole}</p>
                   )}
-                  <span className="consultant-avail">{doc.availability}</span>
+                  {doc.availability && (
+                    <span className="consultant-avail">{doc.availability}</span>
+                  )}
                 </div>
                 <Link
                   to="/book?service=consultation"

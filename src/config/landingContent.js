@@ -3,6 +3,7 @@ import doctorPraveen from '../assets/doctor-praveen.webp';
 import doctorNirmala from '../assets/doctor-nirmala.webp';
 import doctorArya from '../assets/doctor-arya.webp';
 import doctorBhoomika from '../assets/doctor-bhoomika.webp';
+import doctorKiran from '../assets/doctor-kiran.webp';
 // Photographs of the clinic, shot on site in Hassan.
 import nfStorefront from '../assets/nf-storefront.webp';
 import nfStorefrontEvening from '../assets/nf-storefront-evening.webp';
@@ -309,6 +310,14 @@ export const TEAM_MEMBERS = [
 // Consultants — visiting specialists who extend the clinic's scope
 // ───────────────────────────────────────────────────────────────
 export const CONSULTANTS = [
+  {
+    id: 'dr-kiran',
+    name: 'Dr. Kiran Kumar H S',
+    credentials: 'MDS',
+    role: 'Prosthodontist & Implantologist',
+    subRole: 'Crowns, Bridges & Full Mouth Rehabilitation',
+    image: doctorKiran,
+  },
   {
     id: 'dr-praveen',
     name: 'Dr. Praveen Ch Gowda',
