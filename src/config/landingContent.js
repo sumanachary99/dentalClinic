@@ -17,7 +17,6 @@ import nfOperatoryChair from '../assets/nf-operatory-chair.webp';
 import nfLaserRoom from '../assets/nf-laser-room.webp';
 import nfSkinRoom from '../assets/nf-skin-room.webp';
 import nfConsultingRoom from '../assets/nf-consulting-room.webp';
-import nfConsultantsBoard from '../assets/nf-consultants-board.webp';
 import nfOperationTheatre from '../assets/nf-operation-theatre.webp';
 import nfFounders from '../assets/nf-founders.webp';
 import drManojPortrait from '../assets/dr-manoj-portrait.webp';
@@ -455,13 +454,6 @@ export const CLINIC_AT_WORK = [
     caption:
       'Diode laser sessions are run by the doctor, not handed to a technician.',
     image: drManojLaser,
-  },
-  {
-    id: 'work-consultants',
-    title: 'Our visiting consultants',
-    caption:
-      'The specialist panel, posted on the wall where every patient can read it.',
-    image: nfConsultantsBoard,
   },
 ];
 

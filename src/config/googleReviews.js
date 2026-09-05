@@ -282,24 +282,32 @@ export const GOOGLE_REVIEWS = withAvatar(REVIEW_RECORDS);
 /**
  * Who appears in the home-page row, in order.
  *
- * Eight of these reviewers uploaded a real Google profile picture. Manjunatha
- * and Ashok did not, but their reviews — a six-hour facial reconstruction and a
- * ten-hour tumour resection — carry more weight than anything else on the
- * listing, so they are in by name and render a branded monogram rather than
- * Google's grey letter circle.
+ * Eight of these reviewers uploaded a real Google profile picture. Manjunatha,
+ * Ashok, Vageesh and Ujwala did not, but their reviews carry too much weight to
+ * leave out — two of them a six-hour facial reconstruction and a ten-hour tumour
+ * resection, the other two the only reviews on the listing that name Dr Sheetal
+ * Jain. They are in by name and render a branded monogram rather than Google's
+ * grey letter circle.
  *
- * They are placed apart so the two monograms never sit side by side.
+ * The row is a loop, so the four monograms are spaced at least one avatar apart
+ * around the whole cycle — including across the wrap from the last back to the
+ * first — and never sit side by side.
+ *
+ * Vageesh and Ujwala are here deliberately: without them the row named Dr Manoj
+ * four times and Dr Sheetal not once, which is not what the listing says.
  */
 const MARQUEE_IDS = [
   'gr-manjunatha',
   'gr-kalpesh',
   'gr-lucky-hubli',
+  'gr-vageesh',
   'gr-khan',
-  'gr-ashok',
   'gr-somesh',
   'gr-prajwal',
+  'gr-ashok',
   'gr-supreeth',
   'gr-aanchal',
+  'gr-ujwala',
   'gr-ayush',
 ];
 

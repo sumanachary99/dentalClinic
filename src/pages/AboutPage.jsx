@@ -218,7 +218,7 @@ export default function AboutPage() {
           </h2>
           <p className="section-subtitle">
             Not stock photography — these are our own theatre, our own
-            equipment and our own consultant panel.
+            equipment and our own doctors at work.
           </p>
           <div className="nuface-about-gallery-grid">
             {CLINIC_AT_WORK.map((item) => (
