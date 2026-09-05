@@ -160,7 +160,9 @@ export default function AboutPage() {
                 </div>
                 <div className="consultant-body">
                   <h3>{doc.name}</h3>
-                  <p className="consultant-creds">{doc.credentials}</p>
+                  {doc.credentials && (
+                    <p className="consultant-creds">{doc.credentials}</p>
+                  )}
                   <p className="consultant-role">{doc.role}</p>
                   {doc.subRole && (
                     <p className="consultant-subrole">{doc.subRole}</p>

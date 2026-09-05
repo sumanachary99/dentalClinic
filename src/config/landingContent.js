@@ -4,6 +4,7 @@ import doctorNirmala from '../assets/doctor-nirmala.webp';
 import doctorArya from '../assets/doctor-arya.webp';
 import doctorBhoomika from '../assets/doctor-bhoomika.webp';
 import doctorKiran from '../assets/doctor-kiran.webp';
+import doctorPramod from '../assets/doctor-pramod.webp';
 // Photographs of the clinic, shot on site in Hassan.
 import nfStorefront from '../assets/nf-storefront.webp';
 import nfStorefrontEvening from '../assets/nf-storefront-evening.webp';
@@ -352,6 +353,15 @@ export const CONSULTANTS = [
     subRole: 'Kids Dental Specialist',
     availability: 'Visiting',
     image: doctorBhoomika,
+  },
+  {
+    // Credentials and specialty not yet given by the clinic — left blank
+    // rather than guessed. "Visiting Dentist" is what the clinic asked for;
+    // update once they confirm his degree and specialty.
+    id: 'dr-pramod',
+    name: 'Dr. Pramod',
+    role: 'Visiting Dentist',
+    image: doctorPramod,
   },
 ];
 
