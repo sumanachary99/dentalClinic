@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import SeoHead from "./components/SeoHead";
 import ScrollToTop from "./components/ScrollToTop";
@@ -23,7 +23,7 @@ function RouteFallback() {
 
 export default function App() {
   return (
-    <HashRouter basename="/">
+    <BrowserRouter>
       <ScrollToTop />
       <SeoHead />
       <Header />
@@ -50,6 +50,6 @@ export default function App() {
       >
         💬
       </a>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

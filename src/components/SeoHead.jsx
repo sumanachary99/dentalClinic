@@ -15,8 +15,8 @@ function setMeta(selector, attr, value) {
 
 /**
  * Keeps the document title, description, canonical URL and social cards in
- * step with the current route. This is a hash-router single-page app, so
- * nothing else updates them — without this every page reports the home
+ * step with the current route. This is a client-rendered single-page app,
+ * so nothing else updates them — without this every page reports the home
  * page's title to search engines and link previews.
  */
 export default function SeoHead() {
@@ -24,7 +24,9 @@ export default function SeoHead() {
 
   useEffect(() => {
     const seo = PAGE_SEO[pathname] || PAGE_SEO['/'];
-    const url = pathname === '/' ? SITE_URL : `${SITE_URL}#${pathname}`;
+    // SITE_URL carries its own trailing slash; pathname carries its own
+    // leading slash ('/' for home). Drop one so they don't double up.
+    const url = `${SITE_URL.slice(0, -1)}${pathname}`;
 
     document.title = seo.title;
     setMeta('meta[name="description"]', 'content', seo.description);

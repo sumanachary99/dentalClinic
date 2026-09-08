@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Sumukha Nuface</title>
+    <script type="text/javascript">
+      // GitHub Pages serves static files only — a direct request to
+      // /services (a page reload, a shared link, a search-engine crawl)
+      // has no matching file, so GitHub returns this 404 page instead of
+      // routing to the app. This rewrites the URL into a query string and
+      // sends the browser to index.html, where the matching script in
+      // index.html restores the original path via history.replaceState
+      // before React Router ever sees it, so the app lands on the right
+      // page and the address bar is clean again.
+      // Technique: https://github.com/rafgraph/spa-github-pages
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.host + '/?/' +
+        l.pathname.slice(1).replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
