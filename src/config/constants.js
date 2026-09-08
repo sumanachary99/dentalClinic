@@ -6,7 +6,6 @@ export const CLINIC_INFO = {
   slogan: 'Your Smile, Our Happiness',
   brochureUrl: '/sumukha-nuface-brochure.pdf',
   phone: '07411711098',
-  phoneAlt: '9110443004',
   whatsappNumber: '917411711098', // with country code — same number as `phone`, the one shown on the site
   email: 'Sumukhanuface15@gmail.com',
   address: 'Sampige Road, 9th Cross, K R Puram, Hassan - 573201',

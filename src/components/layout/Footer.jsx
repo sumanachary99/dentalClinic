@@ -54,12 +54,6 @@ export default function Footer() {
               <span>📞</span>
               <span>
                 <a href={`tel:${CLINIC_INFO.phone}`} style={{color: 'var(--color-gray-light)'}}>{CLINIC_INFO.phone}</a>
-                {CLINIC_INFO.phoneAlt && (
-                  <>
-                    {' · '}
-                    <a href={`tel:${CLINIC_INFO.phoneAlt}`} style={{color: 'var(--color-gray-light)'}}>{CLINIC_INFO.phoneAlt}</a>
-                  </>
-                )}
               </span>
             </div>
             <div className="footer-contact-item">
