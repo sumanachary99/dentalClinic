@@ -7,8 +7,8 @@ export const CLINIC_INFO = {
   brochureUrl: '/sumukha-nuface-brochure.pdf',
   phone: '07411711098',
   phoneAlt: '9110443004',
-  whatsappNumber: '919110443004', // with country code
-  email: 'hello@sumukhanuface.in',
+  whatsappNumber: '917411711098', // with country code — same number as `phone`, the one shown on the site
+  email: 'Sumukhanuface15@gmail.com',
   address: 'Sampige Road, 9th Cross, K R Puram, Hassan - 573201',
   addressShort: 'Sampige Road, 9th Cross, K R Puram, Hassan',
   facilities: 'Pharmacy, X-Ray & Lab Facilities Available',
