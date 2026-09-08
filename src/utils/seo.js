@@ -1,7 +1,7 @@
 import { CLINIC_INFO } from '../config/constants';
 import { GOOGLE_RATING } from '../config/googleReviews';
 
-export const SITE_URL = 'https://sumanachary99.github.io/dentalClinic/';
+export const SITE_URL = 'https://sumukhanuface.in/';
 
 // Per-route title and description. Titles lead with the treatment and end
 // with the town, because that is the order people type the search in:

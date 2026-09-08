@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sumanachary99.github.io/dentalClinic/sitemap.xml
+Sitemap: https://sumukhanuface.in/sitemap.xml
