@@ -53,7 +53,9 @@ export function buildClinicSchema() {
     description:
       'Dental, oral & maxillofacial surgery, dental implant, cosmetic dentistry, hair restoration and aesthetic skin clinic in Hassan, Karnataka.',
     url: SITE_URL,
-    telephone: `+91${CLINIC_INFO.phoneAlt}`,
+    // CLINIC_INFO.phone is stored in domestic 0-STD format ('07411711098');
+    // strip the leading 0 before prefixing the +91 country code.
+    telephone: `+91${CLINIC_INFO.phone.replace(/^0/, '')}`,
     email: CLINIC_INFO.email,
     image: `${SITE_URL}logo.jpg`,
     logo: `${SITE_URL}logo.jpg`,
