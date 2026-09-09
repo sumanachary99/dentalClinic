@@ -18,6 +18,7 @@ export default function BookAppointmentPage() {
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
   const [activeCategory, setActiveCategory] = useState('all');
   const continueButtonRef = useRef(null);
+  const bookingCardRef = useRef(null);
 
   const dates = getNextDays(14);
   const defaultDate = dates.length > 0 ? dates[0].dateStr : '';
@@ -70,14 +71,21 @@ export default function BookAppointmentPage() {
     }
     setErrors({});
     setStep(step + 1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToCardTop();
   };
 
   const handleBack = () => {
     setErrors({});
     setSubmitStatus({ type: '', message: '' });
     setStep(Math.max(0, step - 1));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToCardTop();
+  };
+
+  const scrollToCardTop = () => {
+    // Wait a tick so the new step has rendered before we scroll to it.
+    setTimeout(() => {
+      bookingCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
   };
 
   const handleSubmit = async (e) => {
@@ -149,7 +157,7 @@ export default function BookAppointmentPage() {
             ))}
           </div>
 
-          <div className="booking-card">
+          <div className="booking-card" ref={bookingCardRef}>
             {/* Step 1: Select Service */}
             {step === 0 && (
               <div className="animate-fade-in">

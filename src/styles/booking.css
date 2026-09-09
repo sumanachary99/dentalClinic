@@ -72,6 +72,7 @@
   padding: var(--space-2xl);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(14, 165, 233, 0.2);
+  scroll-margin-top: 110px;
 }
 
 .booking-error {
@@ -451,6 +452,14 @@
 
   .booking-card {
     padding-bottom: calc(var(--space-3xl) + 160px);
+  }
+
+  /* The fixed Continue/Back bar sits low on the screen and would
+     otherwise collide with the global WhatsApp FAB, making both
+     look broken/overlapping. Hide the FAB for the duration of the
+     booking flow on mobile — the flow ends in a WhatsApp send anyway. */
+  .booking-page ~ .whatsapp-fab {
+    display: none;
   }
 }
 
