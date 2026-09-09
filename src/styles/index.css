@@ -582,3 +582,14 @@ ul, ol {
 .route-fallback {
   min-height: 60vh;
 }
+
+.route-error {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+}
