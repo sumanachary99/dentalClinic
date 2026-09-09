@@ -398,18 +398,41 @@
 }
 
 @media (max-width: 640px) {
+  /* Screen space is scarce once the sticky header, the fixed action bar
+     and the bottom nav have taken their cut, so the chrome around the
+     actual date/time pickers is kept deliberately tight here. */
+  .booking-page {
+    padding-top: 76px;
+  }
+
   .booking-steps {
     flex-wrap: wrap;
     gap: var(--space-xs);
+    margin-bottom: var(--space-md);
   }
 
   .booking-step {
-    padding: 0.4rem 0.7rem;
-    font-size: 0.78rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.72rem;
+    gap: 0.3rem;
+  }
+
+  .booking-step-number {
+    width: 18px;
+    height: 18px;
   }
 
   .booking-card {
-    padding: var(--space-lg);
+    padding: var(--space-md);
+  }
+
+  .booking-card h2 {
+    font-size: var(--text-xl);
+  }
+
+  .booking-card .subtitle {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
   }
 
   .service-selector-grid {
@@ -434,29 +457,51 @@
     font-size: var(--text-lg);
   }
 
-  .booking-actions {
-    flex-direction: column;
+  /* One compact row pinned just above the bottom nav. Stacking these
+     full-width cost ~155px of a ~660px viewport, which pushed the date
+     and time pickers off screen. */
+  .booking-actions,
+  .booking-actions--stack {
+    flex-direction: row;
+    align-items: center;
+    margin-top: var(--space-lg);
     position: fixed;
-    bottom: 80px;
+    bottom: calc(82px + env(safe-area-inset-bottom, 0px));
     left: 0;
     right: 0;
     background: var(--color-white);
-    padding: var(--space-md) var(--space-lg) var(--space-lg);
+    padding: 0.55rem var(--space-md);
     border-top: 1px solid var(--color-gray-200);
     z-index: 100;
     box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.1);
-    gap: var(--space-md);
+    gap: var(--space-sm);
   }
 
-  .booking-actions .btn {
-    width: 100%;
-    padding: 0.9rem 1.5rem;
-    font-size: var(--text-base);
+  .booking-actions .btn,
+  .booking-actions--stack .btn {
+    width: auto;
+    padding: 0.7rem 1rem;
+    font-size: var(--text-sm);
     font-weight: 600;
   }
 
+  /* Primary action takes the room it needs; Back stays a narrow escape
+     hatch on the left, matching the usual mobile wizard layout. */
+  .booking-actions .btn-primary,
+  .booking-actions .booking-submit {
+    order: 2;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .booking-actions .btn-outline {
+    order: 1;
+    flex: 0 0 auto;
+    min-width: 84px;
+  }
+
   .booking-card {
-    padding-bottom: calc(var(--space-3xl) + 160px);
+    padding-bottom: calc(var(--space-md) + 84px);
   }
 
   /* The fixed Continue/Back bar sits low on the screen and would
