@@ -19,6 +19,7 @@ export default function BookAppointmentPage() {
   const [activeCategory, setActiveCategory] = useState('all');
   const continueButtonRef = useRef(null);
   const bookingCardRef = useRef(null);
+  const serviceGridRef = useRef(null);
   const dateFieldRef = useRef(null);
   const timeFieldRef = useRef(null);
   const nameFieldRef = useRef(null);
@@ -63,7 +64,7 @@ export default function BookAppointmentPage() {
   const handleNext = () => {
     if (step === 0 && !formData.serviceType) {
       setErrors({ serviceType: 'Please select a service' });
-      return;
+      return scrollToField(serviceGridRef, 'start');
     }
     if (step === 1) {
       if (!formData.appointmentDate) {
@@ -94,9 +95,11 @@ export default function BookAppointmentPage() {
     }, 50);
   };
 
-  const scrollToField = (ref) => {
+  // 'center' frames a short field nicely, but a tall element like the
+  // service grid has to be aligned to its start or we land mid-list.
+  const scrollToField = (ref, block = 'center') => {
     setTimeout(() => {
-      ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      ref.current?.scrollIntoView({ behavior: 'smooth', block });
     }, 50);
   };
 
@@ -198,7 +201,7 @@ export default function BookAppointmentPage() {
                   ))}
                 </div>
 
-                <div className="service-selector-grid">
+                <div className="service-selector-grid" ref={serviceGridRef}>
                   {filteredServices.map((service) => (
                     <button
                       type="button"

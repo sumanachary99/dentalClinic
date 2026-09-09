@@ -435,8 +435,29 @@
     margin-bottom: var(--space-md);
   }
 
+  /* Eight long category names wrap into ~7 rows at this width, which
+     pushed every service card below the fold. Swipeable single row
+     instead, bleeding to the card edges so it reads as scrollable. */
+  .booking-category-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 0 calc(-1 * var(--space-md)) var(--space-md);
+    padding: 0 var(--space-md) var(--space-xs);
+  }
+
+  .booking-category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .booking-category-tab {
+    flex: 0 0 auto;
+  }
+
   .service-selector-grid {
     grid-template-columns: repeat(2, 1fr);
+    scroll-margin-top: 96px;
   }
 
   .time-slots-grid {
