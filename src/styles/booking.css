@@ -90,6 +90,7 @@
 
 .booking-field-head {
   margin-bottom: var(--space-md);
+  scroll-margin-top: 110px;
 }
 
 .booking-field-head--mt {
@@ -144,6 +145,10 @@
 .booking-status.error {
   background: var(--color-danger-light);
   color: #991b1b;
+}
+
+.booking-form .form-group {
+  scroll-margin-top: 110px;
 }
 
 .booking-form .form-input,

@@ -19,6 +19,10 @@ export default function BookAppointmentPage() {
   const [activeCategory, setActiveCategory] = useState('all');
   const continueButtonRef = useRef(null);
   const bookingCardRef = useRef(null);
+  const dateFieldRef = useRef(null);
+  const timeFieldRef = useRef(null);
+  const nameFieldRef = useRef(null);
+  const phoneFieldRef = useRef(null);
 
   const dates = getNextDays(14);
   const defaultDate = dates.length > 0 ? dates[0].dateStr : '';
@@ -63,10 +67,12 @@ export default function BookAppointmentPage() {
     }
     if (step === 1) {
       if (!formData.appointmentDate) {
-        return setErrors({ appointmentDate: 'Please select a date' });
+        setErrors({ appointmentDate: 'Please select a date' });
+        return scrollToField(dateFieldRef);
       }
       if (!formData.appointmentTime) {
-        return setErrors({ appointmentTime: 'Please select a time' });
+        setErrors({ appointmentTime: 'Please select a time' });
+        return scrollToField(timeFieldRef);
       }
     }
     setErrors({});
@@ -88,10 +94,21 @@ export default function BookAppointmentPage() {
     }, 50);
   };
 
+  const scrollToField = (ref) => {
+    setTimeout(() => {
+      ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 50);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result = validateBookingForm(formData);
-    if (!result.valid) return setErrors(result.errors);
+    if (!result.valid) {
+      setErrors(result.errors);
+      if (result.errors.patientName) return scrollToField(nameFieldRef);
+      if (result.errors.phoneNumber) return scrollToField(phoneFieldRef);
+      return;
+    }
 
     setSubmitting(true);
     setSubmitStatus({ type: '', message: '' });
@@ -225,7 +242,7 @@ export default function BookAppointmentPage() {
                     : 'Choose your preferred slot'}
                 </p>
 
-                <div className="booking-field-head">
+                <div className="booking-field-head" ref={dateFieldRef}>
                   <label className="form-label">Select Date</label>
                   {errors.appointmentDate && (
                     <p className="booking-error-inline">
@@ -258,7 +275,7 @@ export default function BookAppointmentPage() {
                   })}
                 </div>
 
-                <div className="booking-field-head booking-field-head--mt">
+                <div className="booking-field-head booking-field-head--mt" ref={timeFieldRef}>
                   <label className="form-label">Select Time</label>
                   {errors.appointmentTime && (
                     <p className="booking-error-inline">
@@ -308,7 +325,7 @@ export default function BookAppointmentPage() {
                 )}
 
                 <form onSubmit={handleSubmit} className="booking-form">
-                  <div className="form-group">
+                  <div className="form-group" ref={nameFieldRef}>
                     <label className="form-label">Full Name *</label>
                     <input
                       type="text"
@@ -329,7 +346,7 @@ export default function BookAppointmentPage() {
                     )}
                   </div>
 
-                  <div className="form-group">
+                  <div className="form-group" ref={phoneFieldRef}>
                     <label className="form-label">Phone Number *</label>
                     <input
                       type="tel"
