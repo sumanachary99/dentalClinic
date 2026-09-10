@@ -3,6 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import { CLINIC_INFO } from '../../config/constants';
 import nufaceLogo from "../../assets/logo.webp";
 
+const NAV_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/services", label: "Services" },
+  { to: "/before-after", label: "Before & After" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+];
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -112,61 +120,56 @@ export default function Header() {
       />
 
       {/* Mobile menu */}
-      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        <Link
-          to="/"
-          className={isActive("/") ? "active" : ""}
-          onClick={closeMenu}
-        >
-          Home
-        </Link>
-        <Link
-          to="/services"
-          className={isActive("/services") ? "active" : ""}
-          onClick={closeMenu}
-        >
-          Services
-        </Link>
-        <Link
-          to="/before-after"
-          className={isActive("/before-after") ? "active" : ""}
-          onClick={closeMenu}
-        >
-          Before &amp; After
-        </Link>
-        <Link
-          to="/about"
-          className={isActive("/about") ? "active" : ""}
-          onClick={closeMenu}
-        >
-          About
-        </Link>
-        <Link
-          to="/contact"
-          className={isActive("/contact") ? "active" : ""}
-          onClick={closeMenu}
-        >
-          Contact
-        </Link>
-        <Link
-          to="/book"
-          className="btn btn-accent"
-          style={{ marginTop: "1.5rem" }}
-          onClick={closeMenu}
-        >
-          Book Appointment
-        </Link>
-        <a
-          href={`tel:${CLINIC_INFO.phone}`}
-          style={{
-            marginTop: "0.5rem",
-            textAlign: "center",
-            color: "var(--color-primary)",
-          }}
-          onClick={closeMenu}
-        >
-          📞 {CLINIC_INFO.phone}
-        </a>
+      <div
+        className={`mobile-menu ${menuOpen ? "open" : ""}`}
+        aria-hidden={!menuOpen}
+      >
+        <div className="mobile-menu-head">
+          <img src={nufaceLogo} alt="" className="mobile-menu-logo" />
+          <div className="mobile-menu-brand">
+            <strong>{CLINIC_INFO.shortName}</strong>
+            <span>{CLINIC_INFO.tagline}</span>
+          </div>
+          <button
+            type="button"
+            className="mobile-menu-close"
+            onClick={closeMenu}
+            aria-label="Close menu"
+          >
+            ×
+          </button>
+        </div>
+
+        <nav className="mobile-menu-links">
+          {NAV_LINKS.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className={isActive(to) ? "active" : ""}
+              onClick={closeMenu}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mobile-menu-actions">
+          <Link to="/book" className="btn btn-accent" onClick={closeMenu}>
+            Book Appointment
+          </Link>
+          <a
+            href={`tel:${CLINIC_INFO.phone}`}
+            className="btn btn-outline"
+            onClick={closeMenu}
+          >
+            📞 {CLINIC_INFO.phone}
+          </a>
+        </div>
+
+        <p className="mobile-menu-hours">
+          {CLINIC_INFO.timings.display}
+          <span>{CLINIC_INFO.timings.note}</span>
+        </p>
       </div>
     </>
   );
