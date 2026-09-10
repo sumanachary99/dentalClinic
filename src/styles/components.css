@@ -983,8 +983,8 @@
 .nuface-home {
   background:
     radial-gradient(circle at 12% 12%, rgba(43, 129, 131, 0.12) 0%, transparent 32%),
-    radial-gradient(circle at 86% 8%, rgba(90, 55, 50, 0.12) 0%, transparent 38%),
-    linear-gradient(180deg, #f4fbfb 0%, #f8f4f1 46%, #f6fbfc 100%);
+    radial-gradient(circle at 86% 8%, rgba(249, 115, 22, 0.07) 0%, transparent 38%),
+    linear-gradient(180deg, #f4fbfb 0%, #f2f8f9 46%, #f6fbfc 100%);
   overflow: hidden;
 }
 
@@ -1013,7 +1013,7 @@
 .nuface-hero::after {
   width: 260px;
   height: 260px;
-  background: rgba(90, 55, 50, 0.18);
+  background: rgba(249, 115, 22, 0.10);
   border-radius: 40%;
   right: -100px;
   top: 60px;
