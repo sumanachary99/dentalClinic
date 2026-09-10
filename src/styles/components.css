@@ -188,7 +188,10 @@
   right: 0;
 }
 
-.mobile-menu a {
+/* Excludes .btn: these nav-link rules would otherwise override the
+   button's own padding, centring, weight and colour, leaving the
+   Book Appointment label jammed against its left edge in dark text. */
+.mobile-menu a:not(.btn) {
   display: block;
   padding: var(--space-md) 0;
   font-size: var(--text-lg);
@@ -197,8 +200,8 @@
   border-bottom: 1px solid var(--color-gray-200);
 }
 
-.mobile-menu a:hover,
-.mobile-menu a.active {
+.mobile-menu a:not(.btn):hover,
+.mobile-menu a:not(.btn).active {
   color: var(--color-primary);
 }
 
