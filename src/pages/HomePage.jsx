@@ -139,7 +139,7 @@ export default function HomePage() {
               </p>
 
               <div className="nuface-hero-actions">
-                <Link to="/services" className="btn btn-accent btn-lg">
+                <Link to="/book" className="btn btn-accent btn-lg">
                   Book Appointment
                 </Link>
                 <a
@@ -533,7 +533,7 @@ export default function HomePage() {
               pathway and preparation checklist.
             </p>
             <div className="nuface-cta-actions">
-              <Link to="/services" className="btn btn-white btn-lg">
+              <Link to="/book" className="btn btn-white btn-lg">
                 Book Appointment
               </Link>
               <a
